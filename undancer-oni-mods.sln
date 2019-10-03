@@ -1,0 +1,14 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "refresh", "refresh\refresh.csproj", "{8AA5E9D7-4A99-4127-B82A-E0139F6CDD84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Any CPU = Default|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AA5E9D7-4A99-4127-B82A-E0139F6CDD84}.Default|Any CPU.ActiveCfg = Default|Any CPU
+		{8AA5E9D7-4A99-4127-B82A-E0139F6CDD84}.Default|Any CPU.Build.0 = Default|Any CPU
+	EndGlobalSection
+EndGlobal
