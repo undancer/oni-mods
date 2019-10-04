@@ -17,10 +17,7 @@ namespace SelectLastCarePackage
             var selectedDeliverable = Traverse.Create(__instance).Field("selectedDeliverables")
                 .GetValue<List<ITelepadDeliverable>>().First();
             CarePackageInfo selectedCarePackage = null;
-            if (selectedDeliverable is CarePackageInfo carePackageInfo)
-            {
-                selectedCarePackage = carePackageInfo;
-            }
+            if (selectedDeliverable is CarePackageInfo carePackageInfo) selectedCarePackage = carePackageInfo;
             ImmigrantScreenContext.LastSelectedCarePackageInfo = selectedCarePackage;
         }
     }
@@ -31,11 +28,7 @@ namespace SelectLastCarePackage
         public static bool Prefix(Immigration __instance, ref CarePackageInfo __result)
         {
             var lastSelectedCarePackageInfo = ImmigrantScreenContext.LastSelectedCarePackageInfo;
-            if (lastSelectedCarePackageInfo == null)
-            {
-                return true;
-            }
-
+            if (lastSelectedCarePackageInfo == null) return true;
             __result = lastSelectedCarePackageInfo;
             ImmigrantScreenContext.LastSelectedCarePackageInfo = null;
             return false;
