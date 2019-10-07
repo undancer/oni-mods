@@ -10,7 +10,7 @@ namespace SelectLastCarePackage
     {
         private const string RefreshModId = "1724518038";
 
-        private static float _lastTime = 0.0f;
+        private static float _lastTime;
 
 
         private static bool HasRefreshMod()
@@ -18,7 +18,7 @@ namespace SelectLastCarePackage
             return ModUtils.HasMod(RefreshModId);
         }
 
-        private static bool Prefix(ImmigrantScreen __instance)
+        public static bool Prefix(ImmigrantScreen __instance)
         {
             if (HasRefreshMod())
             {
@@ -27,7 +27,7 @@ namespace SelectLastCarePackage
             }
 
             Debug.Log("没有启用刷新选人Mod，刷新");
-            
+
             if (Time.realtimeSinceStartup - _lastTime < 0.5)
             {
                 Debug.Log("-------------" + Time.realtimeSinceStartup + "-----------lastTime:" + _lastTime);
@@ -43,10 +43,7 @@ namespace SelectLastCarePackage
             instance.Method("InitializeContainers").GetValue();
             deliverableContainerList = instance.Field("containers").GetValue<List<ITelepadDeliverableContainer>>();
             foreach (var characterContainer in deliverableContainerList.OfType<CharacterContainer>())
-            {
                 characterContainer.SetReshufflingState(false);
-            }
-
             _lastTime = Time.realtimeSinceStartup;
             return false;
         }

@@ -10,7 +10,7 @@ namespace SelectLastCarePackage
     }
 
     [HarmonyPatch(typeof(ImmigrantScreen), "OnProceed")]
-    internal class ImmigrantScreenOnProceed
+    internal static class ImmigrantScreenOnProceed
     {
         public static void Prefix(ImmigrantScreen __instance)
         {
@@ -23,7 +23,7 @@ namespace SelectLastCarePackage
     }
 
     [HarmonyPatch(typeof(Immigration), "RandomCarePackage")]
-    internal class ImmigrationRandomCarePackage
+    internal static class ImmigrationRandomCarePackage
     {
         public static bool Prefix(Immigration __instance, ref CarePackageInfo __result)
         {
