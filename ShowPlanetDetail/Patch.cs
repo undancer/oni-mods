@@ -7,7 +7,7 @@ using UnityEngine;
 namespace ShowPlanetDetail
 {
     [HarmonyPatch(typeof(BuildWatermark), "OnSpawn")]
-    public class BuildWatermarkOnSpawn
+    public static class BuildWatermarkOnSpawn
     {
         private static string GetWaterMark()
         {
