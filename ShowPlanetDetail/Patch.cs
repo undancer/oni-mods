@@ -35,6 +35,7 @@ namespace ShowPlanetDetail
             var world = CustomGameSettings.Instance.GetCurrentQualitySetting(CustomGameSettingConfigs.World).id;
             var seed = SaveLoader.Instance.worldDetailSave.globalWorldSeed;
             var text = __instance.textDisplay;
+            text.color = Color.white;
             text.SetText(new[]
             {
                 GetWaterMark(),
