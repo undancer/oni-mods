@@ -24,7 +24,7 @@ namespace BottleEmptierExt
     }
 
     [HarmonyPatch(typeof(BottleEmptier.StatesInstance), "CreateChore")]
-    public static class L
+    public static class BottleEmptierStatesInstanceCreateChore
     {
         public static bool Prefix(BottleEmptier.StatesInstance __instance)
         {
