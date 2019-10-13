@@ -5,6 +5,19 @@ using UnityEngine;
 
 namespace BottleEmptierExt
 {
+    [HarmonyPatch(typeof(BottleEmptier), "OnCopySettings")]
+    public static class BottleEmptier2OnCopySettings
+    {
+        public static bool Prefix(BottleEmptier __instance, object data)
+        {
+            if (!(__instance is BottleEmptier2 instance)) return true;
+            var other = ((GameObject) data).GetComponent<BottleEmptier2>();
+            instance.allowManualPumpingStationFetching = other.allowManualPumpingStationFetching;
+            instance.UserMaxCapacity = other.UserMaxCapacity;
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(BottleEmptierConfig), "ConfigureBuildingTemplate")]
     public static class BottleEmptierConfigConfigureBuildingTemplate
     {
