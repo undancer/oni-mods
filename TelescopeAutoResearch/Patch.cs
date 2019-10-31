@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Linq;
 using Harmony;
 
 namespace TelescopeAutoResearch
@@ -13,8 +10,9 @@ namespace TelescopeAutoResearch
         {
             var list = SpacecraftManager.instance.destinations;
 
-            return list.First(destination => SpacecraftManager.instance.GetDestinationAnalysisState(destination) !=
-                                             SpacecraftManager.DestinationAnalysisState.Complete);
+            return list.FirstOrDefault(destination =>
+                SpacecraftManager.instance.GetDestinationAnalysisState(destination) !=
+                SpacecraftManager.DestinationAnalysisState.Complete);
         }
 
 
@@ -23,6 +21,12 @@ namespace TelescopeAutoResearch
             if (id == -1)
             {
                 var destination = GetLastUnAnalysisSpaceDestination();
+                if (destination == null)
+                {
+                    Debug.Log("已经完成了全部的研究 !!");
+                    return;
+                }
+
                 Debug.Log("准备研究下一个星体:" + destination.id);
                 if (StarmapScreen.Instance != null)
                 {
@@ -33,27 +37,21 @@ namespace TelescopeAutoResearch
                     }
                     else if (StarmapScreen.Instance.analyzeButton.CurrentState == 1)
                     {
-                        
                         Debug.Log("开始研究");
 
                         var method = StarmapScreen.Instance.GetType().GetMethod("SelectDestination");
                         method?.Invoke(StarmapScreen.Instance, new object[] {destination});
                     }
-                    
                 }
                 else
                 {
                     Debug.Log("初次进入游戏且研究完成？");
                 }
-                
-                
+
+
                 Traverse.Create(__instance).Field("analyzeDestinationID").SetValue(destination.id);
                 __instance.Trigger(532901469, destination.id);
-                
             }
-            
-            
-            
         }
     }
 }
