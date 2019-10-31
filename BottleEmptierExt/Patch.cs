@@ -1,5 +1,4 @@
-﻿using BottleEmptierExt;
-using Harmony;
+﻿using Harmony;
 using TUNING;
 using UnityEngine;
 
@@ -41,6 +40,7 @@ namespace BottleEmptierExt
     {
         public static bool Prefix(BottleEmptier.StatesInstance __instance)
         {
+            if (!(__instance.master is IUserControlledCapacity)) return true;
             var controller = __instance.GetComponent<KBatchedAnimController>();
             var tags = __instance.GetComponent<TreeFilterable>().GetTags();
             if (tags == null || tags.Length == 0)
