@@ -11,7 +11,7 @@ namespace ShowPlanetDetail
     {
         private static string GetWaterMark()
         {
-            var str = "LU-" + (!Application.isEditor ? KleiVersion.ChangeList.ToString() : "<EDITOR>");
+            var str = "LP-" + (!Application.isEditor ? KleiVersion.ChangeList.ToString() : "<EDITOR>");
             return string.Format(UI.DEVELOPMENTBUILDS.WATERMARK, str);
         }
 
