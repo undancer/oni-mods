@@ -9,9 +9,13 @@ namespace ShowPlanetDetail
     [HarmonyPatch(typeof(BuildWatermark), "OnSpawn")]
     public static class BuildWatermarkOnSpawn
     {
+        private static string GetVersion()
+        {
+            return KleiVersion.ChangeList.ToString();
+        }
         private static string GetWaterMark()
         {
-            var str = "RP-" + (!Application.isEditor ? KleiVersion.ChangeList.ToString() : "<EDITOR>");
+            var str = "RP-" + (!Application.isEditor ? GetVersion() : "<EDITOR>");
             return string.Format(UI.DEVELOPMENTBUILDS.WATERMARK, str);
         }
 
