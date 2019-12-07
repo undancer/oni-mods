@@ -50,7 +50,7 @@ namespace TelescopeAutoResearch
 
 
                 Traverse.Create(__instance).Field("analyzeDestinationID").SetValue(destination.id);
-                __instance.Trigger(532901469, destination.id);
+                __instance.Trigger((int)GameHashes.StarmapAnalysisTargetChanged, destination.id);
             }
         }
     }
