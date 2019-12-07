@@ -31,7 +31,7 @@ namespace TelescopeAutoResearch
                     {
                         if (completed || prevDist <= 4)
                         {
-                            if (dist >= prevDist)
+                            if (dist >= prevDist || prevDist == wormhole.distance)
                             {
                                 //广度优先
                                 type = 1;
