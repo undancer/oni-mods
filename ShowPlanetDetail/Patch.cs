@@ -61,6 +61,13 @@ namespace ShowPlanetDetail
 
                 yield return instruction;
             }
+
+            /*
+             return instructions.MethodReplacer(
+                AccessTools.Method(typeof(LocText), nameof(LocText.SetText), new[] {typeof(string)}),
+                AccessTools.Method(typeof(Hook), nameof(Hook.SetText))
+            );
+             */
         }
     }
 }
