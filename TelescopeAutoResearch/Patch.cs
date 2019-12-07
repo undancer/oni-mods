@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using Harmony;
 
 namespace TelescopeAutoResearch
@@ -67,22 +66,14 @@ namespace TelescopeAutoResearch
     [HarmonyPatch(typeof(SpacecraftManager), "EarnDestinationAnalysisPoints")]
     public static class SpacecraftManagerEarnDestinationAnalysisPointsPatches
     {
-        public static IEnumerable<CodeInstruction> Transpiler(MethodBase original,
-            IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var oldMethod = AccessTools.Method(typeof(SpacecraftManager),
-                nameof(SpacecraftManager.SetStarmapAnalysisDestinationID));
-            var newMethod = AccessTools.Method(typeof(Hook), nameof(Hook.GetUnAnalysisSpaceDestination));
-
-            foreach (var instruction in instructions)
-            {
-                if (instruction.operand == oldMethod)
-                {
-                    instruction.operand = newMethod;
-                }
-
-                yield return instruction;
-            }
+            return instructions.MethodReplacer(
+                AccessTools.Method(typeof(SpacecraftManager),
+                    nameof(SpacecraftManager.SetStarmapAnalysisDestinationID)),
+                AccessTools.Method(typeof(Hook),
+                    nameof(Hook.GetUnAnalysisSpaceDestination))
+            );
         }
     }
 }
