@@ -16,6 +16,7 @@ namespace TelescopeAutoResearch
             var completed = instance.GetDestinationAnalysisState(wormhole) ==
                             SpacecraftManager.DestinationAnalysisState.Complete;
 
+            var type = 1;
             var minDist = Int32.MaxValue;
 
             SpaceDestination next = null;
@@ -33,7 +34,7 @@ namespace TelescopeAutoResearch
                             if (dist >= prevDist)
                             {
                                 //广度优先
-                                Debug.Log("广度优先");
+                                type = 1;
                                 next = destination;
                                 minDist = dist;
                             }
@@ -43,7 +44,7 @@ namespace TelescopeAutoResearch
                             if (dist > prevDist)
                             {
                                 //深度优先
-                                Debug.Log("深度优先");
+                                type = 2;
                                 next = destination;
                                 minDist = dist;
                             }
@@ -57,6 +58,7 @@ namespace TelescopeAutoResearch
                 destId = next.id;
             }
 
+            Debug.Log(type == 1 ? "广度优先" : "深度优先");
             Debug.Log("准备研究下一个星体:" + destId);
             instance.SetStarmapAnalysisDestinationID(destId);
         }
