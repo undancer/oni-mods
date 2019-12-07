@@ -1,57 +1,79 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Harmony;
 
 namespace TelescopeAutoResearch
 {
-    [HarmonyPatch(typeof(SpacecraftManager), "SetStarmapAnalysisDestinationID")]
-    public static class SpacecraftManagerSetStarmapAnalysisDestinationID
+    public static class Hook
     {
-        private static SpaceDestination GetLastUnAnalysisSpaceDestination()
+        public static void GetUnAnalysisSpaceDestination(SpacecraftManager instance, int destId)
         {
-            var list = SpacecraftManager.instance.destinations;
+            var previous = instance.GetStarmapAnalysisDestinationID();
+            var prevDist = instance.GetDestination(previous).distance;
+            var wormhole = instance.destinations.Last();
+            var completed = instance.GetDestinationAnalysisState(wormhole) ==
+                            SpacecraftManager.DestinationAnalysisState.Complete;
 
-            return list.FirstOrDefault(destination =>
-                SpacecraftManager.instance.GetDestinationAnalysisState(destination) !=
-                SpacecraftManager.DestinationAnalysisState.Complete);
-        }
+            var type = 1;
+            var minDist = Int32.MaxValue;
 
+            SpaceDestination next = null;
 
-        public static void Postfix(SpacecraftManager __instance, int id)
-        {
-            if (id == -1)
+            foreach (var destination in instance.destinations)
             {
-                var destination = GetLastUnAnalysisSpaceDestination();
-                if (destination == null)
+                var dist = destination.distance;
+                if (instance.GetDestinationAnalysisState(destination) !=
+                    SpacecraftManager.DestinationAnalysisState.Complete)
                 {
-                    Debug.Log("已经完成了全部的研究 !!");
-                    return;
-                }
-
-                Debug.Log("准备研究下一个星体:" + destination.id);
-                if (StarmapScreen.Instance != null)
-                {
-                    if (StarmapScreen.Instance.analyzeButton.CurrentState == 0)
+                    if (dist <= minDist)
                     {
-                        Debug.Log("手工暂停，不干了。");
-                        return;
-                    }
-                    else if (StarmapScreen.Instance.analyzeButton.CurrentState == 1)
-                    {
-                        Debug.Log("开始研究");
-
-                        var method = StarmapScreen.Instance.GetType().GetMethod("SelectDestination");
-                        method?.Invoke(StarmapScreen.Instance, new object[] {destination});
+                        if (completed || prevDist <= 4)
+                        {
+                            if (dist >= prevDist || prevDist == wormhole.distance)
+                            {
+                                //广度优先
+                                type = 1;
+                                next = destination;
+                                minDist = dist;
+                            }
+                        }
+                        else
+                        {
+                            if (dist > prevDist)
+                            {
+                                //深度优先
+                                type = 2;
+                                next = destination;
+                                minDist = dist;
+                            }
+                        }
                     }
                 }
-                else
-                {
-                    Debug.Log("初次进入游戏且研究完成？");
-                }
-
-
-                Traverse.Create(__instance).Field("analyzeDestinationID").SetValue(destination.id);
-                __instance.Trigger((int)GameHashes.StarmapAnalysisTargetChanged, destination.id);
             }
+
+            if (next != null)
+            {
+                destId = next.id;
+            }
+
+            Debug.Log(type == 1 ? "广度优先" : "深度优先");
+            Debug.Log("准备研究下一个星体:" + destId);
+            instance.SetStarmapAnalysisDestinationID(destId);
+        }
+    }
+
+    [HarmonyPatch(typeof(SpacecraftManager), "EarnDestinationAnalysisPoints")]
+    public static class SpacecraftManagerEarnDestinationAnalysisPointsPatches
+    {
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            return instructions.MethodReplacer(
+                AccessTools.Method(typeof(SpacecraftManager),
+                    nameof(SpacecraftManager.SetStarmapAnalysisDestinationID)),
+                AccessTools.Method(typeof(Hook),
+                    nameof(Hook.GetUnAnalysisSpaceDestination))
+            );
         }
     }
 }
