@@ -7,11 +7,13 @@ namespace RandomOverjoyed
     [HarmonyPatch(typeof(JoyBehaviourMonitor.Instance), "ShouldBeOverjoyed")]
     public class JoyBehaviourMonitorInstancePatch
     {
-        public static bool Prefix(JoyBehaviourMonitor.Instance __instance, ref bool __result)
+        public static bool Prefix(
+            AttributeInstance ___qolAttribute,
+            AttributeInstance ___expectationAttribute,
+            ref bool __result)
         {
-            var instance = Traverse.Create(__instance);
-            var qav = instance.Field("qolAttribute").GetValue<AttributeInstance>().GetTotalValue();
-            var eav = instance.Field("expectationAttribute").GetValue<AttributeInstance>().GetTotalValue();
+            var qav = ___qolAttribute.GetTotalValue();
+            var eav = ___expectationAttribute.GetTotalValue();
 
             var val = MathUtil.ReRange(
                 qav - eav,
