@@ -4,7 +4,7 @@ using TUNING;
 
 namespace RandomOverjoyed
 {
-    [HarmonyPatch(typeof(JoyBehaviourMonitor.Instance), "ShouldBeOverjoyed")]
+    [HarmonyPatch(typeof(JoyBehaviourMonitor.Instance), nameof(JoyBehaviourMonitor.Instance.ShouldBeOverjoyed))]
     public class JoyBehaviourMonitorInstancePatch
     {
         public static bool Prefix(
