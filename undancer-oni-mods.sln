@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomOverjoyed", "RandomOv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleShift", "ScheduleShift\ScheduleShift.csproj", "{52BC3037-9598-4F85-BBFA-93185EFA1E28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicCritterCountSensorExt", "LogicCritterCountSensorExt\LogicCritterCountSensorExt.csproj", "{75CDF39B-A2AC-41B0-A94B-226113961988}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Any CPU = Default|Any CPU
@@ -62,5 +64,11 @@ Global
 		{52BC3037-9598-4F85-BBFA-93185EFA1E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52BC3037-9598-4F85-BBFA-93185EFA1E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52BC3037-9598-4F85-BBFA-93185EFA1E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75CDF39B-A2AC-41B0-A94B-226113961988}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{75CDF39B-A2AC-41B0-A94B-226113961988}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{75CDF39B-A2AC-41B0-A94B-226113961988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75CDF39B-A2AC-41B0-A94B-226113961988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75CDF39B-A2AC-41B0-A94B-226113961988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75CDF39B-A2AC-41B0-A94B-226113961988}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

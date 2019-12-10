@@ -16,7 +16,7 @@ namespace TelescopeAutoResearch
                             SpacecraftManager.DestinationAnalysisState.Complete;
 
             var type = 1;
-            var minDist = Int32.MaxValue;
+            var minDist = int.MaxValue;
 
             SpaceDestination next = null;
 
