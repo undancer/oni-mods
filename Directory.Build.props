@@ -5,6 +5,12 @@
         <SteamFolder>/Users/undancer/Library/Application Support/Steam</SteamFolder>
         <GameFolder>$(SteamFolder)/steamapps/common/OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Data/Managed</GameFolder>
     </PropertyGroup>
+    
+    <ItemDefinitionGroup>
+        <Reference>
+            <Private>false</Private>
+        </Reference>
+    </ItemDefinitionGroup>
 
     <ItemGroup>
         <Reference Include="0Harmony" >
@@ -31,6 +37,9 @@
         </Reference>
         <Reference Include="UnityEngine.TextRenderingModule" >
             <HintPath>$(GameFolder)/UnityEngine.TextRenderingModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ImageConversionModule" >
+            <HintPath>$(GameFolder)/UnityEngine.ImageConversionModule.dll</HintPath>
         </Reference>
     </ItemGroup>
 </Project>
