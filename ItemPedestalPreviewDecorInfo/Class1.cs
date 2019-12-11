@@ -2,7 +2,7 @@
 using Harmony;
 using UnityEngine;
 
-namespace ClassLibrary5
+namespace ItemPedestalPreviewDecorInfo
 {
     public class Hook
     {

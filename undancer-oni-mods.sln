@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleShift", "ScheduleSh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicCritterCountSensorExt", "LogicCritterCountSensorExt\LogicCritterCountSensorExt.csproj", "{75CDF39B-A2AC-41B0-A94B-226113961988}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary5", "ClassLibrary5\ClassLibrary5.csproj", "{1EA1C8A5-0762-46A0-818B-4CA3E99C03BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemPedestalPreviewDecorInfo", "ItemPedestalPreviewDecorInfo\ItemPedestalPreviewDecorInfo.csproj", "{1EA1C8A5-0762-46A0-818B-4CA3E99C03BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
