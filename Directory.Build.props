@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" TreatAsLocalProperty="OutDir" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+<Project DefaultTargets="Build" TreatAsLocalProperty="OutDir"
+         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <Deterministic>true</Deterministic>
         <SteamFolder>/Users/undancer/Library/Application Support/Steam</SteamFolder>
         <GameFolder>$(SteamFolder)/steamapps/common/OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Data/Managed</GameFolder>
+        <!-- <ModFolder></ModFolder> -->
     </PropertyGroup>
-    
     <ItemDefinitionGroup>
         <Reference>
             <Private>false</Private>
@@ -13,32 +15,31 @@
     </ItemDefinitionGroup>
 
     <ItemGroup>
-        <Reference Include="0Harmony" >
+        <Reference Include="0Harmony">
             <HintPath>$(GameFolder)/0Harmony.dll</HintPath>
         </Reference>
-        <Reference Include="Assembly-CSharp" >
+        <Reference Include="Assembly-CSharp">
             <HintPath>$(GameFolder)/Assembly-CSharp.dll</HintPath>
         </Reference>
-        <Reference Include="Assembly-CSharp-firstpass" >
+        <Reference Include="Assembly-CSharp-firstpass">
             <HintPath>$(GameFolder)/Assembly-CSharp-firstpass.dll</HintPath>
         </Reference>
-        
-        <Reference Include="UnityEngine" >
+        <Reference Include="UnityEngine">
             <HintPath>$(GameFolder)/UnityEngine.dll</HintPath>
         </Reference>
-        <Reference Include="UnityEngine.CoreModule" >
+        <Reference Include="UnityEngine.CoreModule">
             <HintPath>$(GameFolder)/UnityEngine.CoreModule.dll</HintPath>
         </Reference>
-        <Reference Include="UnityEngine.UI" >
+        <Reference Include="UnityEngine.UI">
             <HintPath>$(GameFolder)/UnityEngine.UI.dll</HintPath>
         </Reference>
-        <Reference Include="Unity.TextMeshPro" >
+        <Reference Include="Unity.TextMeshPro">
             <HintPath>$(GameFolder)/Unity.TextMeshPro.dll</HintPath>
         </Reference>
-        <Reference Include="UnityEngine.TextRenderingModule" >
+        <Reference Include="UnityEngine.TextRenderingModule">
             <HintPath>$(GameFolder)/UnityEngine.TextRenderingModule.dll</HintPath>
         </Reference>
-        <Reference Include="UnityEngine.ImageConversionModule" >
+        <Reference Include="UnityEngine.ImageConversionModule">
             <HintPath>$(GameFolder)/UnityEngine.ImageConversionModule.dll</HintPath>
         </Reference>
     </ItemGroup>
