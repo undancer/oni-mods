@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Project DefaultTargets="Build" TreatAsLocalProperty="OutDir"
+         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Target Name="CopyArtifactsToInstallFolder" AfterTargets="Build" Condition=" '$(AssemblyName)' != 'PLib' ">
+        <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+            <InstallFolder>..\Release\$(ProjectName)</InstallFolder>
+        </PropertyGroup>
+        <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+            <!--  <InstallFolder>$(ModFolder)\$(ProjectName)</InstallFolder> -->
+            <InstallFolder>..\Debug\$(ProjectName)</InstallFolder>
+        </PropertyGroup>
+
+        <ItemGroup>
+            <!-- 
+            <AnimFiles Include="$(ProjectDir)\anim\**\*.*" />
+            <WorldGenFiles Include="$(ProjectDir)\worldgen\**\*.*" />
+            <YamlFiles Include="$(ProjectDir)\*.yaml" />
+            -->
+            <PoFiles Include="$(ProjectDir)\strings\*.po" />
+        </ItemGroup>
+
+        <Copy SourceFiles="@(PoFiles)" DestinationFolder="$(InstallFolder)/strings/" />
+        <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(InstallFolder)\$(TargetFileName)" />
+    </Target>
+</Project>
