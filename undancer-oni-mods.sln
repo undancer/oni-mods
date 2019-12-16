@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicCritterCountSensorExt"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary8", "ClassLibrary8\ClassLibrary8.csproj", "{7CFDDFF6-5D53-469D-B30A-CF639A5D5CA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "Commons\Commons.csproj", "{5D45BE6C-B00B-497D-955B-67998974B712}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,5 +63,9 @@ Global
 		{7CFDDFF6-5D53-469D-B30A-CF639A5D5CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CFDDFF6-5D53-469D-B30A-CF639A5D5CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CFDDFF6-5D53-469D-B30A-CF639A5D5CA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D45BE6C-B00B-497D-955B-67998974B712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D45BE6C-B00B-497D-955B-67998974B712}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D45BE6C-B00B-497D-955B-67998974B712}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D45BE6C-B00B-497D-955B-67998974B712}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

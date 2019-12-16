@@ -12,9 +12,11 @@
         <Reference>
             <Private>false</Private>
         </Reference>
+        <ProjectReference Private="false"/>
     </ItemDefinitionGroup>
 
     <ItemGroup>
+        <PackageReference Include="ILRepack.MSBuild.Task" Version="2.0.13" />
         <Reference Include="0Harmony">
             <HintPath>$(GameFolder)/0Harmony.dll</HintPath>
         </Reference>
@@ -43,4 +45,9 @@
             <HintPath>$(GameFolder)/UnityEngine.ImageConversionModule.dll</HintPath>
         </Reference>
     </ItemGroup>
+    
+    <ItemGroup Condition="'$(ProjectName)' != 'Commons'">
+        <ProjectReference Include="../Commons/Commons.csproj" Private="true"/>
+    </ItemGroup>
+    
 </Project>

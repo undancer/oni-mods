@@ -2,7 +2,26 @@
 
 <Project DefaultTargets="Build" TreatAsLocalProperty="OutDir"
          xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Target Name="CopyArtifactsToInstallFolder" AfterTargets="Build" Condition=" '$(AssemblyName)' != 'PLib' ">
+    
+     <Target Name="ILRepack" AfterTargets="Build">
+        <ItemGroup>
+            <InputAssemblies Include="$(TargetDir)\*.dll"
+                             Exclude="**\0Harmony.dll" />
+        </ItemGroup>
+         
+         <ILRepack
+                 TargetPlatformVersion="v2"
+                 MainAssembly="$(TargetPath)"
+                 OutputType="SameAsPrimaryAssembly"
+                 OutputAssembly="$(TargetPath)"
+                 InputAssemblies="@(InputAssemblies)"
+                 WilcardInputAssemblies="true"
+                 WorkingDirectory="$(GameFolder)"
+         />
+         
+    </Target>
+    
+    <Target Name="CopyArtifactsToInstallFolder" AfterTargets="ILRepack" Condition=" '$(AssemblyName)' != 'Commons' ">
         <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
             <InstallFolder>..\Release\$(ProjectName)</InstallFolder>
         </PropertyGroup>
