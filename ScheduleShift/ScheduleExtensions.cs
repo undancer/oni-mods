@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace undancer.ScheduleShift
 {
-    public static class ScheduleExt
+    public static class ScheduleExtensions
     {
         public static List<ScheduleGroup> GetGroups(this Schedule schedule)
         {

@@ -1,6 +1,6 @@
 namespace undancer.ScheduleShift
 {
-    public static class ScheduleBlockExt
+    public static class ScheduleBlockExtensions
     {
         public static ScheduleGroup GetScheduleGroup(this ScheduleBlock block)
         {

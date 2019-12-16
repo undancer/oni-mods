@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Harmony;
-using STRINGS;
 using undancer.Commons;
 using UnityEngine;
 
@@ -13,12 +12,7 @@ namespace undancer.SelectLastCarePackage
         private static void Postfix(ImmigrantScreen __instance)
         {
             if (ModUtils.HasRefreshMod()) return;
-            Traverse.Create(__instance).Field("rejectButton").GetValue<KButton>()
-                    .GetComponentInChildren<LocText>()
-                    .text = Localization.GetLocale() != null &&
-                            Localization.GetLocale().Lang == Localization.Language.Chinese
-                    ? "再来亿次"
-                    : (string) UI.IMMIGRANTSCREEN.SHUFFLE;
+            __instance.GetField<KButton>("rejectButton").SetText(Languages.SHUFFLE);
         }
     }
 
