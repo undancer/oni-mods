@@ -14,5 +14,4 @@ namespace LogicCritterCountSensorExt
             return Traverse.Create(instance).Field("currentCount").GetValue<int>();
         }
     }
-    
 }

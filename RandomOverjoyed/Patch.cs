@@ -24,10 +24,7 @@ namespace RandomOverjoyed
             );
             var rdm = UnityEngine.Random.Range(0.0f, 100.0f);
             Debug.Log("val: " + val + " random:" + rdm);
-            if (val < 50)
-            {
-                val = 50;
-            }
+            if (val < 50) val = 50;
 
             __result = rdm <= val;
             return false;

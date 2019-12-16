@@ -38,13 +38,12 @@ namespace ScheduleShift
             for (var index = 0; index < transform.childCount; ++index)
                 SetLayerRecursively(transform.GetChild(index).gameObject, layer);
         }
-        
+
         public static bool Prefix(
             DialogPanel ___optionsPanel,
             KButton ___optionsButton,
             Schedule schedule)
         {
-            
             var button = ___optionsPanel.GetComponent<HierarchyReferences>().GetReference<KButton>("ResetButton");
 
             var panel = DefaultControls.CreatePanel(new DefaultControls.Resources());
@@ -73,7 +72,7 @@ namespace ScheduleShift
 
             rightButton.GetComponentInChildren<ToolTip>().ClearMultiStringTooltip();
             rightButton.onClick += schedule.RightShift;
-            
+
             return true;
         }
     }

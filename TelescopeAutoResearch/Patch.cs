@@ -25,7 +25,6 @@ namespace TelescopeAutoResearch
                 var dist = destination.distance;
                 if (instance.GetDestinationAnalysisState(destination) !=
                     SpacecraftManager.DestinationAnalysisState.Complete)
-                {
                     if (dist <= minDist)
                     {
                         if (completed || prevDist <= 4)
@@ -49,13 +48,9 @@ namespace TelescopeAutoResearch
                             }
                         }
                     }
-                }
             }
 
-            if (next != null)
-            {
-                destId = next.id;
-            }
+            if (next != null) destId = next.id;
 
             Debug.Log(type == 1 ? "广度优先" : "深度优先");
             Debug.Log("准备研究下一个星体:" + destId);

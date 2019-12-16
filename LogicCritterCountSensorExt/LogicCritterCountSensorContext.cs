@@ -23,15 +23,9 @@ namespace LogicCritterCountSensorExt
         public int GetState()
         {
             var state = 0;
-            if (CountCreatures)
-            {
-                state += 1;
-            }
+            if (CountCreatures) state += 1;
 
-            if (CountEggs)
-            {
-                state += 2;
-            }
+            if (CountEggs) state += 2;
 
             return state;
         }
