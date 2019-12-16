@@ -15,25 +15,25 @@ namespace LogicCritterCountSensorExt
 
                     var context = __instance.FindOrAddComponent<LogicCritterCountSensorContext>();
                     
-                    var text = "";
+                    LocString text = "";
                     switch (context.GetState())
                     {
                         case 1:
-                            text = "统计：小动物";
+                            text = Languages.COUNT_CREATURES;
                             break;
                         case 2:
-                            text = "统计：蛋";
+                            text = Languages.COUNT_EGG;
                             break;
                         case 3:
-                            text = "统计：小动物和蛋";
+                            text = Languages.COUNT_CREATURES_AND_EGG;
                             break;
                         default:
-                            text = "统计：错误";
+                            text = Languages.COUNT_ERRORS;
                             break;
                     }
 
                     Game.Instance.userMenu.AddButton(__instance.gameObject,
-                        new KIconButtonMenu.ButtonInfo("action_power", text, delegate
+                        new KIconButtonMenu.ButtonInfo("action_power",text, delegate
                         {
                             var state = context.GetState() - 1;
                             state = (state  + 1) % 3;
