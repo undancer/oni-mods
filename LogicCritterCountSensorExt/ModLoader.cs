@@ -15,5 +15,4 @@ namespace LogicCritterCountSensorExt
 #endif
         }
     }
-    
 }

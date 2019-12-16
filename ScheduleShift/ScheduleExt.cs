@@ -14,18 +14,14 @@ namespace ScheduleShift
         {
             var list = schedule.GetGroups();
             for (var index = 0; index < list.Count; index++)
-            {
                 schedule.SetGroup(index, list[(list.Count + index + 1) % list.Count]);
-            }
         }
 
         public static void RightShift(this Schedule schedule)
         {
             var list = schedule.GetGroups();
             for (var index = 0; index < list.Count; index++)
-            {
                 schedule.SetGroup(index, list[(list.Count + index - 1) % list.Count]);
-            }
         }
     }
 }

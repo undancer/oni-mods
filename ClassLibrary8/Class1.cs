@@ -23,7 +23,7 @@ namespace ClassLibrary8
     {
         public static void Postfix()
         {
-            Debug.Log(lang.Class1.TEST);
+            Debug.Log(Class1.TEST);
             Debug.Log(STRINGS.UI.ALERTS);
         }
     }

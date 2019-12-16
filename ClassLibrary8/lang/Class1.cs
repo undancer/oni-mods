@@ -11,8 +11,6 @@ namespace ClassLibrary8.lang
         public void foo()
         {
 //            GetString, GetPluralString:1,2, GetParticularString:1c,2, GetParticularPluralString:1c,2,3.
-
-
         }
     }
 }

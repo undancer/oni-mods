@@ -14,14 +14,10 @@ namespace DebugModSubmitAchievement
                 return true;
 
             if (SteamAchievementService.Instance != null)
-            {
                 SteamAchievementService.Instance.Unlock(colonyAchievement.steamAchievementId);
-            }
             else
-            {
                 Debug.LogWarningFormat("Steam achievement [{0}] was achieved, but achievement service was null",
                     (object) colonyAchievement.steamAchievementId);
-            }
 
             return false;
         }

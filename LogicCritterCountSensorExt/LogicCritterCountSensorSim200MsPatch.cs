@@ -3,7 +3,6 @@ using Harmony;
 
 namespace LogicCritterCountSensorExt
 {
-   
     [HarmonyPatch(typeof(LogicCritterCountSensor), "Sim200ms")]
     public class LogicCritterCountSensorSim200MsPatch
     {
@@ -63,5 +62,4 @@ namespace LogicCritterCountSensorExt
             return false;
         }
     }
-    
 }

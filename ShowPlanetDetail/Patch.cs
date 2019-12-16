@@ -54,10 +54,7 @@ namespace ShowPlanetDetail
 
             foreach (var instruction in instructions)
             {
-                if (instruction.ToString() == "callvirt Void SetText(System.String)")
-                {
-                    instruction.operand = method;
-                }
+                if (instruction.ToString() == "callvirt Void SetText(System.String)") instruction.operand = method;
 
                 yield return instruction;
             }

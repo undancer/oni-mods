@@ -2,7 +2,7 @@ using Harmony;
 
 namespace LogicCritterCountSensorExt
 {
-   [HarmonyPatch(typeof(LogicCritterCountSensor), "OnSpawn")]
+    [HarmonyPatch(typeof(LogicCritterCountSensor), "OnSpawn")]
     public class LogicCritterCountSensorOnSpawnPatch
     {
         public static void Postfix(LogicCritterCountSensor __instance)
@@ -14,7 +14,7 @@ namespace LogicCritterCountSensorExt
                     Debug.Log(data);
 
                     var context = __instance.FindOrAddComponent<LogicCritterCountSensorContext>();
-                    
+
                     LocString text = "";
                     switch (context.GetState())
                     {
@@ -33,10 +33,10 @@ namespace LogicCritterCountSensorExt
                     }
 
                     Game.Instance.userMenu.AddButton(__instance.gameObject,
-                        new KIconButtonMenu.ButtonInfo("action_power",text, delegate
+                        new KIconButtonMenu.ButtonInfo("action_power", text, delegate
                         {
                             var state = context.GetState() - 1;
-                            state = (state  + 1) % 3;
+                            state = (state + 1) % 3;
                             switch (state)
                             {
                                 case 0:
