@@ -34,10 +34,7 @@ namespace ClassLibrary8
         public static void Postfix(IEnumerable<string> value)
         {
             Debug.Log("----------");
-            foreach (var str in value)
-            {
-                Debug.Log("LANG -> " + str);
-            }
+            foreach (var str in value) Debug.Log("LANG -> " + str);
 
             Debug.Log("----------");
         }
