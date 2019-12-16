@@ -2,7 +2,7 @@
 using TUNING;
 using UnityEngine;
 
-namespace BottleEmptierExt
+namespace undancer.BottleEmptierExt
 {
     [HarmonyPatch(typeof(BottleEmptier), "OnCopySettings")]
     public static class BottleEmptier2OnCopySettings

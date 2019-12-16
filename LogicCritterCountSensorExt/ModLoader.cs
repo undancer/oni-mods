@@ -1,8 +1,4 @@
-using System.Collections.Generic;
-using System.Reflection;
-using Harmony;
-
-namespace LogicCritterCountSensorExt
+namespace undancer.LogicCritterCountSensorExt
 {
     public class ModLoader
     {

@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Harmony;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ScheduleShift
+namespace undancer.ScheduleShift
 {
     [HarmonyPatch(typeof(ScheduleScreen), "OnAddScheduleClick")]
     public class ScheduleScreenOnAddScheduleClickPatch

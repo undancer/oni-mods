@@ -1,6 +1,6 @@
 using Harmony;
 
-namespace LogicCritterCountSensorExt
+namespace undancer.LogicCritterCountSensorExt
 {
     [HarmonyPatch(typeof(LogicCritterCountSensor), "OnSpawn")]
     public class LogicCritterCountSensorOnSpawnPatch

@@ -1,4 +1,4 @@
-namespace ScheduleShift
+namespace undancer.ScheduleShift
 {
     public static class ScheduleBlockExt
     {

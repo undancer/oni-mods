@@ -1,6 +1,6 @@
 ﻿using Harmony;
 
-namespace LogicCritterCountSensorExt
+namespace undancer.LogicCritterCountSensorExt
 {
     public static class LogicCritterCountSensorExt
     {

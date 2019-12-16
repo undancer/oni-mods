@@ -1,4 +1,4 @@
-namespace LogicCritterCountSensorExt
+namespace undancer.LogicCritterCountSensorExt
 {
     public class Languages
     {

@@ -2,9 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Harmony;
 using STRINGS;
+using undancer.Commons;
 using UnityEngine;
 
-namespace SelectLastCarePackage
+namespace undancer.SelectLastCarePackage
 {
     [HarmonyPatch(typeof(ImmigrantScreen), "OnSpawn")]
     internal static class RefreshOnOnSpawn

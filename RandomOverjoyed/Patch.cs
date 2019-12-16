@@ -2,7 +2,7 @@
 using Klei.AI;
 using TUNING;
 
-namespace RandomOverjoyed
+namespace undancer.RandomOverjoyed
 {
     [HarmonyPatch(typeof(JoyBehaviourMonitor.Instance), nameof(JoyBehaviourMonitor.Instance.ShouldBeOverjoyed))]
     public class JoyBehaviourMonitorInstancePatch

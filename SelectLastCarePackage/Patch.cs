@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Harmony;
 
-namespace SelectLastCarePackage
+namespace undancer.SelectLastCarePackage
 {
     public static class ImmigrantScreenContext
     {

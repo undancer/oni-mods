@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using KMod;
 
-namespace Commons
+namespace undancer.Commons
 {
     public static class ModUtils
     {

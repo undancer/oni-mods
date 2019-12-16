@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ScheduleShift
+namespace undancer.ScheduleShift
 {
     public static class ScheduleExt
     {

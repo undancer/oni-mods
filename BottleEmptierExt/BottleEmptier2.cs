@@ -1,7 +1,7 @@
 using KSerialization;
 using UnityEngine;
 
-namespace BottleEmptierExt
+namespace undancer.BottleEmptierExt
 {
     [SerializationConfig(MemberSerialization.OptIn)]
     public class BottleEmptier2 : BottleEmptier, IUserControlledCapacity

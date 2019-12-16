@@ -5,7 +5,7 @@ using Harmony;
 using Klei.CustomSettings;
 using UnityEngine;
 
-namespace ShowPlanetDetail
+namespace undancer.ShowPlanetDetail
 {
     public static class Hook
     {

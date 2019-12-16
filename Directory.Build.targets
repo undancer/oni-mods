@@ -5,19 +5,18 @@
     
      <Target Name="ILRepack" AfterTargets="Build">
         <ItemGroup>
-            <InputAssemblies Include="$(TargetDir)\*.dll"
-                             Exclude="**\0Harmony.dll" />
+            <InputAssemblies Include="$(TargetDir)\Commons.dll" />
+            <InputAssemblies Include="$(TargetDir)\$(AssemblyName).dll" />
         </ItemGroup>
          
          <ILRepack
                  TargetPlatformVersion="v2"
-                 MainAssembly="$(TargetPath)"
                  OutputType="SameAsPrimaryAssembly"
+                 MainAssembly="$(TargetPath)"
                  OutputAssembly="$(TargetPath)"
                  InputAssemblies="@(InputAssemblies)"
-                 WilcardInputAssemblies="true"
-                 WorkingDirectory="$(GameFolder)"
-         />
+                 WilcardInputAssemblies="false"
+                 WorkingDirectory="$(GameFolder)" />
          
     </Target>
     
