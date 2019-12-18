@@ -70,7 +70,9 @@
 
     <!-- Error out if this is a release and our working copy has uncommitted changes -->
     <Target Name="CheckRelease" AfterTargets="GetRevisionInfo" Condition="'$(Configuration)' == 'Release'">
-        <Error Text="Cannot build a Release Version when there are uncommitted changes, commit or revert all changes." Condition="'$(CommitHash)' != '' AND '$(HasPendingChanges)' == 'True'"/>
+        <!--
+        <Error Text="Cannot build a Release Version when there are uncommitted changes, commit or revert all changes." Condition="'$(CommitHash)' != '' AND '$(HasPendingChanges)' == 'True'"/> 
+        -->
     </Target>
 
     <!-- Generates AssemblyInfo file using Git Describe -->
