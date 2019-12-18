@@ -13,11 +13,11 @@ namespace SelectLastCarePackage
         {
             if (ModUtils.HasRefreshMod()) return;
             Traverse.Create(__instance).Field("rejectButton").GetValue<KButton>()
-                .GetComponentInChildren<LocText>()
-                .text = (Localization.GetLocale() != null &&
-                         Localization.GetLocale().Lang == Localization.Language.Chinese)
-                ? "再来亿次"
-                : (string) UI.IMMIGRANTSCREEN.SHUFFLE;
+                    .GetComponentInChildren<LocText>()
+                    .text = Localization.GetLocale() != null &&
+                            Localization.GetLocale().Lang == Localization.Language.Chinese
+                    ? "再来亿次"
+                    : (string) UI.IMMIGRANTSCREEN.SHUFFLE;
         }
     }
 

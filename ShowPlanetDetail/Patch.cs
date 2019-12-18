@@ -1,20 +1,14 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Harmony;
 using Klei.CustomSettings;
-using STRINGS;
 using UnityEngine;
 
 namespace ShowPlanetDetail
 {
-    [HarmonyPatch(typeof(BuildWatermark), "OnSpawn")]
-    public static class BuildWatermarkOnSpawn
+    public static class Hook
     {
-        private static string GetWaterMark()
-        {
-            var str = "LU-" + (!Application.isEditor ? KleiVersion.ChangeList.ToString() : "<EDITOR>");
-            return string.Format(UI.DEVELOPMENTBUILDS.WATERMARK, str);
-        }
-
         private static string GetPlanetName(string world, int seed)
         {
             var data = new ColonyDestinationAsteroidData(world, seed);
@@ -25,24 +19,52 @@ namespace ShowPlanetDetail
         private static string GetTraits(string world, int seed)
         {
             var data = new ColonyDestinationAsteroidData(world, seed);
-            var traits = data.GetTraitDescriptors().Join(descriptor => descriptor.text, ", ");
+            var traits = data.GetTraitDescriptors().Join(descriptor => descriptor.text);
             return traits;
         }
 
-        public static void Postfix(BuildWatermark __instance)
+        public static void SetText(LocText text, string value)
         {
-            if (SaveLoader.Instance == null) return;
+            if (SaveLoader.Instance == null)
+            {
+                text.SetText(value);
+                return;
+            }
+
             var world = CustomGameSettings.Instance.GetCurrentQualitySetting(CustomGameSettingConfigs.World).id;
             var seed = SaveLoader.Instance.worldDetailSave.globalWorldSeed;
-            var text = __instance.textDisplay;
             text.color = Color.white;
             text.SetText(new[]
             {
-                GetWaterMark(),
+                value,
 //                CustomGameSettings.Instance.GetSettingsCoordinate(),
                 GetPlanetName(world, seed),
                 GetTraits(world, seed)
             }.Join(null, "\n"));
+        }
+    }
+
+    [HarmonyPatch(typeof(BuildWatermark), "OnSpawn")]
+    public static class BuildWatermarkOnSpawnPatches
+    {
+        public static IEnumerable<CodeInstruction> Transpiler(MethodBase original,
+            IEnumerable<CodeInstruction> instructions)
+        {
+            var method = AccessTools.Method(typeof(Hook), nameof(Hook.SetText));
+
+            foreach (var instruction in instructions)
+            {
+                if (instruction.ToString() == "callvirt Void SetText(System.String)") instruction.operand = method;
+
+                yield return instruction;
+            }
+
+            /*
+             return instructions.MethodReplacer(
+                AccessTools.Method(typeof(LocText), nameof(LocText.SetText), new[] {typeof(string)}),
+                AccessTools.Method(typeof(Hook), nameof(Hook.SetText))
+            );
+             */
         }
     }
 }
