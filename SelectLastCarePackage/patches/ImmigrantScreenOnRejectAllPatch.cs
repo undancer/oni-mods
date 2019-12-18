@@ -4,20 +4,10 @@ using Harmony;
 using undancer.Commons;
 using UnityEngine;
 
-namespace undancer.SelectLastCarePackage
+namespace undancer.SelectLastCarePackage.patches
 {
-    [HarmonyPatch(typeof(ImmigrantScreen), "OnSpawn")]
-    internal static class RefreshOnOnSpawn
-    {
-        private static void Postfix(ImmigrantScreen __instance)
-        {
-            if (ModUtils.HasRefreshMod()) return;
-            __instance.GetField<KButton>("rejectButton").SetText(Languages.SHUFFLE);
-        }
-    }
-
     [HarmonyPatch(typeof(ImmigrantScreen), "OnRejectAll")]
-    internal static class Refresh
+    public static class ImmigrantScreenOnRejectAllPatch
     {
         private static float _lastTime;
 

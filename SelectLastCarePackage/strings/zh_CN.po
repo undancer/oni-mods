@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Language: zh_CN\n"
 
-#. undancer.SelectLastCarePackage.Languages.SHUFFLE
-msgctxt "undancer.SelectLastCarePackage.Languages.SHUFFLE"
-msgid "Shuffle"
+#. undancer.SelectLastCarePackage.Languages.REROLL
+msgctxt "undancer.SelectLastCarePackage.Languages.REROLL"
+msgid "REROLL"
 msgstr "再来亿次"

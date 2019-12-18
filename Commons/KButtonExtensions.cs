@@ -3,9 +3,9 @@ namespace undancer.Commons
     public static class KButtonExtensions
     {
 
-        public static void SetText(this KButton button,string text)
+        public static void SetText(this KButton button,LocString text)
         {
-            button.GetComponentInChildren<LocText>().text = text;
+            button.GetComponentInChildren<LocText>().SetText(text);
         }
 
     }
