@@ -2,6 +2,12 @@
 
 <Project DefaultTargets="Build" TreatAsLocalProperty="OutDir"
          xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <Target Name="ClearGameFolderCopyLocal" AfterTargets="ResolveAssemblyReferences">
+        <ItemGroup>
+            <ReferenceCopyLocalPaths Remove="$(GameFolder)\*" />
+        </ItemGroup>
+    </Target>
     
      <Target Name="ILRepack" AfterTargets="Build">
         <ItemGroup>
