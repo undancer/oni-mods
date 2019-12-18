@@ -1,8 +1,8 @@
 ﻿using Harmony;
 
-namespace LogicCritterCountSensorExt
+namespace undancer.LogicCritterCountSensorExt
 {
-    public static class LogicCritterCountSensorExt
+    public static class LogicCritterCountSensorExtensions
     {
         public static void SetCurrentCount(this LogicCritterCountSensor instance, int count)
         {

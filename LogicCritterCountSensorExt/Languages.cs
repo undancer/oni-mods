@@ -1,10 +1,10 @@
-namespace LogicCritterCountSensorExt
+namespace undancer.LogicCritterCountSensorExt
 {
-    public class Languages
+    public static class Languages
     {
-        public static LocString COUNT_EGG = (LocString) "Count: Egg";
-        public static LocString COUNT_CREATURES = (LocString) "Count: Creatures";
-        public static LocString COUNT_CREATURES_AND_EGG = (LocString) "Count: Creatures&Egg";
-        public static LocString COUNT_ERRORS = (LocString) "Count: Errors";
+        public static LocString COUNT_EGG = "Count: Egg";
+        public static LocString COUNT_CREATURES = "Count: Creatures";
+        public static LocString COUNT_CREATURES_AND_EGG = "Count: Creatures&Egg";
+        public static LocString COUNT_ERRORS = "Count: Errors";
     }
 }

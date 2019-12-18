@@ -4,17 +4,22 @@
          xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <Deterministic>true</Deterministic>
-        <SteamFolder>/Users/undancer/Library/Application Support/Steam</SteamFolder>
+        <SteamFolder>$(HOME)/Library/Application Support/Steam</SteamFolder>
         <GameFolder>$(SteamFolder)/steamapps/common/OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Data/Managed</GameFolder>
-        <!-- <ModFolder></ModFolder> -->
+        <!--         <ModFolder>/Users/undancer/Library/Application Support/unity.Klei.Oxygen Not Included/mods/Dev/</ModFolder> -->
+        <ModFolder>$(HOME)/Library/Application Support/unity.Klei.Oxygen Not Included/mods/Dev/</ModFolder>
     </PropertyGroup>
     <ItemDefinitionGroup>
         <Reference>
             <Private>false</Private>
         </Reference>
+        <ProjectReference Private="false"/>
     </ItemDefinitionGroup>
 
     <ItemGroup>
+        <!--         <PackageReference Include="ILRepack.MSBuild.Task" Version="2.0.13" /> -->
+        <!--         <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.18" /> -->
+        <PackageReference Include="ILRepack.MSBuild.Task" Version="2.0.13" /> 
         <Reference Include="0Harmony">
             <HintPath>$(GameFolder)/0Harmony.dll</HintPath>
         </Reference>
@@ -43,4 +48,9 @@
             <HintPath>$(GameFolder)/UnityEngine.ImageConversionModule.dll</HintPath>
         </Reference>
     </ItemGroup>
+    
+    <ItemGroup Condition="'$(ProjectName)' != 'Commons'">
+        <ProjectReference Include="../Commons/Commons.csproj" Private="true"/>
+    </ItemGroup>
+    
 </Project>

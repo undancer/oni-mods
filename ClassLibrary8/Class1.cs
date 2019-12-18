@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using ClassLibrary8.lang;
 using Harmony;
-using KMod;
+using STRINGS;
 
 namespace ClassLibrary8
 {
-    public class ModLoader
+    public static class ModLoader
     {
         public static void OnLoad()
         {
@@ -19,17 +19,17 @@ namespace ClassLibrary8
     }
 
     [HarmonyPatch(typeof(Localization), nameof(Localization.Initialize))]
-    public class Class3
+    public static class Class3
     {
         public static void Postfix()
         {
             Debug.Log(Class1.TEST);
-            Debug.Log(STRINGS.UI.ALERTS);
+            Debug.Log(UI.ALERTS);
         }
     }
 
 //    [HarmonyPatch(typeof(Strings),"Add")]
-    public class Class2
+    public static class Class2
     {
         public static void Postfix(IEnumerable<string> value)
         {

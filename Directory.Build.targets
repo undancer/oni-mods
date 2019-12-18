@@ -2,13 +2,36 @@
 
 <Project DefaultTargets="Build" TreatAsLocalProperty="OutDir"
          xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Target Name="CopyArtifactsToInstallFolder" AfterTargets="Build" Condition=" '$(AssemblyName)' != 'PLib' ">
+
+    <Target Name="ClearGameFolderCopyLocal" AfterTargets="ResolveAssemblyReferences">
+        <ItemGroup>
+            <ReferenceCopyLocalPaths Remove="$(GameFolder)\*" />
+        </ItemGroup>
+    </Target>
+
+    <Target Name="ILRepack" AfterTargets="Build">
+        <ItemGroup>
+            <InputAssemblies Include="$(TargetDir)\Commons.dll" />
+            <InputAssemblies Include="$(TargetDir)\$(AssemblyName).dll" />
+        </ItemGroup>
+
+        <ILRepack
+            TargetPlatformVersion="v2"
+            OutputType="SameAsPrimaryAssembly"
+            MainAssembly="$(TargetPath)"
+            OutputAssembly="$(TargetPath)"
+            InputAssemblies="@(InputAssemblies)"
+            WilcardInputAssemblies="false"
+            WorkingDirectory="$(GameFolder)" />
+
+    </Target>
+
+    <Target Name="CopyArtifactsToInstallFolder" AfterTargets="ILRepack" Condition=" '$(AssemblyName)' != 'Commons' ">
         <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
             <InstallFolder>..\Release\$(ProjectName)</InstallFolder>
         </PropertyGroup>
         <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-            <!--  <InstallFolder>$(ModFolder)\$(ProjectName)</InstallFolder> -->
-            <InstallFolder>..\Debug\$(ProjectName)</InstallFolder>
+            <InstallFolder>$(ModFolder)\$(ProjectName)</InstallFolder>
         </PropertyGroup>
 
         <ItemGroup>
