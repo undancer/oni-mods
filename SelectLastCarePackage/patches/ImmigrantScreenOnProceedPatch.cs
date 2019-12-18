@@ -16,5 +16,4 @@ namespace undancer.SelectLastCarePackage.patches
             ImmigrantScreenContext.LastSelectedCarePackageInfo = selectedCarePackage;
         }
     }
-
 }

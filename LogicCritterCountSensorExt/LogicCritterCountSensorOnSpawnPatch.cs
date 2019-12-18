@@ -8,7 +8,7 @@ namespace undancer.LogicCritterCountSensorExt
     {
         public static void Postfix(LogicCritterCountSensor __instance)
         {
-            __instance.Subscribe( GameHashes.RefreshUserMenu.ToInt(),
+            __instance.Subscribe(GameHashes.RefreshUserMenu.ToInt(),
                 data =>
                 {
                     Debug.Log(__instance);

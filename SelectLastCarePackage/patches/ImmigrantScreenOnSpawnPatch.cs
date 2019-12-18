@@ -9,8 +9,8 @@ namespace undancer.SelectLastCarePackage.patches
         public static void Postfix(ImmigrantScreen __instance)
         {
             if (ModUtils.HasRefreshMod()) return;
-            __instance.GetField<KButton>("rejectButton").GetComponentInChildren<LocText>().SetText(Languages.REROLL);
-//            __instance.GetField<KButton>("rejectButton").SetText(Languages.REROLL);
+            __instance.GetField<KButton>("rejectButton")
+                .GetComponentInChildren<LocText>().text = Languages.REROLL;
         }
     }
 }

@@ -6,6 +6,5 @@ namespace undancer.Commons
         {
             return (int) hashes;
         }
-        
     }
 }

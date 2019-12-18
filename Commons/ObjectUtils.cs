@@ -4,9 +4,9 @@ namespace undancer.Commons
 {
     public static class ObjectUtils
     {
-        public static void SetField(this object obj,string name,object value)
+        public static void SetField(this object obj, string name, object value)
         {
-            AccessTools.Field(obj.GetType(),name).SetValue(obj , value);
+            AccessTools.Field(obj.GetType(), name).SetValue(obj, value);
         }
 
         public static T GetField<T>(this object obj, string name)
