@@ -5,24 +5,24 @@
 
     <Target Name="ClearGameFolderCopyLocal" AfterTargets="ResolveAssemblyReferences">
         <ItemGroup>
-            <ReferenceCopyLocalPaths Remove="$(GameFolder)\*" />
+            <ReferenceCopyLocalPaths Remove="$(GameFolder)\*"/>
         </ItemGroup>
     </Target>
 
     <Target Name="ILRepack" AfterTargets="Build">
         <ItemGroup>
-            <InputAssemblies Include="$(TargetDir)\Commons.dll" />
-            <InputAssemblies Include="$(TargetDir)\$(AssemblyName).dll" />
+            <InputAssemblies Include="$(TargetDir)\*.dll"
+                             Exclude="**\0Harmony.dll"/>
         </ItemGroup>
 
         <ILRepack
-            TargetPlatformVersion="v2"
-            OutputType="SameAsPrimaryAssembly"
-            MainAssembly="$(TargetPath)"
-            OutputAssembly="$(TargetPath)"
-            InputAssemblies="@(InputAssemblies)"
-            WilcardInputAssemblies="false"
-            WorkingDirectory="$(GameFolder)" />
+                TargetPlatformVersion="v2"
+                TargetKind="SameAsPrimaryAssembly"
+                LibraryPath="$(GameFolder)"
+                Wildcards="true"
+                InputAssemblies="@(InputAssemblies)"
+                OutputFile="$(OutputPath)\$(AssemblyName).dll"
+        />
 
     </Target>
 
@@ -40,10 +40,55 @@
             <WorldGenFiles Include="$(ProjectDir)\worldgen\**\*.*" />
             <YamlFiles Include="$(ProjectDir)\*.yaml" />
             -->
-            <PoFiles Include="$(ProjectDir)\strings\*.po" />
+            <PoFiles Include="$(ProjectDir)\**\*.po"/>
         </ItemGroup>
 
-        <Copy SourceFiles="@(PoFiles)" DestinationFolder="$(InstallFolder)/strings/" />
-        <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(InstallFolder)\$(TargetFileName)" />
+        <Copy SourceFiles="@(PoFiles)" DestinationFiles="@(PoFiles->'$(InstallFolder)\strings\%(RecursiveDir)%(Filename)%(Extension)')"/>
+
+        <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(InstallFolder)\$(TargetFileName)"/>
     </Target>
+    
+    <Target Name="GetRevisionInfo" BeforeTargets="Build">
+        <GitPendingChanges ContinueOnError="WarnAndContinue">
+            <Output TaskParameter="HasPendingChanges" PropertyName="HasPendingChanges"/>
+        </GitPendingChanges>
+        <!--This will throw git Error 128 if there are no Tags -->
+        <GitDescribe SoftErrorMode="true" Lightweight="true" ContinueOnError="WarnAndContinue">
+            <Output TaskParameter="Tag" PropertyName="Tag"/>
+            <Output TaskParameter="CommitCount" PropertyName="CommitCount"/>
+            <Output TaskParameter="CommitHash" PropertyName="CommitHash"/>
+        </GitDescribe>
+        <GitBranch ContinueOnError="WarnAndContinue">
+            <Output TaskParameter="Branch" PropertyName="Branch"/>
+        </GitBranch>
+        <PropertyGroup>
+            <ShortCommitHash Condition="'$(CommitHash)' != ''">$(CommitHash.Substring(0,6))</ShortCommitHash>
+            <ReleaseType Condition="'$(CommitCount)' != '' AND '$(CommitCount)' != '0'">Beta</ReleaseType>
+            <ReleaseType Condition="'$(Branch)' != '' AND '$(Branch)' != 'master'">Alpha</ReleaseType>
+        </PropertyGroup>
+    </Target>
+
+    <!-- Error out if this is a release and our working copy has uncommitted changes -->
+    <Target Name="CheckRelease" AfterTargets="GetRevisionInfo" Condition="'$(Configuration)' == 'Release'">
+        <Error Text="Cannot build a Release Version when there are uncommitted changes, commit or revert all changes." Condition="'$(CommitHash)' != '' AND '$(HasPendingChanges)' == 'True'"/>
+    </Target>
+
+    <!-- Generates AssemblyInfo file using Git Describe -->
+    <Target Name="GenerateAssemblyInfo" AfterTargets="CheckRelease" Condition="'$(CommitHash)' != ''">
+        <Time>
+            <Output TaskParameter="Year" PropertyName="Year"/>
+        </Time>
+        <AssemblyInfo
+                CodeLanguage="CS"
+                OutputFile="$(MSBuildProjectDirectory)\Properties\AssemblyInfo.cs"
+                AssemblyProduct="$(MSBuildProjectName) $(ReleaseType)"
+                AssemblyCompany=""
+                AssemblyCopyright="Copyright © $(Year)"
+                AssemblyConfiguration="$(Configuration)-$(Platform)"
+                AssemblyVersion="$(Tag).$(CommitCount)"
+                AssemblyFileVersion="$(Tag).$(CommitCount)"
+                AssemblyInformationalVersion="$(Tag)-$(CommitCount)-$(ShortCommitHash) $(ReleaseType)"
+                AssemblyTitle="$(Tag)-$(CommitCount)-$(CommitHash)"/>
+    </Target>
+    
 </Project>

@@ -2,12 +2,11 @@
 
 <Project DefaultTargets="Build" TreatAsLocalProperty="OutDir"
          xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    
+    <Import Project="Directory.Build.props.macos" Condition="1==1" />
+    
     <PropertyGroup>
         <Deterministic>true</Deterministic>
-        <SteamFolder>$(HOME)/Library/Application Support/Steam</SteamFolder>
-        <GameFolder>$(SteamFolder)/steamapps/common/OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Data/Managed</GameFolder>
-        <!--         <ModFolder>/Users/undancer/Library/Application Support/unity.Klei.Oxygen Not Included/mods/Dev/</ModFolder> -->
-        <ModFolder>$(HOME)/Library/Application Support/unity.Klei.Oxygen Not Included/mods/Dev/</ModFolder>
     </PropertyGroup>
     <ItemDefinitionGroup>
         <Reference>
@@ -17,9 +16,10 @@
     </ItemDefinitionGroup>
 
     <ItemGroup>
-        <!--         <PackageReference Include="ILRepack.MSBuild.Task" Version="2.0.13" /> -->
-        <!--         <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.18" /> -->
-        <PackageReference Include="ILRepack.MSBuild.Task" Version="2.0.13" /> 
+        
+        <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.18" />
+        <PackageReference Include="MSBuildTasks" Version="1.5.0.235" />
+        
         <Reference Include="0Harmony">
             <HintPath>$(GameFolder)/0Harmony.dll</HintPath>
         </Reference>
