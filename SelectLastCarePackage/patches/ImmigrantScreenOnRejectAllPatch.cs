@@ -1,28 +1,12 @@
 using System.Collections.Generic;
-using System.Linq;
 using Harmony;
-using STRINGS;
+using undancer.Commons;
 using UnityEngine;
 
-namespace SelectLastCarePackage
+namespace undancer.SelectLastCarePackage.patches
 {
-    [HarmonyPatch(typeof(ImmigrantScreen), "OnSpawn")]
-    internal static class RefreshOnOnSpawn
-    {
-        private static void Postfix(ImmigrantScreen __instance)
-        {
-            if (ModUtils.HasRefreshMod()) return;
-            Traverse.Create(__instance).Field("rejectButton").GetValue<KButton>()
-                    .GetComponentInChildren<LocText>()
-                    .text = Localization.GetLocale() != null &&
-                            Localization.GetLocale().Lang == Localization.Language.Chinese
-                    ? "再来亿次"
-                    : (string) UI.IMMIGRANTSCREEN.SHUFFLE;
-        }
-    }
-
     [HarmonyPatch(typeof(ImmigrantScreen), "OnRejectAll")]
-    internal static class Refresh
+    public static class ImmigrantScreenOnRejectAllPatch
     {
         private static float _lastTime;
 
@@ -45,13 +29,16 @@ namespace SelectLastCarePackage
             _lastTime = Time.realtimeSinceStartup;
             var instance = Traverse.Create(__instance);
             List<ITelepadDeliverableContainer> deliverableContainerList = null;
-            deliverableContainerList = instance.Field("containers").GetValue<List<ITelepadDeliverableContainer>>();
+            deliverableContainerList = __instance.GetField<List<ITelepadDeliverableContainer>>("containers");
             deliverableContainerList.ForEach(c => Object.Destroy(c.GetGameObject()));
             deliverableContainerList.Clear();
             instance.Method("InitializeContainers").GetValue();
-            deliverableContainerList = instance.Field("containers").GetValue<List<ITelepadDeliverableContainer>>();
-            foreach (var characterContainer in deliverableContainerList.OfType<CharacterContainer>())
-                characterContainer.SetReshufflingState(false);
+            deliverableContainerList = __instance.GetField<List<ITelepadDeliverableContainer>>("containers");
+            deliverableContainerList.ForEach(c =>
+                {
+                    if (c is CharacterContainer characterContainer) characterContainer.SetReshufflingState(false);
+                }
+            );
             _lastTime = Time.realtimeSinceStartup;
             return false;
         }

@@ -1,13 +1,14 @@
 using Harmony;
+using undancer.Commons;
 
-namespace LogicCritterCountSensorExt
+namespace undancer.LogicCritterCountSensorExt
 {
     [HarmonyPatch(typeof(LogicCritterCountSensor), "OnSpawn")]
-    public class LogicCritterCountSensorOnSpawnPatch
+    public static class LogicCritterCountSensorOnSpawnPatch
     {
         public static void Postfix(LogicCritterCountSensor __instance)
         {
-            __instance.Subscribe((int) GameHashes.RefreshUserMenu,
+            __instance.Subscribe(GameHashes.RefreshUserMenu.ToInt(),
                 data =>
                 {
                     Debug.Log(__instance);

@@ -1,6 +1,6 @@
 ﻿using Harmony;
 
-namespace DebugModSubmitAchievement
+namespace undancer.DebugModSubmitAchievement
 {
     [HarmonyPatch(typeof(ColonyAchievementTracker), "UnlockPlatformAchievement", typeof(string))]
     internal static class ColonyAchievementTrackerUnlockPlatformAchievement

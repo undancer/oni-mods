@@ -1,10 +1,10 @@
 using System;
 using Harmony;
 
-namespace LogicCritterCountSensorExt
+namespace undancer.LogicCritterCountSensorExt
 {
     [HarmonyPatch(typeof(LogicCritterCountSensor), "Sim200ms")]
-    public class LogicCritterCountSensorSim200MsPatch
+    public static class LogicCritterCountSensorSim200MsPatch
     {
         public static bool Prefix(
             LogicCritterCountSensor __instance,

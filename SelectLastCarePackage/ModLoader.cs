@@ -1,4 +1,4 @@
-namespace undancer.LogicCritterCountSensorExt
+namespace undancer.SelectLastCarePackage
 {
     public static class ModLoader
     {

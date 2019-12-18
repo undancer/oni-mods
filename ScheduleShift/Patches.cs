@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Harmony;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ScheduleShift
+namespace undancer.ScheduleShift
 {
     [HarmonyPatch(typeof(ScheduleScreen), "OnAddScheduleClick")]
-    public class ScheduleScreenOnAddScheduleClickPatch
+    public static class ScheduleScreenOnAddScheduleClickPatch
     {
         public static bool Prefix()
         {
@@ -19,7 +18,7 @@ namespace ScheduleShift
     }
 
     [HarmonyPatch(typeof(ScheduleScreenEntry), nameof(ScheduleScreenEntry.Setup))]
-    public class ScheduleScreenEntrySetupPatch
+    public static class ScheduleScreenEntrySetupPatch
     {
         private static GameObject _buttonsHolderPanel;
 

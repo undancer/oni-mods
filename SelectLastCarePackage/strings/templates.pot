@@ -1,0 +1,10 @@
+msgid ""
+msgstr ""
+"Application: Oxygen Not Included"
+"POT Version: 2.0"
+
+#. undancer.SelectLastCarePackage.Languages.REROLL
+msgctxt "undancer.SelectLastCarePackage.Languages.REROLL"
+msgid "REROLL"
+msgstr ""
+

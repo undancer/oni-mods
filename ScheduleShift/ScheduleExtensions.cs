@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ScheduleShift
+namespace undancer.ScheduleShift
 {
-    public static class ScheduleExt
+    public static class ScheduleExtensions
     {
         public static List<ScheduleGroup> GetGroups(this Schedule schedule)
         {
