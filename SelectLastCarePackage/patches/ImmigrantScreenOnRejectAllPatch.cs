@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Harmony;
 using undancer.Commons;
 using UnityEngine;
@@ -30,13 +29,16 @@ namespace undancer.SelectLastCarePackage.patches
             _lastTime = Time.realtimeSinceStartup;
             var instance = Traverse.Create(__instance);
             List<ITelepadDeliverableContainer> deliverableContainerList = null;
-            deliverableContainerList = instance.Field("containers").GetValue<List<ITelepadDeliverableContainer>>();
+            deliverableContainerList = __instance.GetField<List<ITelepadDeliverableContainer>>("containers");
             deliverableContainerList.ForEach(c => Object.Destroy(c.GetGameObject()));
             deliverableContainerList.Clear();
             instance.Method("InitializeContainers").GetValue();
-            deliverableContainerList = instance.Field("containers").GetValue<List<ITelepadDeliverableContainer>>();
-            foreach (var characterContainer in deliverableContainerList.OfType<CharacterContainer>())
-                characterContainer.SetReshufflingState(false);
+            deliverableContainerList = __instance.GetField<List<ITelepadDeliverableContainer>>("containers");
+            deliverableContainerList.ForEach(c =>
+                {
+                    if (c is CharacterContainer characterContainer) characterContainer.SetReshufflingState(false);
+                }
+            );
             _lastTime = Time.realtimeSinceStartup;
             return false;
         }

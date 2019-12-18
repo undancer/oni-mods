@@ -1,6 +1,6 @@
 namespace undancer.LogicCritterCountSensorExt
 {
-    public class ModLoader
+    public static class ModLoader
     {
         public static void OnLoad()
         {

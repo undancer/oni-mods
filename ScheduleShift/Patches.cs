@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace undancer.ScheduleShift
 {
     [HarmonyPatch(typeof(ScheduleScreen), "OnAddScheduleClick")]
-    public class ScheduleScreenOnAddScheduleClickPatch
+    public static class ScheduleScreenOnAddScheduleClickPatch
     {
         public static bool Prefix()
         {
@@ -18,7 +18,7 @@ namespace undancer.ScheduleShift
     }
 
     [HarmonyPatch(typeof(ScheduleScreenEntry), nameof(ScheduleScreenEntry.Setup))]
-    public class ScheduleScreenEntrySetupPatch
+    public static class ScheduleScreenEntrySetupPatch
     {
         private static GameObject _buttonsHolderPanel;
 

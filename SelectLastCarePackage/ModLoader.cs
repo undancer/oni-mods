@@ -1,6 +1,6 @@
 namespace undancer.SelectLastCarePackage
 {
-    public class ModLoader
+    public static class ModLoader
     {
         public static void OnLoad()
         {

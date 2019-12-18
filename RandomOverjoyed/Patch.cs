@@ -1,11 +1,12 @@
 ﻿using Harmony;
 using Klei.AI;
 using TUNING;
+using UnityEngine;
 
 namespace undancer.RandomOverjoyed
 {
     [HarmonyPatch(typeof(JoyBehaviourMonitor.Instance), nameof(JoyBehaviourMonitor.Instance.ShouldBeOverjoyed))]
-    public class JoyBehaviourMonitorInstancePatch
+    public static class JoyBehaviourMonitorInstancePatch
     {
         public static bool Prefix(
             AttributeInstance ___qolAttribute,
@@ -22,7 +23,7 @@ namespace undancer.RandomOverjoyed
                 TRAITS.JOY_REACTIONS.MIN_REACTION_CHANCE,
                 TRAITS.JOY_REACTIONS.MAX_REACTION_CHANCE
             );
-            var rdm = UnityEngine.Random.Range(0.0f, 100.0f);
+            var rdm = Random.Range(0.0f, 100.0f);
             Debug.Log("val: " + val + " random:" + rdm);
             if (val < 50) val = 50;
 

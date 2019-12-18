@@ -10,7 +10,7 @@ namespace undancer.SelectLastCarePackage.patches
         {
             if (ModUtils.HasRefreshMod()) return;
             __instance.GetField<KButton>("rejectButton")
-                .GetComponentInChildren<LocText>().text = Languages.REROLL;
+                .SetText(Languages.REROLL);
         }
     }
 }

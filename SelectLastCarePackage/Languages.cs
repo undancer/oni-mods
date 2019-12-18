@@ -1,7 +1,7 @@
 namespace undancer.SelectLastCarePackage
 {
-    public class Languages
+    public static class Languages
     {
-        public static LocString REROLL = (LocString) "REROLL";
+        public static LocString REROLL = "REROLL";
     }
 }

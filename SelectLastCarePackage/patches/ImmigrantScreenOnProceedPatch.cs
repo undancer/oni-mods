@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Harmony;
+using undancer.Commons;
 
 namespace undancer.SelectLastCarePackage.patches
 {
@@ -9,8 +10,7 @@ namespace undancer.SelectLastCarePackage.patches
     {
         public static void Prefix(ImmigrantScreen __instance)
         {
-            var selectedDeliverable = Traverse.Create(__instance).Field("selectedDeliverables")
-                .GetValue<List<ITelepadDeliverable>>().First();
+            var selectedDeliverable = __instance.GetField<List<ITelepadDeliverable>>("selectedDeliverables").First();
             CarePackageInfo selectedCarePackage = null;
             if (selectedDeliverable is CarePackageInfo carePackageInfo) selectedCarePackage = carePackageInfo;
             ImmigrantScreenContext.LastSelectedCarePackageInfo = selectedCarePackage;

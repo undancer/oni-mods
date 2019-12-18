@@ -57,7 +57,7 @@ namespace undancer.BottleEmptierExt
                 var amount = ((BottleEmptier2) __instance.master).UserMaxCapacity / 1000f;
 
                 var chore = new FetchChore(Db.Get().ChoreTypes.StorageFetch, __instance.GetComponent<Storage>(), amount,
-                    __instance.GetComponent<TreeFilterable>().GetTags(), (Tag[]) null, forbiddenTags);
+                    __instance.GetComponent<TreeFilterable>().GetTags(), null, forbiddenTags);
                 Traverse.Create(__instance).Field("chore").SetValue(chore);
             }
 

@@ -4,7 +4,7 @@ using undancer.Commons;
 namespace undancer.LogicCritterCountSensorExt
 {
     [HarmonyPatch(typeof(LogicCritterCountSensor), "OnSpawn")]
-    public class LogicCritterCountSensorOnSpawnPatch
+    public static class LogicCritterCountSensorOnSpawnPatch
     {
         public static void Postfix(LogicCritterCountSensor __instance)
         {
