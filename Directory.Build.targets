@@ -42,10 +42,10 @@
             -->
             <PoFiles Include="$(ProjectDir)\**\*.po"/>
         </ItemGroup>
-
-        <!-- 
-                <Copy SourceFiles="@(PoFiles)" DestinationFiles="@(PoFiles->'$(InstallFolder)\strings\%(RecursiveDir)%(Filename)%(Extension)')"/>
--->
+        
+        <!--
+        <Copy SourceFiles="@(PoFiles)" DestinationFiles="@(PoFiles->'$(InstallFolder)\strings\%(RecursiveDir)%(Filename)%(Extension)')"/>
+        -->
         <Copy SourceFiles="@(PoFiles)" DestinationFiles="@(PoFiles->'$(InstallFolder)\strings\%(Filename)%(Extension)')"/>
 
         <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(InstallFolder)\$(TargetFileName)"/>
