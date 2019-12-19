@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary8", "ClassLibra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "Commons\Commons.csproj", "{5D45BE6C-B00B-497D-955B-67998974B712}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary10", "ClassLibrary10\ClassLibrary10.csproj", "{854D419E-7172-41B7-A4D7-ED8C50106C9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,5 +69,9 @@ Global
 		{5D45BE6C-B00B-497D-955B-67998974B712}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D45BE6C-B00B-497D-955B-67998974B712}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D45BE6C-B00B-497D-955B-67998974B712}.Release|Any CPU.Build.0 = Release|Any CPU
+		{854D419E-7172-41B7-A4D7-ED8C50106C9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{854D419E-7172-41B7-A4D7-ED8C50106C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{854D419E-7172-41B7-A4D7-ED8C50106C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{854D419E-7172-41B7-A4D7-ED8C50106C9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
