@@ -1,4 +1,5 @@
 using Harmony;
+using STRINGS;
 using undancer.Commons;
 
 namespace undancer.SelectLastCarePackage.patches
@@ -10,7 +11,11 @@ namespace undancer.SelectLastCarePackage.patches
         {
             if (ModUtils.HasRefreshMod()) return;
             __instance.GetField<KButton>("rejectButton")
-                .SetText(Languages.REROLL);
+                .SetText(
+                    Localization.GetLocale() != null &&
+                    Localization.GetLocale().Lang == Localization.Language.Chinese ? 
+                        Languages.REROLL :UI.IMMIGRANTSCREEN.SHUFFLE
+                );
         }
     }
 }
