@@ -574,5 +574,3 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/unity,linux,macos,windows,intellij+all,visualstudio,visualstudiocode
-
-**/AssemblyInfo.cs
