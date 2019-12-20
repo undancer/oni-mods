@@ -1,8 +1,25 @@
+using System;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
+using UnityEngine.UI;
 
 namespace ClassLibrary10
 {
+
+    public static class StringExt
+    {
+        public static string ToUnderscore(this string str)
+        {
+            var output = Regex.Replace(str, "([A-Z])", "_$1").ToLower();
+            if (output.StartsWith("_"))
+            {
+                output = output.Substring(1);
+            }
+            return output;
+        }
+    }
     public static class Texture2DExtensions
     {
         public static Texture2D CropTexture(this Texture2D pSource, int left, int top, int width, int height)
@@ -51,7 +68,7 @@ namespace ClassLibrary10
             var texture = new Texture2D(width, height);
             texture.ReadPixels(new Rect(left, top, width, height), 0, 0);
             texture.Apply();
-            
+
             RenderTexture.active = previous;
             RenderTexture.ReleaseTemporary(rt);
             return texture;
@@ -74,8 +91,9 @@ namespace ClassLibrary10
                     var pColor = source.GetPixel(x, y);
                     Color newColor;
 
-                    Debug.Log("x: " + x + " y: " + y + " -> " + pColor);
-                    if (Color.white.CompareRGB(pColor))
+//                    Debug.Log("x: " + x + " y: " + y + " -> " + pColor.ToHexString() + " | " + pColor.gamma.ToHexString() + " | " + pColor.linear.ToHexString());
+//                    if (Color.white.CompareRGB(pColor))
+                    if (pColor.Compare(Color.white,0.25f))
                     {
                         newColor = color;
                         newColor.a = pColor.a;
@@ -115,6 +133,18 @@ namespace ClassLibrary10
             RenderTexture.ReleaseTemporary(renderTex);
 
             return readableText;
+        }
+
+        public static bool Compare(this Color _this, Color _that,float approach = 0.25f)
+        {
+            var _this_ = _this.ToVector3().sqrMagnitude;
+            var _that_ = _that.ToVector3().sqrMagnitude;
+            return (_this_ / _that_) > approach;
+        }
+
+        public static Vector3 ToVector3(this Color color)
+        {
+            return new Vector3(color.r, color.g, color.b);
         }
     }
 }

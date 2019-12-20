@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Harmony;
 using STRINGS;
 using UnityEngine;
@@ -16,31 +17,13 @@ namespace ClassLibrary10
         {
             Debug.Log(" !! Postfix !! ");
 
-            foreach (var camera in Camera.allCameras)
+            foreach (var element in ElementLoader.elements.Where(element => !element.IsVacuum))
             {
-                Debug.Log(camera);
-            }
-
-            foreach (var element in ElementLoader.elements)
-            {
-                if (element.tag.Name != "LiquidOxygen")
-                {
-                    continue;
-                }
-
                 try
                 {
                     var image = new CodexImage(32, 32, Def.GetUISprite(element));
                     var sprite = image.sprite;
                     var color = image.color;
-                    Debug.Log(element.name);
-                    Debug.Log(element.IsSolid);
-                    Debug.Log(element.IsLiquid);
-                    Debug.Log(element.IsGas);
-                    Debug.Log(element.tag.Name);
-                    Debug.Log(sprite.name);
-                    Debug.Log(color);
-                    Debug.Log(sprite.texture.format);
 
                     var r = sprite.textureRect;
                     var texture = sprite.texture.DeCompress();
@@ -65,10 +48,14 @@ namespace ClassLibrary10
                         texture = texture2D;
                     }
 
-                    texture = texture.FillTexture(color);
+                    if (!color.Equals(Color.white))
+                    {
+                        texture = texture.FillTexture(color);
+                    }
+
 
                     var data = texture.EncodeToPNG();
-                    var path = Path.Combine("/Users/undancer/oni", element.tag.Name + ".png");
+                    var path = Path.Combine("/Users/undancer/oni", element.tag.Name.ToUnderscore() + ".png");
                     File.WriteAllBytes(path, data);
 
                     //    var path = Path.Combine("/Users/undancer/oni",                 texture.name + ".png");
