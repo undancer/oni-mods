@@ -1,6 +1,4 @@
-
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace ClassLibrary10
 {
@@ -15,16 +13,15 @@ namespace ClassLibrary10
                 camera.Render();
 
                 GameObject o = new GameObject();
-                Image image =                 o.FindOrAddUnityComponent<Image>();
+                var image = o.FindOrAddUnityComponent<UnityEngine.UI.Image>();
                 image.fillCenter = true;
-                
+
 //                Graphics.DrawTexture();
-                
-                RenderTexture p =                 RenderTexture.active;
+
+                RenderTexture p = RenderTexture.active;
                 RenderTexture.active = rt;
-                
-                Texture2D ss = new Texture2D(100,100);
-                
+
+                Texture2D ss = new Texture2D(100, 100);
             }
         }
     }

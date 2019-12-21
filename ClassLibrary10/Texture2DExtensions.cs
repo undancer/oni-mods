@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 namespace ClassLibrary10
 {
-
     public static class StringExt
     {
         public static string ToUnderscore(this string str)
@@ -17,9 +16,11 @@ namespace ClassLibrary10
             {
                 output = output.Substring(1);
             }
+
             return output;
         }
     }
+
     public static class Texture2DExtensions
     {
         public static Texture2D CropTexture(this Texture2D pSource, int left, int top, int width, int height)
@@ -93,7 +94,7 @@ namespace ClassLibrary10
 
 //                    Debug.Log("x: " + x + " y: " + y + " -> " + pColor.ToHexString() + " | " + pColor.gamma.ToHexString() + " | " + pColor.linear.ToHexString());
 //                    if (Color.white.CompareRGB(pColor))
-                    if (pColor.Compare(Color.white,0.25f))
+                    if (pColor.Compare(Color.white, 0.25f))
                     {
                         newColor = color;
                         newColor.a = pColor.a;
@@ -135,7 +136,7 @@ namespace ClassLibrary10
             return readableText;
         }
 
-        public static bool Compare(this Color _this, Color _that,float approach = 0.25f)
+        public static bool Compare(this Color _this, Color _that, float approach = 0.25f)
         {
             var _this_ = _this.ToVector3().sqrMagnitude;
             var _that_ = _that.ToVector3().sqrMagnitude;
