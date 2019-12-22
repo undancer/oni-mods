@@ -12,21 +12,23 @@ namespace CodexProbe
         {
             Debug.Log("GenerateBuildingEntries");
             const string prefix = "BUILD_CATEGORY_";
-            foreach (var planInfo in TUNING.BUILDINGS.PLANORDER)
+            foreach (var info in TUNING.BUILDINGS.PLANORDER)
             {
-                var category = HashCache.Get().Get(planInfo.category);
+                var category = HashCache.Get().Get(info.category);
                 var linkId = CodexCache.FormatLinkID(prefix + category);
-                var buildings = (List<string>) planInfo.data;
+                var buildings = (List<string>) info.data;
                 foreach (var building in buildings)
                 {
                     var buildingDef = Assets.GetBuildingDef(building);
+                    var name = buildingDef.PrefabID;
 //                    var json = JsonConvert.SerializeObject(buildingDef, Formatting.Indented);
 
-                    Debug.Log("DEF " + buildingDef.PrefabID);
-                    Debug.Log("DEF " + buildingDef.PrefabID.ToUpper());
-                    Debug.Log("DEF " + buildingDef.name);
-                    
-                    buildingDef.SaveImage();
+                    ImageUtils.SaveImage(new Image
+                    {
+                        prefixes = new[] {"ASSETS/BUILDINGS", name.ToUpper()},
+                        sprite = buildingDef.GetUISprite(),
+                        color = Color.white,
+                    });
                 }
             }
         }
