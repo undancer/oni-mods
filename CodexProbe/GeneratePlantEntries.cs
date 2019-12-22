@@ -19,10 +19,7 @@ namespace CodexProbe
             {
                 var name = go.PrefabID().ToString();
 
-                if (cache.Contains(name))
-                {
-                    continue;
-                }
+                if (cache.Contains(name)) continue;
 
                 cache.Add(name);
 
@@ -33,6 +30,21 @@ namespace CodexProbe
                     prefixes = new[] {"ASSETS/PLANTS", name.ToUpper()},
                     sprite = sprite,
                     color = Color.white
+                });
+
+                var seedProducer = go.GetComponent<SeedProducer>();
+                if (seedProducer == null) continue;
+                var seedGo = Assets.GetPrefab(seedProducer.seedInfo.seedId);
+                var seedName = seedGo.PrefabID().ToString();
+                var seedTuple = Def.GetUISprite(seedGo);
+                var seedSprite = seedTuple.first;
+                var seedColor = seedTuple.second;
+
+                ImageUtils.SaveImage(new Image
+                {
+                    prefixes = new[] {"ASSETS/PLANTS", seedName.ToUpper()},
+                    sprite = seedSprite,
+                    color = seedColor
                 });
             }
         }
