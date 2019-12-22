@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary8", "ClassLibra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "Commons\Commons.csproj", "{5D45BE6C-B00B-497D-955B-67998974B712}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary10", "ClassLibrary10\ClassLibrary10.csproj", "{854D419E-7172-41B7-A4D7-ED8C50106C9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodexProbe", "CodexProbe\CodexProbe.csproj", "{854D419E-7172-41B7-A4D7-ED8C50106C9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
