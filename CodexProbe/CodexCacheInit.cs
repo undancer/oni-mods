@@ -3,7 +3,7 @@ using Harmony;
 namespace CodexProbe
 {
     //    GeneratePageNotFound
-    
+
     [HarmonyPatch(typeof(CodexCache), nameof(CodexCache.CodexCacheInit))]
     public static class CodexCacheInit
     {

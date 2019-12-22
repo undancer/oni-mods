@@ -177,7 +177,7 @@ namespace CodexProbe
 
             return list;
         }
-        
+
         public static void Postfix()
         {
             Debug.Log(" !! Postfix !! ");
