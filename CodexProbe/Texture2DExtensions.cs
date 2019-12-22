@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 
-namespace ClassLibrary10
+namespace CodexProbe
 {
     public static class StringExt
     {

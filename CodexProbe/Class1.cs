@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using Harmony;
 using UnityEngine;
 
-namespace ClassLibrary10
+namespace CodexProbe
 {
     public class Image
     {

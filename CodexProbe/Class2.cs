@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ClassLibrary10
+namespace CodexProbe
 {
     public class Class2
     {
