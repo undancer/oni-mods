@@ -11,10 +11,10 @@ namespace CodexProbe
         {
             Debug.Log("GeneratePlantEntries");
             var cache = new List<string>();
-            
+
             var prefabsWithComponent = Assets.GetPrefabsWithComponent<Harvestable>();
             prefabsWithComponent.AddRange(Assets.GetPrefabsWithComponent<WiltCondition>());
-          
+
             foreach (var go in prefabsWithComponent)
             {
                 var name = go.PrefabID().ToString();

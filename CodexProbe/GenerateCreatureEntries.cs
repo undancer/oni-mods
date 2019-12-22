@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Harmony;
 using UnityEngine;
 
@@ -33,12 +32,12 @@ namespace CodexProbe
                                 color = Color.white,
                             });
                         }
-                        
+
                         var sprite = Def.GetUISprite(go).first;
 
                         ImageUtils.SaveImage(new Image
                         {
-                            prefixes = new[] {"ASSETS/CREATURES/SPECIES", species.ToUpper(), name.ToUpper() },
+                            prefixes = new[] {"ASSETS/CREATURES/SPECIES", species.ToUpper(), name.ToUpper()},
                             sprite = sprite,
                             color = Color.white,
                         });

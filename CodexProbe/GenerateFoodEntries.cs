@@ -1,4 +1,5 @@
 using Harmony;
+using TUNING;
 using UnityEngine;
 
 namespace CodexProbe
@@ -9,7 +10,7 @@ namespace CodexProbe
         public static void Postfix()
         {
             Debug.Log("GenerateFoodEntries");
-            foreach (var info in TUNING.FOOD.FOOD_TYPES_LIST)
+            foreach (var info in FOOD.FOOD_TYPES_LIST)
             {
                 var name = info.Id;
                 var sprite = Def.GetUISprite(info.ConsumableId).first;

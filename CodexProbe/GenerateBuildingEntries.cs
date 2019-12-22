@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Harmony;
-using Newtonsoft.Json;
+using TUNING;
 using UnityEngine;
 
 namespace CodexProbe
@@ -12,7 +12,7 @@ namespace CodexProbe
         {
             Debug.Log("GenerateBuildingEntries");
             const string prefix = "BUILD_CATEGORY_";
-            foreach (var info in TUNING.BUILDINGS.PLANORDER)
+            foreach (var info in BUILDINGS.PLANORDER)
             {
                 var category = HashCache.Get().Get(info.category);
                 var linkId = CodexCache.FormatLinkID(prefix + category);

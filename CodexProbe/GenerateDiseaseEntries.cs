@@ -13,7 +13,7 @@ namespace CodexProbe
             {
                 if (resource.Disabled) continue;
                 var name = resource.Id;
-                var sprite = Assets.GetSprite( "overlay_disease");
+                var sprite = Assets.GetSprite("overlay_disease");
                 ImageUtils.SaveImage(new Image
                 {
                     prefixes = new[] {"ASSETS/DISEASE", name.ToUpper()},
