@@ -17,7 +17,7 @@ namespace CodexProbe
 
                 ImageUtils.SaveImage(new Image
                 {
-                    prefixes = new[] {"ASSETS/ITEMS/FOOD", name.ToUpper()},
+                    prefixes = new[] {"ASSETS/FOOD", name.ToUpper()},
                     sprite = sprite,
                     color = Color.white
                 });

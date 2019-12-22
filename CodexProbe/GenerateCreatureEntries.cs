@@ -27,7 +27,7 @@ namespace CodexProbe
 
                             ImageUtils.SaveImage(new Image
                             {
-                                prefixes = new[] {"ASSETS/CREATURES/SPECIES", species.ToUpper(), prefabName.ToUpper()},
+                                prefixes = new[] {"ASSETS/CREATURES", species.ToUpper(), prefabName.ToUpper()},
                                 sprite = prefabSprite,
                                 color = Color.white,
                             });
@@ -37,7 +37,7 @@ namespace CodexProbe
 
                         ImageUtils.SaveImage(new Image
                         {
-                            prefixes = new[] {"ASSETS/CREATURES/SPECIES", species.ToUpper(), name.ToUpper()},
+                            prefixes = new[] {"ASSETS/CREATURES", species.ToUpper(), name.ToUpper()},
                             sprite = sprite,
                             color = Color.white,
                         });

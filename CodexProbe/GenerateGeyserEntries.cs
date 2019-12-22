@@ -25,7 +25,7 @@ namespace CodexProbe
 
                     ImageUtils.SaveImage(new Image
                     {
-                        prefixes = new[] {"ASSETS/CREATURES/SPECIES/GEYSERS", name.ToUpper()},
+                        prefixes = new[] {"ASSETS/CREATURES/GEYSERS", name.ToUpper()},
                         sprite = sprite,
                         color = Color.white
                     });
