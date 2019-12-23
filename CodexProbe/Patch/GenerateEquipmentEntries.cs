@@ -2,7 +2,7 @@ using System.Linq;
 using Harmony;
 using UnityEngine;
 
-namespace CodexProbe
+namespace CodexProbe.Patch
 {
     [HarmonyPatch(typeof(CodexEntryGenerator), nameof(CodexEntryGenerator.GenerateEquipmentEntries))]
     public static class GenerateEquipmentEntries

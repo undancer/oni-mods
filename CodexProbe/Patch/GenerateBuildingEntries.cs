@@ -4,7 +4,7 @@ using Harmony;
 using TUNING;
 using UnityEngine;
 
-namespace CodexProbe
+namespace CodexProbe.Patch
 {
     [HarmonyPatch(typeof(CodexEntryGenerator), nameof(CodexEntryGenerator.GenerateBuildingEntries))]
     public static class GenerateBuildingEntries

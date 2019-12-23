@@ -1,7 +1,7 @@
 using Harmony;
 using UnityEngine;
 
-namespace CodexProbe
+namespace CodexProbe.Patch
 {
     [HarmonyPatch(typeof(CodexEntryGenerator), nameof(CodexEntryGenerator.GenerateRoleEntries))]
     public static class GenerateRoleEntries
