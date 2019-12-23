@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CodexProbe.Patch
 {
-    [HarmonyPatch(typeof(CodexEntryGenerator), nameof(CodexEntryGenerator.GeneratePlantEntries))]
+//    [HarmonyPatch(typeof(CodexEntryGenerator), nameof(CodexEntryGenerator.GeneratePlantEntries))]
     public static class GeneratePlantEntries
     {
         public static void Postfix()

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CodexProbe.Patch
 {
-    [HarmonyPatch(typeof(CodexEntryGenerator), nameof(CodexEntryGenerator.GenerateCreatureEntries))]
+//    [HarmonyPatch(typeof(CodexEntryGenerator), nameof(CodexEntryGenerator.GenerateCreatureEntries))]
     public static class GenerateCreatureEntries
     {
         public static void Postfix()

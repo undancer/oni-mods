@@ -2,7 +2,7 @@ using Harmony;
 
 namespace CodexProbe.Patch
 {
-    [HarmonyPatch(typeof(CodexEntryGenerator), nameof(CodexEntryGenerator.GenerateDiseaseEntries))]
+//    [HarmonyPatch(typeof(CodexEntryGenerator), nameof(CodexEntryGenerator.GenerateDiseaseEntries))]
     public static class GenerateDiseaseEntries
     {
         public static void Postfix()

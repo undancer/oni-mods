@@ -6,7 +6,7 @@ namespace CodexProbe.Patch
 {
     //    GeneratePageNotFound
 
-    [HarmonyPatch(typeof(CodexCache), nameof(CodexCache.CodexCacheInit))]
+//    [HarmonyPatch(typeof(CodexCache), nameof(CodexCache.CodexCacheInit))]
     public static class CodexCacheInit
     {
         public static void Prefix()
