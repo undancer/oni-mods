@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Harmony;
 using UnityEngine;
 
@@ -52,6 +54,33 @@ namespace CodexProbe
                 ImageUtils.SaveImage(new Image
                 {
                     prefixes = new[] {"ASSETS/ELEMENTS", state.ToUpper(), name.ToUpper()},
+                    sprite = sprite,
+                    color = color,
+                });
+            }
+
+            GenerateIndustrialProductEntries();
+        }
+
+        public static void GenerateIndustrialProductEntries()
+        {
+            var list = new List<GameObject>();
+            list.AddRange(Assets.GetPrefabsWithTag(GameTags.IndustrialIngredient));
+            list.AddRange(Assets.GetPrefabsWithTag(GameTags.IndustrialProduct));
+            list.AddRange(Assets.GetPrefabsWithTag(GameTags.Medicine));
+            list.AddRange(Assets.GetPrefabsWithTag(GameTags.MedicalSupplies));
+            list = list.Distinct().ToList();
+
+            foreach (var go in list)
+            {
+                var name = go.PrefabID().ToString();
+                var tuple = Def.GetUISprite(go);
+                var sprite = tuple.first;
+                var color = tuple.second;
+
+                ImageUtils.SaveImage(new Image
+                {
+                    prefixes = new[] {"ASSETS/ITEMS/INDUSTRIAL_PRODUCTS", name.ToUpper()},
                     sprite = sprite,
                     color = color,
                 });
