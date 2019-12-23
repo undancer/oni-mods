@@ -6,8 +6,14 @@ using UnityEngine;
 namespace CodexProbe
 {
     [HarmonyPatch(typeof(CodexEntryGenerator), nameof(CodexEntryGenerator.GenerateElementEntries))]
-    public static class GenerateElementEntries
+    public static class CodexEntryGeneratorGenerateElementEntriesPatch
     {
+        public static void Postfix()
+        {
+            Debug.Log("GenerateElementEntries");
+            GenerateElementEntries();
+            GenerateIndustrialProductEntries();
+        }
         public static string GetStateString(Element.State state)
         {
             switch (state & Element.State.Solid)
@@ -23,9 +29,8 @@ namespace CodexProbe
             }
         }
 
-        public static void Postfix()
+        public static void GenerateElementEntries()
         {
-            Debug.Log("GenerateElementEntries");
             foreach (var element in ElementLoader.elements)
             {
                 if (element.disabled) continue;
@@ -58,8 +63,6 @@ namespace CodexProbe
                     color = color,
                 });
             }
-
-            GenerateIndustrialProductEntries();
         }
 
         public static void GenerateIndustrialProductEntries()
