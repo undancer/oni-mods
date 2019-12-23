@@ -1,9 +1,8 @@
-using System;
 using System.IO;
 using Harmony;
 using UnityEngine;
 
-namespace CodexProbe
+namespace CodexProbe.Patch
 {
     //    GeneratePageNotFound
 

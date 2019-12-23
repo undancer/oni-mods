@@ -5,7 +5,7 @@ using Harmony;
 
 namespace CodexProbe
 {
-    [HarmonyPatch(typeof(CodexScreen), "OnActivate")]
+//    [HarmonyPatch(typeof(CodexScreen), "OnActivate")]
     public class Class1
     {
         public static bool log = false;
