@@ -34,7 +34,8 @@ namespace CodexProbe
             }
 
             GenerateRecipeEntries();
-//            GenerateArtifactEntries();
+            // GenerateArtifactEntries();
+            GenerateBuildingOtherEntries();
         }
 
         public static void GenerateRecipeEntries()
@@ -50,6 +51,7 @@ namespace CodexProbe
                 {
                     elementSet.Add(recipeElement.material);
                 }
+
                 // 制品
                 foreach (var recipeElement in recipe.results)
                 {
@@ -84,10 +86,49 @@ namespace CodexProbe
                 var tuple = Def.GetUISprite(go);
                 var sprite = tuple.first;
                 var color = tuple.second;
-                
+
                 ImageUtils.SaveImage(new Image
                 {
                     prefixes = new[] {"ASSETS/ARTIFACTS", name.ToUpper()},
+                    sprite = sprite,
+                    color = color,
+                });
+            }
+        }
+
+        public static void GenerateBuildingOtherEntries()
+        {
+            var properNames = (Dictionary<Tag, string>) AccessTools
+                .Field(typeof(TagManager), "ProperNames")
+                .GetValue(null);
+            var buildingList = properNames.Select(pair => pair.Key.Name)
+                .Where(proper =>
+                    proper.StartsWith("POI") ||
+                    proper.StartsWith("Prop") ||
+                    proper.Equals(FacilityBackWallWindowConfig.ID) ||
+                    proper.Equals(GenericFabricatorConfig.ID) ||
+                    proper.Equals(HeadquartersConfig.ID) ||
+                    proper.Equals(MassiveHeatSinkConfig.ID) ||
+                    proper.Equals(MachineShopConfig.ID) ||
+                    proper.Equals("GeneShuffler") ||
+                    proper.Equals("SetLocker")
+                )
+                .Where(proper => proper != "Propane") // 不理想的做法
+                .Distinct()
+                .ToList();
+
+            foreach (var building in buildingList)
+            {
+                var name = building;
+                var go = ((Tag) building).Prefab();
+
+                var tuple = Def.GetUISprite(go);
+                var sprite = tuple.first;
+                var color = tuple.second;
+
+                ImageUtils.SaveImage(new Image
+                {
+                    prefixes = new[] {"ASSETS/BUILDING_OTHERS", name.ToUpper()},
                     sprite = sprite,
                     color = color,
                 });

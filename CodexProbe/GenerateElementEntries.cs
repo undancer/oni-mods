@@ -69,6 +69,7 @@ namespace CodexProbe
             list.AddRange(Assets.GetPrefabsWithTag(GameTags.IndustrialProduct));
             list.AddRange(Assets.GetPrefabsWithTag(GameTags.Medicine));
             list.AddRange(Assets.GetPrefabsWithTag(GameTags.MedicalSupplies));
+            list.Add(Assets.GetPrefab(MachinePartsConfig.TAG));
             list = list.Distinct().ToList();
 
             foreach (var go in list)

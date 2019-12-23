@@ -22,6 +22,28 @@ namespace CodexProbe
                     color = Color.white
                 });
             }
+
+            var list = new[]
+            {
+                RotPileConfig.ID,
+            };
+
+            foreach (var item in list)
+            {
+                var name = item;
+                var go = ((Tag) item).Prefab();
+
+                var tuple = Def.GetUISprite(go);
+                var sprite = tuple.first;
+                var color = tuple.second;
+
+                ImageUtils.SaveImage(new Image
+                {
+                    prefixes = new[] {"ASSETS/FOOD", name.ToUpper()},
+                    sprite = sprite,
+                    color = color,
+                });
+            }
         }
     }
 }
