@@ -14,11 +14,12 @@ namespace CodexProbe
                 if (resource.Disabled) continue;
                 var name = resource.Id;
                 var sprite = Assets.GetSprite("overlay_disease");
+                var color = resource.overlayColour;
                 ImageUtils.SaveImage(new Image
                 {
                     prefixes = new[] {"ASSETS/DISEASE", name.ToUpper()},
                     sprite = sprite,
-                    color = Color.white,
+                    color = color,
                 });
             }
         }
