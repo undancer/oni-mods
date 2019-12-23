@@ -34,7 +34,7 @@ namespace CodexProbe
             }
 
             GenerateRecipeEntries();
-            GenerateArtifactEntries();
+//            GenerateArtifactEntries();
         }
 
         public static void GenerateRecipeEntries()
