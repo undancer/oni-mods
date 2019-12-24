@@ -7,15 +7,8 @@ namespace CodexProbe.Patch
     //    GeneratePageNotFound
 
 //    [HarmonyPatch(typeof(CodexCache), nameof(CodexCache.CodexCacheInit))]
-    public static class CodexCacheInit
+    public static class CodexCacheInitPostfixPatch
     {
-        public static void Prefix()
-        {
-            Debug.Log("CodexCacheInit");
-
-            Directory.Delete("/Users/undancer/oni", true);
-        }
-
         public static void Postfix()
         {
             Debug.Log("CodexCacheInit");

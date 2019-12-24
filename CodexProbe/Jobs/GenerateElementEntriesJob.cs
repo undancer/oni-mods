@@ -53,10 +53,10 @@ namespace CodexProbe.Jobs
                         break;
                 }
 
-//                        var sprite = tuple.first;
-//                        var color = tuple.second;
+                        var sprite = tuple.first;
+                        var color = tuple.second;
 
-//                        SaveImage(new[] {"ASSETS/ELEMENTS", state.ToUpper(), name.ToUpper()},sprite,color);
+                        SaveImage(new[] {"ASSETS/ELEMENTS", state.ToUpper(), name.ToUpper()},sprite,color);
             }
 
             WriteJson(new[] {"json", "elements"}, elements);
