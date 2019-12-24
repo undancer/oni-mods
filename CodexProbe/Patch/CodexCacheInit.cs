@@ -25,8 +25,8 @@ namespace CodexProbe.Patch
                 var sprite = keyValuePair.Value;
                 var name = sprite.name;
 
-                if (name.StartsWith("action_") 
-                    || name.StartsWith("arrow_")  
+                if (name.StartsWith("action_")
+                    || name.StartsWith("arrow_")
                     || name.StartsWith("asteroid_")
                     || name.StartsWith("Asteroid_")
                     || name.StartsWith("attribute_")
@@ -51,14 +51,14 @@ namespace CodexProbe.Patch
                     || name.StartsWith("ui_icon_")
                     || name.EndsWith("Icon")
                     || name.EndsWith("logo")
-                    )
+                )
                 {
                     ImageUtils.SaveImage(new Image
                     {
                         prefixes = new[] {"ASSETS/ICONS", name},
                         sprite = sprite,
                         color = Color.white,
-                    });    
+                    });
                 }
                 else
                 {
