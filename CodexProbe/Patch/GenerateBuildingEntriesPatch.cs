@@ -1,15 +1,25 @@
 using System.Collections.Generic;
 using System.Linq;
+using CodexProbe.Jobs;
 using Harmony;
 using TUNING;
 using UnityEngine;
 
 namespace CodexProbe.Patch
 {
-//    [HarmonyPatch(typeof(CodexEntryGenerator), nameof(CodexEntryGenerator.GenerateBuildingEntries))]
-    public static class GenerateBuildingEntries
+    [HarmonyPatch(typeof(CodexEntryGenerator), nameof(CodexEntryGenerator.GenerateBuildingEntries))]
+    public static class GenerateBuildingEntriesPatch
     {
         public static void Postfix()
+        {
+            GenerateBuildingEntriesJob.GenerateBuildingEntries();
+//            GenerateBuildingEntries();
+            GenerateRecipeEntries();
+            // GenerateArtifactEntries();
+//            GenerateBuildingOtherEntries();
+        }
+
+        public static void GenerateBuildingEntries()
         {
             Debug.Log("GenerateBuildingEntries");
             const string prefix = "BUILD_CATEGORY_";
@@ -32,10 +42,6 @@ namespace CodexProbe.Patch
                     });
                 }
             }
-
-            GenerateRecipeEntries();
-            // GenerateArtifactEntries();
-            GenerateBuildingOtherEntries();
         }
 
         public static void GenerateRecipeEntries()
