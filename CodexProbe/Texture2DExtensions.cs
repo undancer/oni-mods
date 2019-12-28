@@ -90,7 +90,7 @@ namespace CodexProbe
 
 //                    Debug.Log("x: " + x + " y: " + y + " -> " + pColor.ToHexString() + " | " + pColor.gamma.ToHexString() + " | " + pColor.linear.ToHexString());
 //                    if (Color.white.CompareRGB(pColor))
-                    if (pColor.Compare(Color.white, 0.25f))
+                    if (pColor.Compare(Color.white, 0.05f))
                     {
                         newColor = color;
                         newColor.a = pColor.a;
