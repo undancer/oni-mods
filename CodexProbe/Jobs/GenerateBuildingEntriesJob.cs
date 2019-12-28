@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using CodexProbe.Entity;
 using CodexProbe.Patch;
 using UnityEngine;
 
@@ -35,6 +36,8 @@ namespace CodexProbe.Jobs
 
         public static void GenerateBuildingEntries()
         {
+            var buildings = new List<BuildingEntity>();
+
             foreach (var tuple in GetBuildings())
             {
                 var building = tuple.first;
@@ -43,12 +46,15 @@ namespace CodexProbe.Jobs
                 var name = def.PrefabID;
                 var sprite = def.GetUISprite();
                 if (sprite == null) continue;
+                buildings.Add(new BuildingEntity(def,category));
                 SaveImage(
                     new[] {"ASSETS/BUILDINGS", category.ToUpper(), name.ToUpper()},
                     sprite,
                     Color.white
                 );
             }
+            
+            WriteJson(new []{"json","buildings"}, buildings);
         }
     }
 }
