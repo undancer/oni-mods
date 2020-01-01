@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Harmony;
-using undancer.Commons;
+using undancer.Commons.Configuration;
 using undancer.SelectLastCarePackage.config;
 
 namespace undancer.SelectLastCarePackage.patches

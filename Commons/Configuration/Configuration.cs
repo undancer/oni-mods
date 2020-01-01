@@ -2,7 +2,7 @@ using System.IO;
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace undancer.SelectLastCarePackage
+namespace undancer.Commons.Configuration
 {
     public class Configuration<T> where T : IConfiguration, new()
     {

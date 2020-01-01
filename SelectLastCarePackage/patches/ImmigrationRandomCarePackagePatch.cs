@@ -1,5 +1,5 @@
 using Harmony;
-using Newtonsoft.Json.Linq;
+using undancer.Commons.Configuration;
 using undancer.SelectLastCarePackage.config;
 
 namespace undancer.SelectLastCarePackage.patches

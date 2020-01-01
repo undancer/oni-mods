@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using undancer.Commons.Configuration;
 
 namespace undancer.SelectLastCarePackage.config
 {

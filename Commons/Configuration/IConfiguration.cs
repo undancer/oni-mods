@@ -1,4 +1,4 @@
-namespace undancer.SelectLastCarePackage
+namespace undancer.Commons.Configuration
 {
     public interface IConfiguration
     {
