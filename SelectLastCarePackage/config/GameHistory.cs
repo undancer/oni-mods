@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
+using Newtonsoft.Json.Linq;
 
 namespace undancer.SelectLastCarePackage.config
 {
@@ -19,14 +21,25 @@ namespace undancer.SelectLastCarePackage.config
             Histories[cycle] = carePackage;
         }
 
-        public object GetHistory(int cycle)
+        [CanBeNull]
+        public CarePackageInfo GetHistory(int cycle)
         {
-            var value =
-                Histories.Where(pair => cycle > pair.Key)
-                    .OrderByDescending(pair => pair.Key)
-                    .FirstOrDefault()
-                    .Value;
-            return value;
+            var obj = Histories.Where(pair => cycle > pair.Key)
+                .OrderByDescending(pair => pair.Key).FirstOrDefault().Value;
+            if (obj == null) return null;
+            switch (obj)
+            {
+                case JObject j:
+                    return new CarePackageInfo(
+                        j.GetValue("id").Value<string>(),
+                        j.GetValue("quantity").Value<float>(),
+                        null
+                    );
+                case CarePackageInfo info:
+                    return info;
+                default:
+                    return null;
+            }
         }
 
         public void ShrinkHistory(int cycle)
