@@ -12,8 +12,6 @@ namespace undancer.SelectLastCarePackage.patches
         public static void Prefix(List<ITelepadDeliverable> ___selectedDeliverables)
         {
             var selectedDeliverable = ___selectedDeliverables.First();
-
-            //__instance.GetField<List<ITelepadDeliverable>>("selectedDeliverables").First();
             CarePackageInfo selectedCarePackage = null;
             if (selectedDeliverable is CarePackageInfo carePackageInfo) selectedCarePackage = carePackageInfo;
             Configuration<Settings>.Instance.AddHistory(selectedCarePackage);

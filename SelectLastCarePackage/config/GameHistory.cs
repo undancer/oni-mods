@@ -28,5 +28,15 @@ namespace undancer.SelectLastCarePackage.config
                     .Value;
             return value;
         }
+
+        public void ShrinkHistory(int cycle)
+        {
+            foreach (var keyValuePair in Histories.Where(pair => cycle > pair.Key)
+                .OrderByDescending(pair => pair.Key)
+                .Skip(4))
+            {
+                Histories.Remove(keyValuePair.Key);
+            }
+        }
     }
 }

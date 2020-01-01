@@ -38,7 +38,7 @@ namespace undancer.SelectLastCarePackage.config
 
         public void AddHistory(object carePackage)
         {
-            ImmigrantScreenContext.LastSelectedCarePackageInfo = (CarePackageInfo) carePackage;
+//            ImmigrantScreenContext.LastSelectedCarePackageInfo = (CarePackageInfo) carePackage;
             EnsureHistoryExist();
             var cycles = GameUtil.GetCurrentCycle();
             List[_currentIndex].AddHistory(cycles, carePackage);
@@ -55,7 +55,13 @@ namespace undancer.SelectLastCarePackage.config
                 case null:
                     return null;
                 case JObject obj:
-                    return obj.ToObject<CarePackageInfo>();
+                    var carePackageInfo =  new CarePackageInfo(
+                        obj.GetValue("id").Value<string>(),
+                        obj.GetValue("quantity").Value<float>(),
+                        null
+                    );
+                    List[_currentIndex].ShrinkHistory(cycles);
+                    return carePackageInfo;
                 default:
                     return ImmigrantScreenContext.LastSelectedCarePackageInfo;
             }
