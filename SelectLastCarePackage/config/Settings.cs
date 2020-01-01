@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -41,6 +43,14 @@ namespace undancer.SelectLastCarePackage.config
             EnsureHistoryExist();
             var cycles = GameUtil.GetCurrentCycle();
             List[_currentIndex].AddHistory(cycles, carePackage);
+        }
+
+        public void Clean()
+        {
+            var baseNameList = SaveLoader.GetAllFiles()
+                .Select(Path.GetFileNameWithoutExtension)
+                .ToList();
+            List.RemoveAll(history => !baseNameList.Contains(history.BaseName));
         }
 
         [CanBeNull]
