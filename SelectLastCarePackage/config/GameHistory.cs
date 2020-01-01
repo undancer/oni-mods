@@ -46,7 +46,7 @@ namespace undancer.SelectLastCarePackage.config
         {
             foreach (var keyValuePair in Histories.Where(pair => cycle > pair.Key)
                 .OrderByDescending(pair => pair.Key)
-                .Skip(4))
+                .Skip(10))
             {
                 Histories.Remove(keyValuePair.Key);
             }
