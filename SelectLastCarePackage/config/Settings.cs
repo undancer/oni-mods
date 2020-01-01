@@ -38,7 +38,7 @@ namespace undancer.SelectLastCarePackage.config
             }
         }
 
-        public void AddHistory(object carePackage)
+        public void AddHistory(CarePackageInfo carePackage)
         {
             EnsureHistoryExist();
             var cycles = GameUtil.GetCurrentCycle();
@@ -51,6 +51,11 @@ namespace undancer.SelectLastCarePackage.config
                 .Select(Path.GetFileNameWithoutExtension)
                 .ToList();
             List.RemoveAll(history => !baseNameList.Contains(history.BaseName));
+        }
+
+        public void CleanIndex()
+        {
+            _currentIndex = -1;
         }
 
         [CanBeNull]

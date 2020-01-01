@@ -10,7 +10,6 @@ namespace undancer.SelectLastCarePackage.patches
         public static void Postfix()
         {
             Configuration<Settings>.Instance.SkipFlag = false;
-            Debug.Log("新的开始");
         }
     }
 }
