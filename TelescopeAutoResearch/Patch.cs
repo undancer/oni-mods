@@ -26,7 +26,7 @@ namespace undancer.TelescopeAutoResearch
                     SpacecraftManager.DestinationAnalysisState.Complete)
                     if (dist <= minDist)
                     {
-                        if (completed || prevDist <= 4)
+                        if (completed || prevDist < 4)
                         {
                             if (dist >= prevDist || prevDist == wormhole.distance)
                             {
