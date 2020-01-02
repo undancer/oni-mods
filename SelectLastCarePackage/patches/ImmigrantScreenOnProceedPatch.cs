@@ -7,7 +7,7 @@ using undancer.SelectLastCarePackage.config;
 namespace undancer.SelectLastCarePackage.patches
 {
     [HarmonyPatch(typeof(ImmigrantScreen), "OnProceed")]
-    public static class ImmigrantScreenOnProceedPatch // 按下了按钮
+    public static class ImmigrantScreenOnProceedPatch
     {
         public static void Prefix(List<ITelepadDeliverable> ___selectedDeliverables)
         {
@@ -15,6 +15,7 @@ namespace undancer.SelectLastCarePackage.patches
             CarePackageInfo selectedCarePackage = null;
             if (selectedDeliverable is CarePackageInfo carePackageInfo) selectedCarePackage = carePackageInfo;
             Configuration<Settings>.Instance.AddHistory(selectedCarePackage);
+            Configuration<Settings>.Instance.SkipFlag = false; 
             Configuration<Settings>.Instance.Clean();
             Configuration<Settings>.Save();
         }

@@ -12,7 +12,7 @@ namespace undancer.SelectLastCarePackage.config
         public List<GameHistory> List { get; set; } = new List<GameHistory>();
 
         [JsonIgnore] private int _currentIndex = -1;
-        [JsonIgnore] public bool SkipFlag { get; set; }
+        [JsonIgnore] public bool SkipFlag { get; set; } = false;
 
         public void InitializeDefaultValues()
         {

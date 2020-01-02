@@ -4,12 +4,12 @@ using undancer.SelectLastCarePackage.config;
 
 namespace undancer.SelectLastCarePackage.patches
 {
-    [HarmonyPatch(typeof(ImmigrantScreen), nameof(ImmigrantScreen.InitializeImmigrantScreen))]
+//    [HarmonyPatch(typeof(ImmigrantScreen), nameof(ImmigrantScreen.InitializeImmigrantScreen))]
     public static class ImmigrantScreenInitializeImmigrantScreenPatch
     {
         public static void Postfix()
         {
-            Configuration<Settings>.Instance.SkipFlag = false;
+//            Configuration<Settings>.Instance.SkipFlag = false;
         }
     }
 }
