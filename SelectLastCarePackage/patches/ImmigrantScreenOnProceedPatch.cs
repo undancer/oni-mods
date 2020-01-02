@@ -15,7 +15,7 @@ namespace undancer.SelectLastCarePackage.patches
             CarePackageInfo selectedCarePackage = null;
             if (selectedDeliverable is CarePackageInfo carePackageInfo) selectedCarePackage = carePackageInfo;
             Configuration<Settings>.Instance.AddHistory(selectedCarePackage);
-            Configuration<Settings>.Instance.SkipFlag = false; 
+            Configuration<Settings>.Instance.SkipFlag = false;
             Configuration<Settings>.Instance.Clean();
             Configuration<Settings>.Save();
         }

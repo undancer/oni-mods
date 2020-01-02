@@ -18,7 +18,10 @@ namespace undancer.SelectLastCarePackage.config
 
         public void AddHistory(int cycle, CarePackageInfo carePackage)
         {
-            Histories[cycle] = new CarePackageInfo(carePackage.id, carePackage.quantity, null);
+            if (carePackage != null)
+            {
+                Histories[cycle] = new CarePackageInfo(carePackage.id, carePackage.quantity, null);
+            }
         }
 
         [CanBeNull]
