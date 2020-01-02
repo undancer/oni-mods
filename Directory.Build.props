@@ -32,6 +32,9 @@
         <Reference Include="Assembly-CSharp-firstpass">
             <HintPath>$(GameFolder)/Assembly-CSharp-firstpass.dll</HintPath>
         </Reference>
+        <Reference Include="Newtonsoft.Json">
+            <HintPath>$(GameFolder)/Newtonsoft.Json.dll</HintPath>
+        </Reference>
         <Reference Include="UnityEngine">
             <HintPath>$(GameFolder)/UnityEngine.dll</HintPath>
         </Reference>
