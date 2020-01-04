@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -27,17 +28,37 @@ namespace undancer.SelectLastCarePackage.config
         [CanBeNull]
         public CarePackageInfo GetHistory(int cycle)
         {
-            var obj = Histories.Where(pair => cycle > pair.Key)
-                .OrderByDescending(pair => pair.Key).FirstOrDefault().Value;
+            object obj;
+            try
+            {
+                obj = Histories.Where(pair => cycle > pair.Key)
+                    .OrderByDescending(pair => pair.Key)
+                    .FirstOrDefault()
+                    .Value;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+                obj = null;
+            }
+
             if (obj == null) return null;
             switch (obj)
             {
                 case JObject j:
-                    return new CarePackageInfo(
-                        j.GetValue("id").Value<string>(),
-                        j.GetValue("quantity").Value<float>(),
-                        null
-                    );
+                    try
+                    {
+                        return new CarePackageInfo(
+                            j.GetValue("id").Value<string>(),
+                            j.GetValue("quantity").Value<float>(),
+                            null
+                        );
+                    }
+                    catch (ArgumentOutOfRangeException e)
+                    {
+                        Debug.LogError(e);
+                        return null;
+                    }
                 case CarePackageInfo info:
                     return info;
                 default:
