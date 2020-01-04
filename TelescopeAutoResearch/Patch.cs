@@ -19,14 +19,16 @@ namespace undancer.TelescopeAutoResearch
             return color ?? "FFC107";
         }
 
-        public static Notification GetNotification(this SpaceDestinationType type, string group = "SDT")
+        public static Notification GetNotification(this SpaceDestinationType type,
+            NotificationType notificationType = NotificationType.Good,
+            string group = "SDT")
         {
             var color = type.GetNotificationColor();
             var title = string.Format(STRINGS.UI.STARMAP.ANALYSIS_AMOUNT.text,
                 $" <color=#{color}><b>{type.Name}</b></color>");
             var notification = new Notification(
                 title,
-                NotificationType.Good,
+                notificationType,
                 group,
                 (list, o) => type.description);
             return notification;
@@ -86,7 +88,7 @@ namespace undancer.TelescopeAutoResearch
 
             var notifier = instance.FindOrAddComponent<Notifier>();
             var destinationType = instance.GetDestination(previous).GetDestinationType();
-            notifier.Add(destinationType.GetNotification("SpaceHook"));
+            notifier.Add(destinationType.GetNotification(group: "SpaceHook"));
         }
     }
 
@@ -103,5 +105,4 @@ namespace undancer.TelescopeAutoResearch
             );
         }
     }
-
 }
