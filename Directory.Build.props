@@ -53,6 +53,13 @@
         <Reference Include="UnityEngine.ImageConversionModule">
             <HintPath>$(GameFolder)/UnityEngine.ImageConversionModule.dll</HintPath>
         </Reference>
+        <Reference Include="UnityEngine.Networking">
+            <HintPath>$(GameFolder)/UnityEngine.Networking.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestModule">
+            <HintPath>$(GameFolder)/UnityEngine.UnityWebRequestModule.dll</HintPath>
+        </Reference>
+
     </ItemGroup>
     
     <ItemGroup Condition="'$(ProjectName)' != 'Commons'">

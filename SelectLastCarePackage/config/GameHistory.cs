@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using JetBrains.Annotations;
 using Newtonsoft.Json.Linq;
+using undancer.Commons;
 
 namespace undancer.SelectLastCarePackage.config
 {
@@ -38,6 +40,7 @@ namespace undancer.SelectLastCarePackage.config
             }
             catch (Exception e)
             {
+                ChatBotUtils.PostException($"{Assembly.GetAssembly(GetType()).GetName().Name},error1", e);
                 Debug.LogError(e);
                 obj = null;
             }
@@ -56,6 +59,7 @@ namespace undancer.SelectLastCarePackage.config
                     }
                     catch (ArgumentOutOfRangeException e)
                     {
+                        ChatBotUtils.PostException($"{Assembly.GetAssembly(GetType()).GetName().Name},error2", e);
                         Debug.LogError(e);
                         return null;
                     }
