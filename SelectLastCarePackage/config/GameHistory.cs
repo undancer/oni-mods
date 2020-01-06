@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
+using Klei;
 using Newtonsoft.Json.Linq;
+using Steamworks;
 using undancer.Commons;
 
 namespace undancer.SelectLastCarePackage.config
 {
     public class GameHistory
     {
-        private Dictionary<int, object> _histories = new Dictionary<int, object>();
+        private Dictionary<int, CarePackage> _histories = new Dictionary<int, CarePackage>();
         public string BaseName { get; set; }
+        
+        public string Version { get; set; }
 
-        public Dictionary<int, object> Histories
+        public Dictionary<int, CarePackage> Histories
         {
             get => _histories;
             set => _histories = value;
@@ -23,48 +27,46 @@ namespace undancer.SelectLastCarePackage.config
         {
             if (carePackage != null)
             {
-                Histories[cycle] = new CarePackageInfo(carePackage.id, carePackage.quantity, null);
+                Version = ModVersion.Version;
+                Histories[cycle] = new CarePackage(carePackage.id, carePackage.quantity);
             }
         }
 
         [CanBeNull]
         public CarePackageInfo GetHistory(int cycle)
         {
-            object obj;
-            try
+            object obj = null;
+            if (Histories != null && Histories.Count > 0)
             {
-                obj = Histories.Where(pair => cycle > pair.Key)
-                    .OrderByDescending(pair => pair.Key)
-                    .FirstOrDefault()
-                    .Value;
-            }
-            catch (Exception e)
-            {
-                ChatBotUtils.PostException($"{Assembly.GetAssembly(GetType()).GetName().Name},error1", e);
-                Debug.LogError(e);
-                obj = null;
+                foreach (var pair in Histories)
+                {
+                    Debug.Log($"{pair.Key} -> {pair.Value.id} {pair.Value.quantity}");
+                }
+
+                try
+                {
+                    obj = Histories
+                        .Where(pair => cycle > pair.Key)
+                        .OrderByDescending(pair => pair.Key)
+                        .First()
+                        .Value;
+                    if (obj != null)
+                    {
+                        
+                    }
+                }
+                catch (Exception e)
+                {
+                    obj = null;
+                    Debug.LogException(e);
+                }
             }
 
             if (obj == null) return null;
             switch (obj)
             {
-                case JObject j:
-                    try
-                    {
-                        return new CarePackageInfo(
-                            j.GetValue("id").Value<string>(),
-                            j.GetValue("quantity").Value<float>(),
-                            null
-                        );
-                    }
-                    catch (ArgumentOutOfRangeException e)
-                    {
-                        ChatBotUtils.PostException($"{Assembly.GetAssembly(GetType()).GetName().Name},error2", e);
-                        Debug.LogError(e);
-                        return null;
-                    }
-                case CarePackageInfo info:
-                    return info;
+                case CarePackage package:
+                    return Assets.GetPrefab(package.id.ToTag()) != null ? new CarePackageInfo(package.id, package.quantity, null) : null;
                 default:
                     return null;
             }

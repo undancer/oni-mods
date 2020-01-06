@@ -1,3 +1,4 @@
+using System.Linq;
 using Harmony;
 using undancer.Commons.Configuration;
 using undancer.SelectLastCarePackage.config;
@@ -10,6 +11,7 @@ namespace undancer.SelectLastCarePackage.patches
         public static void Postfix()
         {
             Configuration<Settings>.Instance.CleanIndex();
+            Configuration<Settings>.Instance.List.RemoveAll(history => history.Version != ModVersion.Version);
         }
     }
 }
