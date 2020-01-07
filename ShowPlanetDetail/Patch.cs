@@ -2,25 +2,35 @@
 using System.Linq;
 using System.Reflection;
 using Harmony;
-using Klei.CustomSettings;
+using ProcGen;
+using STRINGS;
 using UnityEngine;
 
 namespace undancer.ShowPlanetDetail
 {
     public static class Hook
     {
-        private static string GetPlanetName(string world, int seed)
+        private static string GetPlanetName()
         {
-            var data = new ColonyDestinationAsteroidData(world, seed);
-            var name = data.GetParamDescriptors().Select(descriptor => descriptor.text).First();
-            return name;
+            return string.Format(WORLDS.SURVIVAL_CHANCE.PLANETNAME,
+                SaveLoader.Instance.GameInfo.worldID);
         }
 
-        private static string GetTraits(string world, int seed)
+        private static string GetTraits()
         {
-            var data = new ColonyDestinationAsteroidData(world, seed);
-            var traits = data.GetTraitDescriptors().Join(descriptor => descriptor.text);
-            return traits;
+            if (SaveLoader.Instance.GameInfo.worldTraits != null)
+            {
+                return SaveLoader.Instance.GameInfo.worldTraits.Select(worldTrait =>
+                {
+                    var cachedTrait = SettingsCache.GetCachedTrait(worldTrait, false);
+                    return cachedTrait != null
+                        ? string.Format("<color=#{1}>{0}</color>", Strings.Get(cachedTrait.name),
+                            cachedTrait.colorHex)
+                        : WORLD_TRAITS.MISSING_TRAIT.ToString();
+                }).Join();
+            }
+
+            return WORLD_TRAITS.NO_TRAITS.NAME;
         }
 
         public static void SetText(LocText text, string value)
@@ -30,16 +40,14 @@ namespace undancer.ShowPlanetDetail
                 text.SetText(value);
                 return;
             }
-
-            var world = CustomGameSettings.Instance.GetCurrentQualitySetting(CustomGameSettingConfigs.World).id;
-            var seed = SaveLoader.Instance.worldDetailSave.globalWorldSeed;
+            
             text.color = Color.white;
             text.SetText(new[]
             {
                 value,
 //                CustomGameSettings.Instance.GetSettingsCoordinate(),
-                GetPlanetName(world, seed),
-                GetTraits(world, seed)
+                GetPlanetName(),
+                GetTraits()
             }.Join(null, "\n"));
         }
     }
