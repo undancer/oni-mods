@@ -1,22 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Reflection;
 using Harmony;
 
-namespace ClassLibrary10
+namespace Nothing
 {
-
-    public class Hook
-    {
-        public static bool AlwaysTrue()
-        {
-            Debug.Log("DistributionPlatform.Initialized");
-            Debug.Log("================================");
-            Debug.Log(DistributionPlatform.Initialized);
-            Debug.Log("================================");
-            return true;
-        }
-    }
-    
     [HarmonyPatch(typeof(MainMenu),"OnPrefabInit")]
     public static class MainMenuOnPrefabInitPatch
     {
