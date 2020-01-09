@@ -38,11 +38,6 @@ namespace undancer.SelectLastCarePackage.config
             object obj = null;
             if (Histories != null && Histories.Count > 0)
             {
-                foreach (var pair in Histories)
-                {
-                    Debug.Log($"{pair.Key} -> {pair.Value.id} {pair.Value.quantity}");
-                }
-
                 try
                 {
                     obj = Histories
@@ -50,10 +45,6 @@ namespace undancer.SelectLastCarePackage.config
                         .OrderByDescending(pair => pair.Key)
                         .First()
                         .Value;
-                    if (obj != null)
-                    {
-                        
-                    }
                 }
                 catch (Exception e)
                 {
