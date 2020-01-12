@@ -5,7 +5,7 @@ using undancer.Commons;
 namespace undancer.SelectLastCarePackage.patches
 {
     [HarmonyPatch(typeof(ImmigrantScreen), "OnSpawn")]
-    public static class ImmigrantScreenOnSpawnPatch
+    public static class ImmigrantScreenOnSpawnPatch // 显示选人界面
     {
         public static void Postfix(KButton ___rejectButton)
         {

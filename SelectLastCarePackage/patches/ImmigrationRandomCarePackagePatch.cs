@@ -1,20 +1,18 @@
 using Harmony;
-using undancer.Commons.Configuration;
-using undancer.SelectLastCarePackage.config;
 
 namespace undancer.SelectLastCarePackage.patches
 {
     [HarmonyPatch(typeof(Immigration), "RandomCarePackage")]
-    public static class ImmigrationRandomCarePackagePatch
+    public static class ImmigrationRandomCarePackagePatch // 随机补给包
     {
         public static bool Prefix(ref CarePackageInfo __result)
         {
-            var skip = Configuration<Settings>.Instance.SkipFlag;
-            if (skip) return true;
-            var lastSelectedCarePackageInfo = Configuration<Settings>.Instance.GetHistory();
+            var context = SaveGame.Instance.GetComponent<ImmigrantScreenContext>();
+            if (context.Skip) return true;
+            var lastSelectedCarePackageInfo = context.LastSelectedCarePackageInfo;
             if (lastSelectedCarePackageInfo == null) return true;
             __result = lastSelectedCarePackageInfo;
-            Configuration<Settings>.Instance.SkipFlag = true;
+            context.Skip = true;
             return false;
         }
     }
