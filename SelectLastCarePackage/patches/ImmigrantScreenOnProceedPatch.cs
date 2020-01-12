@@ -1,23 +1,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using Harmony;
-using undancer.Commons.Configuration;
-using undancer.SelectLastCarePackage.config;
 
 namespace undancer.SelectLastCarePackage.patches
 {
     [HarmonyPatch(typeof(ImmigrantScreen), "OnProceed")]
-    public static class ImmigrantScreenOnProceedPatch
+    public static class ImmigrantScreenOnProceedPatch //按下打印按钮
     {
         public static void Prefix(List<ITelepadDeliverable> ___selectedDeliverables)
         {
+            var context = SaveGame.Instance.GetComponent<ImmigrantScreenContext>();
             var selectedDeliverable = ___selectedDeliverables.First();
-            CarePackageInfo selectedCarePackage = null;
-            if (selectedDeliverable is CarePackageInfo carePackageInfo) selectedCarePackage = carePackageInfo;
-            Configuration<Settings>.Instance.AddHistory(selectedCarePackage);
-            Configuration<Settings>.Instance.SkipFlag = false;
-            Configuration<Settings>.Instance.Clean();
-            Configuration<Settings>.Save();
+            if (selectedDeliverable is CarePackageInfo selectedCarePackage)
+                context.LastSelectedCarePackageInfo = selectedCarePackage;
+            context.Skip = false;
         }
     }
 }
