@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary5", "ClassLibra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nothing", "Nothing\Nothing.csproj", "{BDAEE62E-8522-46A4-A33C-CEBFE9947AC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericFabricator", "GenericFabricator\GenericFabricator.csproj", "{5B8C5B7E-E57D-42BA-AA5E-65468D724576}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,5 +81,9 @@ Global
 		{BDAEE62E-8522-46A4-A33C-CEBFE9947AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDAEE62E-8522-46A4-A33C-CEBFE9947AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDAEE62E-8522-46A4-A33C-CEBFE9947AC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B8C5B7E-E57D-42BA-AA5E-65468D724576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B8C5B7E-E57D-42BA-AA5E-65468D724576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B8C5B7E-E57D-42BA-AA5E-65468D724576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B8C5B7E-E57D-42BA-AA5E-65468D724576}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
