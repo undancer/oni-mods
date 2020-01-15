@@ -6,9 +6,9 @@ labels: ''
 assignees: ''
 
 ---
-**Prerequisites**
+**前提条件**
 
-<!-- Please answer the following questions for yourself before submitting an issue. YOU MAY DELETE THE PREREQUISITES SECTION.-->
+<!-- 在你反馈BUG前请先回答以下问题。（你无需删除这一行，下列问题可以在提交问题后进行勾选） -->
 
 - [ ] I've made sure the game files are ok before installing injector/mods. <!--(https://support.steampowered.com/kb_article.php?ref=2037-QEUH-3335)-->
 - [ ] I am running the latest version (master Branch in GitHub)
@@ -17,52 +17,23 @@ assignees: ''
 - [ ] I checked to make sure that this issue has not already been filed
 - [ ] I'm reporting the issue to the correct repository (for multi-repository projects)
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**描述问题**
+<!-- 请描述BUG -->
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+**游戏环境**
+ - 操作系统： [比如 Windows, macOS]
+ - 游戏版本： [比如 RP-383949]
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**附加信息**
+<!-- Add any other context about the problem here. -->
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**日志文件**
 
-**Desktop (please complete the following information):**
- - OS: [e.g. Windows, macOS]
- - ONI Version [e.g. RP-383949]
- - ONI-Modloader Version [e.g. 0.5.2]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
-
-<!-- Add any other context about the problem here like used Config files -->
-
-## Output log
-
-<!-- If applicable, (game crashes or displays errors) please copy and paste part of the output_log.txt game file that contains information about the crash/error. -->
-
-Check for error logs in:
-
-- `\OxygenNotIncluded\Mods\Mod_Log.txt`
-- `\OxygenNotIncluded\Mods\_Logs`
+<!-- 如果可以请提供游戏的日志文件，它能够更好的帮我理解到底发生了什么事情。 -->
+日志文件会生成在以下目录
 - Windows: `%USERPROFILE%\AppData\LocalLow\Klei\Oxygen Not Included\output_log.txt`
 - Linux: `$home/.config/unity3d/Klei/Oxygen Not Included/Player.log`
 - MacOS: `$home/Library/Logs/Unity/Player.log`
 
-## Relevant Code
-
-```Csharp
-// TODO(you): code here
-```
+<!-- 日志文件会在每次游戏时重新生成，请确保该文件是发生错误的那次版本 -->
+<!-- 如果日志文件过大请将该文件以附件的形式发送至邮箱oni#undancer.com （请将#替换成@） -->
