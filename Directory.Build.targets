@@ -3,12 +3,6 @@
 <Project DefaultTargets="Build" TreatAsLocalProperty="OutDir"
          xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     
-    <PropertyGroup>
-        <AssemblySearchPaths>
-            $(GameFolder);$(AssemblySearchPaths)
-        </AssemblySearchPaths>
-    </PropertyGroup>
-
     <Target Name="ClearGameFolderCopyLocal" AfterTargets="ResolveAssemblyReferences">
         <ItemGroup>
             <ReferenceCopyLocalPaths Remove="$(GameFolder)\*"/>
