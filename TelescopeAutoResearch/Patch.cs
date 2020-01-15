@@ -1,9 +1,40 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Database;
 using Harmony;
 
 namespace undancer.TelescopeAutoResearch
 {
+    public static class SpaceDestinationTypeExtends
+    {
+        public static string GetNotificationColor(this SpaceDestinationType type)
+        {
+            var mappings = new Dictionary<string, string>
+            {
+                {Db.Get().SpaceDestinationTypes.Wormhole.Id, "ED2DFE"},
+                {Db.Get().SpaceDestinationTypes.RedDwarf.Id, "D32F2F"}
+            };
+            mappings.TryGetValue(type.Id, out var color);
+            return color ?? "FFC107";
+        }
+
+        public static Notification GetNotification(this SpaceDestinationType type,
+            NotificationType notificationType = NotificationType.Good,
+            string group = "SDT")
+        {
+            var color = type.GetNotificationColor();
+            var title = string.Format(STRINGS.UI.STARMAP.ANALYSIS_AMOUNT.text,
+                $" <color=#{color}><b>{type.Name}</b></color>");
+            var notification = new Notification(
+                title,
+                notificationType,
+                group,
+                (list, o) => type.description);
+            return notification;
+        }
+    }
+
     public static class Hook
     {
         public static void GetUnAnalysisSpaceDestination(SpacecraftManager instance, int destId)
@@ -26,7 +57,7 @@ namespace undancer.TelescopeAutoResearch
                     SpacecraftManager.DestinationAnalysisState.Complete)
                     if (dist <= minDist)
                     {
-                        if (completed || prevDist <= 4)
+                        if (completed || prevDist < 4)
                         {
                             if (dist >= prevDist || prevDist == wormhole.distance)
                             {
@@ -54,6 +85,10 @@ namespace undancer.TelescopeAutoResearch
             Debug.Log(type == 1 ? "广度优先" : "深度优先");
             Debug.Log("准备研究下一个星体:" + destId);
             instance.SetStarmapAnalysisDestinationID(destId);
+
+            var notifier = instance.FindOrAddComponent<Notifier>();
+            var destinationType = instance.GetDestination(previous).GetDestinationType();
+            notifier.Add(destinationType.GetNotification(group: "SpaceHook"));
         }
     }
 

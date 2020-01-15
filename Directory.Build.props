@@ -23,33 +23,19 @@
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
         
-        <Reference Include="0Harmony">
-            <HintPath>$(GameFolder)/0Harmony.dll</HintPath>
-        </Reference>
-        <Reference Include="Assembly-CSharp">
-            <HintPath>$(GameFolder)/Assembly-CSharp.dll</HintPath>
-        </Reference>
-        <Reference Include="Assembly-CSharp-firstpass">
-            <HintPath>$(GameFolder)/Assembly-CSharp-firstpass.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine">
-            <HintPath>$(GameFolder)/UnityEngine.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.CoreModule">
-            <HintPath>$(GameFolder)/UnityEngine.CoreModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.UI">
-            <HintPath>$(GameFolder)/UnityEngine.UI.dll</HintPath>
-        </Reference>
-        <Reference Include="Unity.TextMeshPro">
-            <HintPath>$(GameFolder)/Unity.TextMeshPro.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.TextRenderingModule">
-            <HintPath>$(GameFolder)/UnityEngine.TextRenderingModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.ImageConversionModule">
-            <HintPath>$(GameFolder)/UnityEngine.ImageConversionModule.dll</HintPath>
-        </Reference>
+        <Reference Include="0Harmony" />
+        <Reference Include="Assembly-CSharp" />
+        <Reference Include="Assembly-CSharp-firstpass" />
+        <Reference Include="Newtonsoft.Json" />
+        <Reference Include="UnityEngine" />
+        <Reference Include="UnityEngine.CoreModule" />
+        <Reference Include="UnityEngine.UI" />
+        <Reference Include="Unity.TextMeshPro" />
+        <Reference Include="UnityEngine.TextRenderingModule" />
+        <Reference Include="UnityEngine.ImageConversionModule" />
+        <Reference Include="UnityEngine.Networking" />
+        <Reference Include="UnityEngine.UnityWebRequestModule" />
+
     </ItemGroup>
     
     <ItemGroup Condition="'$(ProjectName)' != 'Commons'">

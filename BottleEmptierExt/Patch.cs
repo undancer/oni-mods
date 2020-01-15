@@ -11,8 +11,8 @@ namespace undancer.BottleEmptierExt
         {
             if (!(__instance is BottleEmptier2 instance)) return true;
             var other = ((GameObject) data).GetComponent<BottleEmptier2>();
-            instance.allowManualPumpingStationFetching = other.allowManualPumpingStationFetching;
             instance.UserMaxCapacity = other.UserMaxCapacity;
+            instance.allowManualPumpingStationFetching = other.allowManualPumpingStationFetching;
             return false;
         }
     }
