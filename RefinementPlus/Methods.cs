@@ -42,19 +42,13 @@ namespace RefinementPlus
                         , 3f
                     )
                 };
-                recipesIDs.Add(new ComplexRecipe(ComplexRecipeManager.MakeRecipeID(
-                        KilnConfig.ID
-                        , ingredients, results),
-                    ingredients, results)
-                {
-                    time = 55f,
-                    description = string.Format(format, keyValuePair.Value),
-                    fabricators = new List<Tag>
-                    {
-                        TagManager.Create(KilnConfig.ID)
-                    },
-                    nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult
-                }.id);
+
+                AddRecipe(KilnConfig.ID,
+                    ingredients,
+                    results,
+                    55f,
+                    string.Format(format, keyValuePair.Value)
+                );
             }
         }
 
@@ -70,17 +64,14 @@ namespace RefinementPlus
             {
                 new ComplexRecipe.RecipeElement(tag, 50f)
             };
-            recipesIDs.Add(new ComplexRecipe(ComplexRecipeManager.MakeRecipeID(KilnConfig.ID, ingredients, results),
-                ingredients, results)
-            {
-                time = 35f,
-                description = str,
-                fabricators = new List<Tag>
-                {
-                    TagManager.Create(KilnConfig.ID)
-                },
-                nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult
-            }.id);
+
+            AddRecipe(
+                KilnConfig.ID,
+                ingredients,
+                results,
+                35f,
+                str
+            );
         }
 
         public void clayToSlime()
@@ -98,18 +89,14 @@ namespace RefinementPlus
             {
                 new ComplexRecipe.RecipeElement(tag3, 400f)
             };
-            recipesIDs.Add(new ComplexRecipe(
-                ComplexRecipeManager.MakeRecipeID(RockCrusherConfig.ID, ingredients, results),
-                ingredients, results)
-            {
-                time = 100f,
-                description = string.Format(format, tag1, tag2, tag3),
-                fabricators = new List<Tag>
-                {
-                    TagManager.Create(RockCrusherConfig.ID)
-                },
-                nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult
-            }.id);
+
+            AddRecipe(
+                RockCrusherConfig.ID,
+                ingredients,
+                results,
+                100f,
+                string.Format(format, tag1, tag2, tag3)
+            );
         }
 
         public void limeCrushing()
@@ -149,18 +136,13 @@ namespace RefinementPlus
                 {
                     new ComplexRecipe.RecipeElement(tag, keyValuePair.Value[1])
                 };
-                recipesIDs.Add(new ComplexRecipe(
-                    ComplexRecipeManager.MakeRecipeID(RockCrusherConfig.ID, ingredients, results),
-                    ingredients, results)
-                {
-                    time = 40f,
-                    description = string.Format(format, keyValuePair.Key[1], tag),
-                    fabricators = new List<Tag>
-                    {
-                        TagManager.Create(RockCrusherConfig.ID)
-                    },
-                    nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult
-                }.id);
+                AddRecipe(
+                    RockCrusherConfig.ID,
+                    ingredients,
+                    results,
+                    40f,
+                    string.Format(format, keyValuePair.Key[1], tag)
+                );
             }
         }
 
@@ -179,18 +161,13 @@ namespace RefinementPlus
                 new ComplexRecipe.RecipeElement(tag2, 5f),
                 new ComplexRecipe.RecipeElement(tag3, 95f)
             };
-            recipesIDs.Add(new ComplexRecipe(
-                ComplexRecipeManager.MakeRecipeID(RockCrusherConfig.ID, ingredients, results),
-                ingredients, results)
-            {
-                time = 40f,
-                description = string.Format(format, tag1, tag2, tag3),
-                fabricators = new List<Tag>
-                {
-                    TagManager.Create(RockCrusherConfig.ID)
-                },
-                nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult
-            }.id);
+            AddRecipe(
+                RockCrusherConfig.ID,
+                ingredients,
+                results,
+                40f,
+                string.Format(format, tag1, tag2, tag3)
+            );
         }
 
         public void maficToRegolith()
@@ -206,18 +183,14 @@ namespace RefinementPlus
             {
                 new ComplexRecipe.RecipeElement(tag2, 80f)
             };
-            recipesIDs.Add(new ComplexRecipe(
-                ComplexRecipeManager.MakeRecipeID(RockCrusherConfig.ID, ingredients, results),
-                ingredients, results)
-            {
-                time = 80f,
-                description = string.Format(format, tag1, tag2),
-                fabricators = new List<Tag>
-                {
-                    TagManager.Create(RockCrusherConfig.ID)
-                },
-                nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult
-            }.id);
+
+            AddRecipe(
+                RockCrusherConfig.ID,
+                ingredients,
+                results,
+                80f,
+                string.Format(format, tag1, tag2)
+            );
         }
 
         public void mineralsCrushing()
@@ -262,18 +235,12 @@ namespace RefinementPlus
                     new ComplexRecipe.RecipeElement(tag, 90f),
                     new ComplexRecipe.RecipeElement(keyValuePair.Value, 10f)
                 };
-                recipesIDs.Add(new ComplexRecipe(
-                    ComplexRecipeManager.MakeRecipeID(RockCrusherConfig.ID, ingredients, results),
-                    ingredients, results)
-                {
-                    time = 50f,
-                    description = string.Format(format, keyValuePair.Key, tag, keyValuePair.Value),
-                    fabricators = new List<Tag>
-                    {
-                        TagManager.Create(RockCrusherConfig.ID)
-                    },
-                    nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult
-                }.id);
+                AddRecipe(RockCrusherConfig.ID,
+                    ingredients,
+                    results,
+                    50f,
+                    string.Format(format, keyValuePair.Key, tag, keyValuePair.Value)
+                );
             }
         }
 
@@ -315,18 +282,12 @@ namespace RefinementPlus
                     new ComplexRecipe.RecipeElement(tag, 50f),
                     new ComplexRecipe.RecipeElement(keyValuePair.Value, 50f)
                 };
-                recipesIDs.Add(new ComplexRecipe(
-                    ComplexRecipeManager.MakeRecipeID(RockCrusherConfig.ID, ingredients, results),
-                    ingredients, results)
-                {
-                    time = 50f,
-                    description = string.Format(format, keyValuePair.Key, tag, keyValuePair.Value),
-                    fabricators = new List<Tag>
-                    {
-                        TagManager.Create(RockCrusherConfig.ID)
-                    },
-                    nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult
-                }.id);
+                AddRecipe(RockCrusherConfig.ID,
+                    ingredients,
+                    results,
+                    50f,
+                    string.Format(format, keyValuePair.Key, tag, keyValuePair.Value)
+                );
             }
         }
 
@@ -368,18 +329,13 @@ namespace RefinementPlus
                 {
                     new ComplexRecipe.RecipeElement(keyValuePair.Value, 100f)
                 };
-                recipesIDs.Add(new ComplexRecipe(
-                    ComplexRecipeManager.MakeRecipeID(RockCrusherConfig.ID, ingredients, results),
-                    ingredients, results)
-                {
-                    time = 50f,
-                    description = string.Format(format, keyValuePair.Key, tag, keyValuePair.Value),
-                    fabricators = new List<Tag>
-                    {
-                        TagManager.Create(RockCrusherConfig.ID)
-                    },
-                    nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult
-                }.id);
+
+                AddRecipe(RockCrusherConfig.ID,
+                    ingredients,
+                    results,
+                    50f,
+                    string.Format(format, keyValuePair.Key, tag, keyValuePair.Value)
+                );
             }
         }
 
@@ -412,18 +368,13 @@ namespace RefinementPlus
                 {
                     new ComplexRecipe.RecipeElement(tag2, 1500f)
                 };
-                recipesIDs.Add(new ComplexRecipe(
-                    ComplexRecipeManager.MakeRecipeID(RockCrusherConfig.ID, ingredients, results),
-                    ingredients, results)
-                {
-                    time = 120f,
-                    description = string.Format(format, str, tag1, tag2),
-                    fabricators = new List<Tag>
-                    {
-                        TagManager.Create(RockCrusherConfig.ID)
-                    },
-                    nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult
-                }.id);
+
+                AddRecipe(RockCrusherConfig.ID,
+                    ingredients,
+                    results,
+                    120f,
+                    string.Format(format, str, tag1, tag2)
+                );
                 ++index;
             }
         }
@@ -444,18 +395,13 @@ namespace RefinementPlus
                 new ComplexRecipe.RecipeElement(tag2, 100f * num),
                 new ComplexRecipe.RecipeElement(tag3, (float) (100.0 * (1.0 - num)))
             };
-            recipesIDs.Add(new ComplexRecipe(
-                ComplexRecipeManager.MakeRecipeID(RockCrusherConfig.ID, ingredients, results),
-                ingredients, results)
-            {
-                time = 120f,
-                description = string.Format(format, tag1, tag2, tag3),
-                fabricators = new List<Tag>
-                {
-                    TagManager.Create(RockCrusherConfig.ID)
-                },
-                nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult
-            }.id);
+
+            AddRecipe(RockCrusherConfig.ID,
+                ingredients,
+                results,
+                120f,
+                string.Format(format, tag1, tag2, tag3)
+            );
         }
 
         public void seedsToCoal()
@@ -548,18 +494,14 @@ namespace RefinementPlus
                 {
                     new ComplexRecipe.RecipeElement(tag, 800f)
                 };
-                recipesIDs.Add(new ComplexRecipe(ComplexRecipeManager.MakeRecipeID(KilnConfig.ID, ingredients, results),
-                    ingredients, results)
-                {
-                    time = 35f,
-                    description = string.Format(format, keyValuePair.Value,
-                        ElementLoader.FindElementByHash(SimHashes.Carbon).name),
-                    fabricators = new List<Tag>
-                    {
-                        TagManager.Create(KilnConfig.ID)
-                    },
-                    nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult
-                }.id);
+
+                AddRecipe(KilnConfig.ID,
+                    ingredients,
+                    results,
+                    35f,
+                    string.Format(format, keyValuePair.Value,
+                        ElementLoader.FindElementByHash(SimHashes.Carbon).name)
+                );
             }
         }
 
@@ -575,19 +517,14 @@ namespace RefinementPlus
             {
                 new ComplexRecipe.RecipeElement(tag2, 100f)
             };
-            recipesIDs.Add(new ComplexRecipe(
-                ComplexRecipeManager.MakeRecipeID(RockCrusherConfig.ID, ingredients, results),
-                ingredients, results)
-            {
-                time = 10f,
-                description = string.Format(BUILDINGS.PREFABS.ROCKCRUSHER.RECIPE_DESCRIPTION, tag1.ProperName(),
-                    tag2.ProperName()),
-                fabricators = new List<Tag>
-                {
-                    TagManager.Create(RockCrusherConfig.ID)
-                },
-                nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult
-            }.id);
+
+            AddRecipe(RockCrusherConfig.ID,
+                ingredients,
+                results,
+                10f,
+                string.Format(BUILDINGS.PREFABS.ROCKCRUSHER.RECIPE_DESCRIPTION, tag1.ProperName(),
+                    tag2.ProperName())
+            );
         }
     }
 }

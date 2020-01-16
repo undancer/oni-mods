@@ -16,5 +16,23 @@ namespace RefinementPlus
         {
             return recipesIDs;
         }
+
+        protected static void AddRecipe(
+            string fabricator,
+            ComplexRecipe.RecipeElement[] inputs,
+            ComplexRecipe.RecipeElement[] outputs,
+            float time, string description, ComplexRecipe.RecipeNameDisplay nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult)
+        {
+            recipesIDs.Add(new ComplexRecipe(
+                    ComplexRecipeManager.MakeRecipeID(fabricator, inputs, outputs), inputs, outputs
+                )
+                {
+                    time = time,
+                    description = description,
+                    fabricators = new List<Tag> {TagManager.Create(fabricator)},
+                    nameDisplay = nameDisplay
+                }.id
+            );
+        }
     }
 }
