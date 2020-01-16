@@ -13,8 +13,8 @@ namespace RefinementPlus
     {
         public static void Postfix()
         {
-            Debug.Log((object) "Refinement Plus - KilnConfig Postfix: ");
-            Methods methods = new Methods();
+            Debug.Log("Refinement Plus - KilnConfig Postfix: ");
+            var methods = new Methods();
             methods.burnCloth();
             methods.burnRot();
             methods.seedsToCoal();

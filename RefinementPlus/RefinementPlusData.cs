@@ -14,7 +14,7 @@ namespace RefinementPlus
 
         public static List<string> getRecipesIDs()
         {
-            return RefinementPlusData.recipesIDs;
+            return recipesIDs;
         }
     }
 }
