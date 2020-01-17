@@ -8,7 +8,7 @@ using Harmony;
 
 namespace RefinementPlus
 {
-    [HarmonyPatch(typeof (KilnConfig), "ConfgiureRecipes")]
+    [HarmonyPatch(typeof(KilnConfig), "ConfgiureRecipes")]
     public class RefinementPlusKilnRecipes
     {
         public static void Postfix()

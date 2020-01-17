@@ -30,12 +30,8 @@ namespace GenericFabricator
             if (_inited) return;
             var recipeIdList = new List<string>();
             foreach (var recipe in ComplexRecipeManager.Get().recipes)
-            {
                 if (!recipe.fabricators.First().Equals(new Tag(GenericFabricatorConfig.ID)))
-                {
                     recipeIdList.Add(recipe.id);
-                }
-            }
 
             foreach (var recipeId in recipeIdList)
             {
@@ -64,6 +60,7 @@ namespace GenericFabricator
                     };
                 }
             }
+
             _inited = true;
         }
     }

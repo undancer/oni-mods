@@ -20,7 +20,6 @@ namespace undancer.ShowPlanetDetail
         private static string GetTraits()
         {
             if (SaveLoader.Instance.GameInfo.worldTraits != null)
-            {
                 return SaveLoader.Instance.GameInfo.worldTraits.Select(worldTrait =>
                 {
                     var cachedTrait = SettingsCache.GetCachedTrait(worldTrait, false);
@@ -29,7 +28,6 @@ namespace undancer.ShowPlanetDetail
                             cachedTrait.colorHex)
                         : WORLD_TRAITS.MISSING_TRAIT.ToString();
                 }).Join();
-            }
 
             return WORLD_TRAITS.NO_TRAITS.NAME;
         }

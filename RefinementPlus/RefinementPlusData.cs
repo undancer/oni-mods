@@ -21,7 +21,8 @@ namespace RefinementPlus
             string fabricator,
             ComplexRecipe.RecipeElement[] inputs,
             ComplexRecipe.RecipeElement[] outputs,
-            float time, string description, ComplexRecipe.RecipeNameDisplay nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult)
+            float time, string description,
+            ComplexRecipe.RecipeNameDisplay nameDisplay = ComplexRecipe.RecipeNameDisplay.IngredientToResult)
         {
             recipesIDs.Add(new ComplexRecipe(
                     ComplexRecipeManager.MakeRecipeID(fabricator, inputs, outputs), inputs, outputs

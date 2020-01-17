@@ -8,7 +8,7 @@ using Harmony;
 
 namespace RefinemenPlus
 {
-    [HarmonyPatch(typeof (Game), "OnPrefabInit")]
+    [HarmonyPatch(typeof(Game), "OnPrefabInit")]
     internal class TemplateModGameOnPrefabInit
     {
         private static void Postfix(Game __instance)

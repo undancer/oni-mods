@@ -53,6 +53,5 @@ namespace undancer.Commons
                     break;
             }
         }
-        
     }
 }
