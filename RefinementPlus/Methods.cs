@@ -11,7 +11,7 @@ namespace RefinementPlus
 {
     internal class Methods : RefinementPlusData
     {
-        public void burnCloth()
+        public void burnCloth() //烧衣服
         {
             var dictionary = new Dictionary<string, string>
             {
@@ -52,7 +52,7 @@ namespace RefinementPlus
             }
         }
 
-        public void burnRot()
+        public void burnRot() // 烧腐烂物
         {
             var tag = SimHashes.Carbon.CreateTag();
             var str = "Burn rotten food";
@@ -74,7 +74,7 @@ namespace RefinementPlus
             );
         }
 
-        public void clayToSlime()
+        public void clayToSlime() // 菌泥
         {
             var tag1 = SimHashes.Clay.CreateTag();
             var tag2 = SimHashes.ToxicSand.CreateTag();
@@ -99,7 +99,7 @@ namespace RefinementPlus
             );
         }
 
-        public void limeCrushing()
+        public void limeCrushing() //石灰
         {
             var dictionary = new Dictionary<string[], float[]>
             {
@@ -146,7 +146,7 @@ namespace RefinementPlus
             }
         }
 
-        public void fossilCrushing()
+        public void fossilCrushing() // 化石变石灰和沙子
         {
             var tag1 = SimHashes.Fossil.CreateTag();
             var tag2 = SimHashes.Lime.CreateTag();
@@ -170,7 +170,7 @@ namespace RefinementPlus
             );
         }
 
-        public void maficToRegolith()
+        public void maficToRegolith() // 镁铁质岩变浮土
         {
             var tag1 = SimHashes.MaficRock.CreateTag();
             var tag2 = SimHashes.Regolith.CreateTag();
@@ -193,7 +193,7 @@ namespace RefinementPlus
             );
         }
 
-        public void mineralsCrushing()
+        public void mineralsCrushing() // 砸金属
         {
             var dictionary = new Dictionary<Tag, Tag>
             {
@@ -244,7 +244,7 @@ namespace RefinementPlus
             }
         }
 
-        public void oresToRefined()
+        public void oresToRefined() // 精炼金属
         {
             var dictionary = new Dictionary<Tag, Tag>
             {
@@ -291,7 +291,7 @@ namespace RefinementPlus
             }
         }
 
-        public void refinedToOres()
+        public void refinedToOres() //反转的精炼金属
         {
             var dictionary = new Dictionary<Tag, Tag>
             {
@@ -339,7 +339,7 @@ namespace RefinementPlus
             }
         }
 
-        public void organicToFert()
+        public void organicToFert() // 做肥料
         {
             var stringList = new List<string>
             {
@@ -379,7 +379,7 @@ namespace RefinementPlus
             }
         }
 
-        public void saltCrushing()
+        public void saltCrushing() //食盐
         {
             var tag1 = SimHashes.Salt.CreateTag();
             var tag2 = TableSaltConfig.ID.ToTag();
@@ -404,7 +404,7 @@ namespace RefinementPlus
             );
         }
 
-        public void seedsToCoal()
+        public void seedsToCoal() //种子变煤炭
         {
             var dictionary = new Dictionary<string, string>
             {
@@ -505,7 +505,7 @@ namespace RefinementPlus
             }
         }
 
-        public void snowCone()
+        public void snowCone() // 冰变雪
         {
             var tag1 = SimHashes.Ice.CreateTag();
             var tag2 = SimHashes.Snow.CreateTag();
