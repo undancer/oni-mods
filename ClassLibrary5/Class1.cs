@@ -1,8 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Text.RegularExpressions;
-using Harmony;
+﻿using Harmony;
 using undancer.Commons;
 using UnityEngine;
 

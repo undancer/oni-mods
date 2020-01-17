@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Harmony;
-using UnityEngine;
+﻿using Harmony;
 
 namespace GenericFabricator
 {
