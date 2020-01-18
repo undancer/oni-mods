@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ClassLibrary2
+namespace undancer.AutomaticHarvest.Config
 {
     public class Config
     {

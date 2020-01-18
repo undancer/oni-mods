@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary2
+﻿namespace undancer.AutomaticHarvest.Config
 {
     public class Setting
     {

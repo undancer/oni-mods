@@ -1,7 +1,7 @@
 using Harmony;
 using UnityEngine;
 
-namespace ClassLibrary2
+namespace undancer.AutomaticHarvest.Patchs
 {
     [HarmonyPatch(typeof(EntityTemplates), nameof(EntityTemplates.ExtendEntityToBasicPlant))]
     public static class EntityTemplatesExtendEntityToBasicPlantPatch
