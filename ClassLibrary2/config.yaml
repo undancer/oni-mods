@@ -1,0 +1,37 @@
+Settings:
+- name: MushroomPlant #
+  times: 0.1
+- name: PrickleGrass #
+  times: 1
+- name: PrickleFlower #
+  times: 1
+- name: GasGrass #
+  times: 1
+- name: ForestTree #
+  times: 1
+- name: LeafyPlant #
+  times: 1
+- name: SeaLettuce #
+  times: 1
+- name: SaltPlant #
+  times: 1
+- name: SpiceVine #
+  times: 1
+- name: SwampLily #
+  times: 1
+- name: BasicFabricPlant #
+  times: 0
+- name: CactusPlant #
+  times: 1
+- name: EvilFlower #
+  times: 1
+- name: ColdWheat #
+  times: 1
+- name: BeanPlant #
+  times: 1
+- name: ForestTreeBranch #
+  times: 1
+- name: BasicSingleHarvestPlant #
+  times: 1
+- name: BulbPlant #
+  times: 1

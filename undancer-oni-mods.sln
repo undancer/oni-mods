@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericFabricator", "Generi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefinementPlus", "RefinementPlus\RefinementPlus.csproj", "{1A21124C-1FB1-4257-B4B5-CF35146605E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary2", "ClassLibrary2\ClassLibrary2.csproj", "{43B28AD3-2C82-4B12-BB48-A859EC5783D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,5 +93,9 @@ Global
 		{1A21124C-1FB1-4257-B4B5-CF35146605E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A21124C-1FB1-4257-B4B5-CF35146605E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A21124C-1FB1-4257-B4B5-CF35146605E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43B28AD3-2C82-4B12-BB48-A859EC5783D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43B28AD3-2C82-4B12-BB48-A859EC5783D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43B28AD3-2C82-4B12-BB48-A859EC5783D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43B28AD3-2C82-4B12-BB48-A859EC5783D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
