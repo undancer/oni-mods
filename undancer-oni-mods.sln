@@ -31,7 +31,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefinementPlus", "Refinemen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomaticHarvest", "AutomaticHarvest\AutomaticHarvest.csproj", "{43B28AD3-2C82-4B12-BB48-A859EC5783D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary2", "ClassLibrary2\ClassLibrary2.csproj", "{E9142A92-31EE-4D1B-ACB7-8E46769344EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquirrelBehaviorCorrection", "SquirrelBehaviorCorrection\SquirrelBehaviorCorrection.csproj", "{E9142A92-31EE-4D1B-ACB7-8E46769344EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
