@@ -5,11 +5,10 @@
     
     <PropertyGroup>
         <Deterministic>true</Deterministic>
-        <OS>macos</OS>
     </PropertyGroup>
     
-    <Import Project="Directory.Build.props.$(OS)" />
-    
+    <Import Project="Directory.Build.props.macos" Condition="$([MSBuild]::IsOsPlatform('OSX'))" />
+
     <PropertyGroup>
         <AssemblySearchPaths>
             $(GameFolder);$(AssemblySearchPaths)
