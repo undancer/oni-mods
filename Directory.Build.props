@@ -5,6 +5,7 @@
     
     <PropertyGroup>
         <Deterministic>true</Deterministic>
+        <NoStdLib>true</NoStdLib>
     </PropertyGroup>
     
     <Import Project="Directory.Build.props.macos" Condition="$([MSBuild]::IsOsPlatform('OSX'))" />
@@ -32,7 +33,8 @@
         <PackageReference Include="GitVersionTask" Version="5.1.3">
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
-        
+
+        <Reference Include="mscorlib" />
         <Reference Include="0Harmony" />
         <Reference Include="Assembly-CSharp" />
         <Reference Include="Assembly-CSharp-firstpass" />

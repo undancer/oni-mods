@@ -43,9 +43,12 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="Configuration\IConfiguration.cs" />
+    <Compile Include="ConfigUtils.cs" />
     <Compile Include="FinderUtils.cs" />
     <Compile Include="GameHashesExtensions.cs" />
     <Compile Include="KButtonExtensions.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="ModInfo.cs" />
     <Compile Include="ModUtils.cs" />
     <Compile Include="ObjectUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
