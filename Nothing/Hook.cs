@@ -1,6 +1,5 @@
 ﻿namespace Nothing
 {
-
     public class Hook
     {
         public static bool AlwaysTrue()

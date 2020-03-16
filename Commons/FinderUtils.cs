@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -17,7 +18,7 @@ namespace undancer.Commons
             {
                 Process.Start("open", arguments);
             }
-            catch (System.ComponentModel.Win32Exception e)
+            catch (Win32Exception e)
             {
                 e.HelpLink = "";
             }
@@ -32,7 +33,7 @@ namespace undancer.Commons
                 Process.Start("explorer.exe",
                     (openInsidesOfFolder ? "/root," : "/select,") + winPath);
             }
-            catch (System.ComponentModel.Win32Exception e)
+            catch (Win32Exception e)
             {
                 e.HelpLink = "";
             }
@@ -52,6 +53,5 @@ namespace undancer.Commons
                     break;
             }
         }
-        
     }
 }

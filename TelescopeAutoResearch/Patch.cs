@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Database;
 using Harmony;
+using STRINGS;
 
 namespace undancer.TelescopeAutoResearch
 {
@@ -24,7 +24,7 @@ namespace undancer.TelescopeAutoResearch
             string group = "SDT")
         {
             var color = type.GetNotificationColor();
-            var title = string.Format(STRINGS.UI.STARMAP.ANALYSIS_AMOUNT.text,
+            var title = string.Format(UI.STARMAP.ANALYSIS_AMOUNT.text,
                 $" <color=#{color}><b>{type.Name}</b></color>");
             var notification = new Notification(
                 title,

@@ -17,14 +17,11 @@ namespace undancer.Commons.Configuration
         {
             get
             {
-                if (_Instance == null)
-                {
-                    LoadConfig();
-                }
+                if (_Instance == null) LoadConfig();
 
                 return _Instance;
             }
-            set { _Instance = value; }
+            set => _Instance = value;
         }
 
         public static void LoadConfig()

@@ -3,10 +3,17 @@
 <Project DefaultTargets="Build" TreatAsLocalProperty="OutDir"
          xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     
-    <Import Project="Directory.Build.props.macos" Condition="1==1" />
-    
     <PropertyGroup>
         <Deterministic>true</Deterministic>
+        <NoStdLib>true</NoStdLib>
+    </PropertyGroup>
+    
+    <Import Project="Directory.Build.props.macos" Condition="$([MSBuild]::IsOsPlatform('OSX'))" />
+
+    <PropertyGroup>
+        <AssemblySearchPaths>
+            $(GameFolder);$(AssemblySearchPaths)
+        </AssemblySearchPaths>
     </PropertyGroup>
     
     <ItemDefinitionGroup>
@@ -15,14 +22,19 @@
         </Reference>
         <ProjectReference Private="false"/>
     </ItemDefinitionGroup>
+    
+    <PropertyGroup Condition="'$(ProjectName)' == 'Commons'">
+        <UseCommons>false</UseCommons>
+    </PropertyGroup>
 
     <ItemGroup>
         
         <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.18" />
-        <PackageReference Include="GitVersionTask" Version="5.1.3-beta1.89">
+        <PackageReference Include="GitVersionTask" Version="5.1.3">
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
-        
+
+        <Reference Include="mscorlib" />
         <Reference Include="0Harmony" />
         <Reference Include="Assembly-CSharp" />
         <Reference Include="Assembly-CSharp-firstpass" />
@@ -37,8 +49,8 @@
         <Reference Include="UnityEngine.UnityWebRequestModule" />
 
     </ItemGroup>
-    
-    <ItemGroup Condition="'$(ProjectName)' != 'Commons'">
+
+    <ItemGroup Condition=" '$(UseCommons)' != 'false' ">
         <ProjectReference Include="../Commons/Commons.csproj" Private="true"/>
     </ItemGroup>
     
