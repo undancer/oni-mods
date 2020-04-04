@@ -1,0 +1,37 @@
+Settings: # times是倍数，一般情况下是4个周期掉落。该MOD会将各植物的掉落周期乘以下面的倍数
+  - name: BasicSingleHarvestPlant #米虱木
+    times: 0.25
+  - name: PrickleFlower #毛刺花
+    times: 0.25
+  - name: MushroomPlant #蘑菇
+    times: 0.25
+  - name: ColdWheat #冰霜小麦
+    times: 0.25
+  - name: BeanPlant #小吃芽
+    times: 0.25
+  - name: SeaLettuce #海生菜
+    times: 0.25
+  - name: SaltPlant #沙盐藤
+    times: 0.25
+  - name: SpiceVine #火椒藤
+    times: 0.25
+  - name: ForestTree #乔木树 - 它不会掉落，如有需求请修改下面的乔木树枝
+    times: 1
+  - name: ForestTreeBranch # 乔木树枝
+    times: 0
+  - name: SwampLily #芳香百合 - 请考虑饲养毛鳞壁虎需要喂食的情况
+    times: 1
+  - name: BasicFabricPlant #顶针芦苇
+    times: 0
+    # - name: CactusPlant #雀跃掌
+    # times: 1
+    # - name: EvilFlower #孢子兰
+    # times: 1
+    # - name: BulbPlant #同伴芽
+    # times: 1
+    # - name: PrickleGrass #诱人荆棘
+    # times: 1
+    # - name: GasGrass #释气草
+    # times: 1
+    # - name: LeafyPlant #欢乐叶
+    # times: 1
