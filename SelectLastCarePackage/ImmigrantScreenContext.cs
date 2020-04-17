@@ -1,7 +1,10 @@
+using KSerialization;
+
 namespace undancer.SelectLastCarePackage
 {
-    public static class ImmigrantScreenContext
+    public class ImmigrantScreenContext : KMonoBehaviour
     {
-        public static CarePackageInfo LastSelectedCarePackageInfo { get; set; }
+        public bool Skip { get; set; }
+        [Serialize] public CarePackageInfo LastSelectedCarePackageInfo { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 
 <Project DefaultTargets="Build" TreatAsLocalProperty="OutDir"
          xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
+    
     <Target Name="ClearGameFolderCopyLocal" AfterTargets="ResolveAssemblyReferences">
         <ItemGroup>
             <ReferenceCopyLocalPaths Remove="$(GameFolder)\*"/>
@@ -40,12 +40,14 @@
             <WorldGenFiles Include="$(ProjectDir)\worldgen\**\*.*" />
             <YamlFiles Include="$(ProjectDir)\*.yaml" />
             -->
+            <YamlFiles Include="$(ProjectDir)\*.yaml" />
             <PoFiles Include="$(ProjectDir)\**\*.po"/>
         </ItemGroup>
         
         <!--
         <Copy SourceFiles="@(PoFiles)" DestinationFiles="@(PoFiles->'$(InstallFolder)\strings\%(RecursiveDir)%(Filename)%(Extension)')"/>
         -->
+        <Copy SourceFiles="@(YamlFiles)" DestinationFiles="@(YamlFiles->'$(InstallFolder)\%(Filename)%(Extension)')"/>
         <Copy SourceFiles="@(PoFiles)" DestinationFiles="@(PoFiles->'$(InstallFolder)\strings\%(Filename)%(Extension)')"/>
 
         <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(InstallFolder)\$(TargetFileName)"/>

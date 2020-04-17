@@ -6,7 +6,7 @@ using UnityEngine;
 namespace undancer.SelectLastCarePackage.patches
 {
     [HarmonyPatch(typeof(ImmigrantScreen), "OnRejectAll")]
-    public static class ImmigrantScreenOnRejectAllPatch
+    public static class ImmigrantScreenOnRejectAllPatch //按下拒绝全部按钮
     {
         private static float _lastTime;
 

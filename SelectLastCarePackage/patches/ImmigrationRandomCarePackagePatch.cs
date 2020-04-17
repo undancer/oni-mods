@@ -3,14 +3,16 @@ using Harmony;
 namespace undancer.SelectLastCarePackage.patches
 {
     [HarmonyPatch(typeof(Immigration), "RandomCarePackage")]
-    public static class ImmigrationRandomCarePackagePatch
+    public static class ImmigrationRandomCarePackagePatch // 随机补给包
     {
-        public static bool Prefix(Immigration __instance, ref CarePackageInfo __result)
+        public static bool Prefix(ref CarePackageInfo __result)
         {
-            var lastSelectedCarePackageInfo = ImmigrantScreenContext.LastSelectedCarePackageInfo;
+            var context = SaveGame.Instance.GetComponent<ImmigrantScreenContext>();
+            if (context.Skip) return true;
+            var lastSelectedCarePackageInfo = context.LastSelectedCarePackageInfo;
             if (lastSelectedCarePackageInfo == null) return true;
             __result = lastSelectedCarePackageInfo;
-            ImmigrantScreenContext.LastSelectedCarePackageInfo = null;
+            context.Skip = true;
             return false;
         }
     }

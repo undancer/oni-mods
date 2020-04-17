@@ -3,10 +3,17 @@
 <Project DefaultTargets="Build" TreatAsLocalProperty="OutDir"
          xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     
-    <Import Project="Directory.Build.props.macos" Condition="1==1" />
-    
     <PropertyGroup>
         <Deterministic>true</Deterministic>
+        <NoStdLib>true</NoStdLib>
+    </PropertyGroup>
+    
+    <Import Project="Directory.Build.props.macos" Condition="$([MSBuild]::IsOsPlatform('OSX'))" />
+
+    <PropertyGroup>
+        <AssemblySearchPaths>
+            $(GameFolder);$(AssemblySearchPaths)
+        </AssemblySearchPaths>
     </PropertyGroup>
     
     <ItemDefinitionGroup>
@@ -15,47 +22,35 @@
         </Reference>
         <ProjectReference Private="false"/>
     </ItemDefinitionGroup>
+    
+    <PropertyGroup Condition="'$(ProjectName)' == 'Commons'">
+        <UseCommons>false</UseCommons>
+    </PropertyGroup>
 
     <ItemGroup>
         
         <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.18" />
-        <PackageReference Include="GitVersionTask" Version="5.1.3-beta1.89">
+        <PackageReference Include="GitVersionTask" Version="5.1.3">
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
         
-        <Reference Include="0Harmony">
-            <HintPath>$(GameFolder)/0Harmony.dll</HintPath>
-        </Reference>
-        <Reference Include="Assembly-CSharp">
-            <HintPath>$(GameFolder)/Assembly-CSharp.dll</HintPath>
-        </Reference>
-        <Reference Include="Assembly-CSharp-firstpass">
-            <HintPath>$(GameFolder)/Assembly-CSharp-firstpass.dll</HintPath>
-        </Reference>
-        <Reference Include="Newtonsoft.Json">
-            <HintPath>$(GameFolder)/Newtonsoft.Json.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine">
-            <HintPath>$(GameFolder)/UnityEngine.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.CoreModule">
-            <HintPath>$(GameFolder)/UnityEngine.CoreModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.UI">
-            <HintPath>$(GameFolder)/UnityEngine.UI.dll</HintPath>
-        </Reference>
-        <Reference Include="Unity.TextMeshPro">
-            <HintPath>$(GameFolder)/Unity.TextMeshPro.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.TextRenderingModule">
-            <HintPath>$(GameFolder)/UnityEngine.TextRenderingModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.ImageConversionModule">
-            <HintPath>$(GameFolder)/UnityEngine.ImageConversionModule.dll</HintPath>
-        </Reference>
+        <Reference Include="mscorlib" />
+        <Reference Include="0Harmony" />
+        <Reference Include="Assembly-CSharp" />
+        <Reference Include="Assembly-CSharp-firstpass" />
+        <Reference Include="Newtonsoft.Json" />
+        <Reference Include="UnityEngine" />
+        <Reference Include="UnityEngine.CoreModule" />
+        <Reference Include="UnityEngine.UI" />
+        <Reference Include="Unity.TextMeshPro" />
+        <Reference Include="UnityEngine.TextRenderingModule" />
+        <Reference Include="UnityEngine.ImageConversionModule" />
+        <Reference Include="UnityEngine.Networking" />
+        <Reference Include="UnityEngine.UnityWebRequestModule" />
+
     </ItemGroup>
-    
-    <ItemGroup Condition="'$(ProjectName)' != 'Commons'">
+
+    <ItemGroup Condition=" '$(UseCommons)' != 'false' ">
         <ProjectReference Include="../Commons/Commons.csproj" Private="true"/>
     </ItemGroup>
     
