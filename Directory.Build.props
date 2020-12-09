@@ -45,7 +45,6 @@
         <Reference Include="Unity.TextMeshPro" />
         <Reference Include="UnityEngine.TextRenderingModule" />
         <Reference Include="UnityEngine.ImageConversionModule" />
-        <Reference Include="UnityEngine.Networking" />
         <Reference Include="UnityEngine.UnityWebRequestModule" />
 
     </ItemGroup>
