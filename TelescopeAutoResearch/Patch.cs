@@ -29,7 +29,7 @@ namespace undancer.TelescopeAutoResearch
             var notification = new Notification(
                 title,
                 notificationType,
-                group,
+             // group,
                 (list, o) => type.description);
             return notification;
         }

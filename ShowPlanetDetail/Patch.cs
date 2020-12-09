@@ -12,7 +12,8 @@ namespace undancer.ShowPlanetDetail
     {
         private static string GetPlanetName()
         {
-            var world = SettingsCache.worlds.GetWorldData(SaveLoader.Instance.GameInfo.worldID);
+            var id = "id";// SaveLoader.Instance.GameInfo.worldID;
+            var world = SettingsCache.worlds.GetWorldData(id);
             var name = Strings.Get(world.name);
             return string.Format(WORLDS.SURVIVAL_CHANCE.PLANETNAME, name);
         }
