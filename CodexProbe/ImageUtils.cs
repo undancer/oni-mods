@@ -49,12 +49,12 @@ namespace CodexProbe
             {
                 temp = temp.CropTexture((int) r.xMin, (int) r.yMin, (int) r.width, (int) r.height);
             }
-            catch (IndexOutOfRangeException e)
+            catch (IndexOutOfRangeException)
             {
                 Debug.Log(" 导出失败");
                 Debug.Log(r);
             }
-            catch (NullReferenceException e)
+            catch (NullReferenceException)
             {
                 Debug.Log(" 导出失败");
                 Debug.Log(r);

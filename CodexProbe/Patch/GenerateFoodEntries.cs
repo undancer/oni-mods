@@ -10,7 +10,7 @@ namespace CodexProbe.Patch
         public static void Postfix()
         {
             Debug.Log("GenerateFoodEntries");
-            foreach (var info in FOOD.FOOD_TYPES_LIST)
+            /*foreach (var info in FOOD.FOOD_TYPES)
             {
                 var name = info.Id;
                 var sprite = Def.GetUISprite(info.ConsumableId).first;
@@ -21,7 +21,7 @@ namespace CodexProbe.Patch
                     sprite = sprite,
                     color = Color.white
                 });
-            }
+            }*/
 
             var list = new[]
             {

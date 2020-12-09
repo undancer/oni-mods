@@ -1,4 +1,5 @@
 using Harmony;
+using UnityEngine;
 
 namespace CodexProbe.Patch
 {
@@ -13,7 +14,8 @@ namespace CodexProbe.Patch
                 if (resource.Disabled) continue;
                 var name = resource.Id;
                 var sprite = Assets.GetSprite("overlay_disease");
-                var color = resource.overlayColour;
+                var color = Color.clear;
+//                 color = resource.overlayColour;
                 ImageUtils.SaveImage(new Image
                 {
                     prefixes = new[] {"ASSETS/DISEASE", name.ToUpper()},
