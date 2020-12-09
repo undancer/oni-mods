@@ -1,8 +1,5 @@
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using CodexProbe.Entity;
-using Newtonsoft.Json;
 using UnityEngine;
 
 namespace CodexProbe.Jobs

@@ -1,5 +1,3 @@
-using System.IO;
-using Harmony;
 using UnityEngine;
 
 namespace CodexProbe.Patch

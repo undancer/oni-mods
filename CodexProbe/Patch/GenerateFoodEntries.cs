@@ -1,7 +1,3 @@
-using Harmony;
-using TUNING;
-using UnityEngine;
-
 namespace CodexProbe.Patch
 {
 //    [HarmonyPatch(typeof(CodexEntryGenerator), nameof(CodexEntryGenerator.GenerateFoodEntries))]

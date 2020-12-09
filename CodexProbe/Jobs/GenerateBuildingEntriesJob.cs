@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CodexProbe.Entity;
 using CodexProbe.Patch;
+using TUNING;
 using UnityEngine;
 
 namespace CodexProbe.Jobs
@@ -12,7 +13,7 @@ namespace CodexProbe.Jobs
         {
             var buildingsMap = new Dictionary<string, string>();
 
-            foreach (var info in TUNING.BUILDINGS.PLANORDER)
+            foreach (var info in BUILDINGS.PLANORDER)
             {
                 var category = HashCache.Get().Get(info.category);
                 var buildings = (List<string>) info.data;
