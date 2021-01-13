@@ -44,6 +44,7 @@
         <Compile Include="ImmigrantScreenContext.cs" />
     </ItemGroup>
     <ItemGroup>
+        <Content Include="mod_info.yaml" />
         <Content Include="strings\templates.pot" />
         <Content Include="strings\zh_CN.po" />
     </ItemGroup>
