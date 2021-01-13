@@ -47,6 +47,7 @@
   <ItemGroup>
     <Content Include="config-default.yaml" />
     <Content Include="config.yaml" />
+    <Content Include="mod_info.yaml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
