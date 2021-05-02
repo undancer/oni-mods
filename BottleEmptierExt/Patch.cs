@@ -40,27 +40,14 @@ namespace undancer.BottleEmptierExt
     {
         public static bool Prefix(BottleEmptier.StatesInstance __instance)
         {
-            if (!(__instance.master is IUserControlledCapacity)) return true;
-            var controller = __instance.GetComponent<KBatchedAnimController>();
+            if (!(__instance.master is IUserControlledCapacity)) return true; 
+            __instance.GetComponent<KBatchedAnimController>();
             var tags = __instance.GetComponent<TreeFilterable>().GetTags();
-            if (tags == null || tags.Length == 0)
-            {
-                controller.TintColour = __instance.master.noFilterTint;
-            }
-            else
-            {
-                controller.TintColour = __instance.master.filterTint;
-                var forbiddenTags = !__instance.master.allowManualPumpingStationFetching
-                    ? new[] {GameTags.LiquidSource}
-                    : new Tag[0];
-
-                var amount = ((BottleEmptier2) __instance.master).UserMaxCapacity / 1000f;
-
-                var chore = new FetchChore(Db.Get().ChoreTypes.StorageFetch, __instance.GetComponent<Storage>(), amount,
-                    __instance.GetComponent<TreeFilterable>().GetTags(), null, forbiddenTags);
-                Traverse.Create(__instance).Field("chore").SetValue(chore);
-            }
-
+            var forbidden_tags = !__instance.master.allowManualPumpingStationFetching ? new Tag[1]{ GameTags.LiquidSource } : new Tag[0];
+            var amount = ((BottleEmptier2) __instance.master).UserMaxCapacity / 1000f;
+            var component = __instance.GetComponent<Storage>();
+            var chore = new FetchChore(Db.Get().ChoreTypes.StorageFetch, component, amount, tags, forbidden_tags: forbidden_tags);
+            Traverse.Create(__instance).Field("chore").SetValue(chore);
             return false;
         }
     }
