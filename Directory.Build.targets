@@ -40,6 +40,7 @@
             <UseArchivedVersions Condition="'$(UseArchivedVersions)' != 'true'">false</UseArchivedVersions>
             <SupportedContent Condition="'$(SupportedContent)' == ''">vanilla_id</SupportedContent>
             <LastWorkingBuild Condition="'$(LastWorkingBuild)' == ''">466654</LastWorkingBuild>
+            <APIVersion Condition="'$(APIVersion)' == ''">0</APIVersion>
         </PropertyGroup>
 
         <ItemGroup>
@@ -65,6 +66,7 @@
                  UseArchivedVersions="$(UseArchivedVersions)"
                  SupportedContent="$(SupportedContent)"
                  LastWorkingBuild="$(LastWorkingBuild)"
+                 APIVersion="$(APIVersion)"
         />
 
         <RemoveDir Directories="$(TempPublishFolder)"/>

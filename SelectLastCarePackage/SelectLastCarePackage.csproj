@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -26,30 +26,31 @@
     <PropertyGroup>
         <UseArchivedVersions>true</UseArchivedVersions>
         <SupportedContent>all</SupportedContent>
-        <LastWorkingBuild>466654</LastWorkingBuild>
+        <LastWorkingBuild>468097</LastWorkingBuild>
+        <APIVersion>2</APIVersion>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="System"/>
-        <Reference Include="System.Core"/>
-        <Reference Include="System.Data"/>
-        <Reference Include="System.Xml"/>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Languages.cs"/>
-        <Compile Include="ModLoader.cs"/>
-        <Compile Include="patches\SaveGameOnPrefabInitPatch.cs"/>
-        <Compile Include="patches\ImmigrantScreenOnProceedPatch.cs"/>
-        <Compile Include="patches\ImmigrationRandomCarePackagePatch.cs"/>
-        <Compile Include="patches\ImmigrantScreenOnRejectAllPatch.cs"/>
-        <Compile Include="patches\ImmigrantScreenOnSpawnPatch.cs"/>
-        <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="ImmigrantScreenContext.cs"/>
+        <Compile Include="Languages.cs" />
+        <Compile Include="ModLoader.cs" />
+        <Compile Include="patches\SaveGameOnPrefabInitPatch.cs" />
+        <Compile Include="patches\ImmigrantScreenOnProceedPatch.cs" />
+        <Compile Include="patches\ImmigrationRandomCarePackagePatch.cs" />
+        <Compile Include="patches\ImmigrantScreenOnRejectAllPatch.cs" />
+        <Compile Include="patches\ImmigrantScreenOnSpawnPatch.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="ImmigrantScreenContext.cs" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="strings\templates.pot"/>
-        <Content Include="strings\zh_CN.po"/>
+        <Content Include="strings\templates.pot" />
+        <Content Include="strings\zh_CN.po" />
     </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.
     <Target Name="BeforeBuild">
