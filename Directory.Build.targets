@@ -2,7 +2,7 @@
 
 <Project DefaultTargets="Build" TreatAsLocalProperty="OutDir"
          xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    
+
     <Target Name="ClearGameFolderCopyLocal" AfterTargets="ResolveAssemblyReferences">
         <ItemGroup>
             <ReferenceCopyLocalPaths Remove="$(GameFolder)\*"/>
@@ -34,23 +34,47 @@
             <InstallFolder>$(ModFolder)\$(ProjectName)</InstallFolder>
         </PropertyGroup>
 
+        <PropertyGroup>
+            <TempPublishFolder>$(ProjectDir)\publish</TempPublishFolder>
+            <UseArchivedVersions Condition="'$(UseArchivedVersions)' == ''">false</UseArchivedVersions>
+            <UseArchivedVersions Condition="'$(UseArchivedVersions)' != 'true'">false</UseArchivedVersions>
+            <SupportedContent Condition="'$(SupportedContent)' == ''">vanilla_id</SupportedContent>
+            <LastWorkingBuild Condition="'$(LastWorkingBuild)' == ''">466654</LastWorkingBuild>
+        </PropertyGroup>
+
         <ItemGroup>
             <!-- 
             <AnimFiles Include="$(ProjectDir)\anim\**\*.*" />
             <WorldGenFiles Include="$(ProjectDir)\worldgen\**\*.*" />
             <YamlFiles Include="$(ProjectDir)\*.yaml" />
             -->
-            <YamlFiles Include="$(ProjectDir)\*.yaml" />
+            <YamlFiles Include="$(ProjectDir)\*.yaml"/>
             <PoFiles Include="$(ProjectDir)\**\*.po"/>
         </ItemGroup>
-        
-        <!--
-        <Copy SourceFiles="@(PoFiles)" DestinationFiles="@(PoFiles->'$(InstallFolder)\strings\%(RecursiveDir)%(Filename)%(Extension)')"/>
-        -->
-        <Copy SourceFiles="@(YamlFiles)" DestinationFiles="@(YamlFiles->'$(InstallFolder)\%(Filename)%(Extension)')"/>
-        <Copy SourceFiles="@(PoFiles)" DestinationFiles="@(PoFiles->'$(InstallFolder)\strings\%(Filename)%(Extension)')"/>
 
-        <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(InstallFolder)\$(TargetFileName)"/>
+        <!--
+        <Copy SourceFiles="@(PoFiles)" DestinationFiles="@(PoFiles->'$(TempPublishFolder)\strings\%(RecursiveDir)%(Filename)%(Extension)')"/>
+        -->
+        <Copy SourceFiles="@(YamlFiles)" DestinationFiles="@(YamlFiles->'$(TempPublishFolder)\%(Filename)%(Extension)')"/>
+        <Copy SourceFiles="@(PoFiles)" DestinationFiles="@(PoFiles->'$(TempPublishFolder)\strings\%(Filename)%(Extension)')"/>
+
+        <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(TempPublishFolder)\$(TargetFileName)"/>
+
+        <ModInfo InputFilePath="$(TempPublishFolder)"
+                 OutputFilePath="$(InstallFolder)"
+                 UseArchivedVersions="$(UseArchivedVersions)"
+                 SupportedContent="$(SupportedContent)"
+                 LastWorkingBuild="$(LastWorkingBuild)"
+        />
+
+        <RemoveDir Directories="$(TempPublishFolder)"/>
+
+        <ItemGroup>
+            <DirtyFiles Include="$(InstallFolder)\**\.DS_Store"/>
+        </ItemGroup>
+
+        <Delete Files="@(DirtyFiles)"/>
+
     </Target>
-    
+
 </Project>
