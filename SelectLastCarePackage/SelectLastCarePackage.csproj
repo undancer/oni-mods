@@ -10,7 +10,7 @@
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>undancer.SelectLastCarePackage</RootNamespace>
         <AssemblyName>SelectLastCarePackage</AssemblyName>
-        <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+        <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -26,7 +26,7 @@
     <PropertyGroup>
         <UseArchivedVersions>true</UseArchivedVersions>
         <SupportedContent>all</SupportedContent>
-        <LastWorkingBuild>468097</LastWorkingBuild>
+        <MinimumSupportedBuild>468782</MinimumSupportedBuild>
         <APIVersion>2</APIVersion>
     </PropertyGroup>
     <ItemGroup>
@@ -36,6 +36,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="SignMod.cs" />
         <Compile Include="Languages.cs" />
         <Compile Include="ModLoader.cs" />
         <Compile Include="patches\SaveGameOnPrefabInitPatch.cs" />

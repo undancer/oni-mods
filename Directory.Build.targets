@@ -39,7 +39,7 @@
             <UseArchivedVersions Condition="'$(UseArchivedVersions)' == ''">false</UseArchivedVersions>
             <UseArchivedVersions Condition="'$(UseArchivedVersions)' != 'true'">false</UseArchivedVersions>
             <SupportedContent Condition="'$(SupportedContent)' == ''">vanilla_id</SupportedContent>
-            <LastWorkingBuild Condition="'$(LastWorkingBuild)' == ''">466654</LastWorkingBuild>
+            <MinimumSupportedBuild Condition="'$(MinimumSupportedBuild)' == ''">466654</MinimumSupportedBuild>
             <APIVersion Condition="'$(APIVersion)' == ''">0</APIVersion>
         </PropertyGroup>
 
@@ -65,7 +65,7 @@
                  OutputFilePath="$(InstallFolder)"
                  UseArchivedVersions="$(UseArchivedVersions)"
                  SupportedContent="$(SupportedContent)"
-                 LastWorkingBuild="$(LastWorkingBuild)"
+                 MinimumSupportedBuild="$(MinimumSupportedBuild)"
                  APIVersion="$(APIVersion)"
         />
 
