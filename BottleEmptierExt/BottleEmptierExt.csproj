@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
             Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -11,10 +10,11 @@
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>undancer.BottleEmptierExt</RootNamespace>
         <AssemblyName>BottleEmptierExt</AssemblyName>
-        <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
         <Optimize>false</Optimize>
@@ -24,6 +24,8 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
         <Optimize>true</Optimize>
         <OutputPath>bin\Release\</OutputPath>
         <DefineConstants>TRACE</DefineConstants>
@@ -32,8 +34,10 @@
     </PropertyGroup>
     <PropertyGroup>
         <UseArchivedVersions>true</UseArchivedVersions>
-        <SupportedContent>all</SupportedContent>
-        <LastWorkingBuild>466654</LastWorkingBuild>
+        <SupportedContent>vanilla_id,expansion1_id</SupportedContent>
+        <MinimumSupportedBuild>469287</MinimumSupportedBuild>
+        <APIVersion>2</APIVersion>
+        <Version>0.3.0</Version>
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="System" />
@@ -43,8 +47,14 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BottleEmptier2.cs" />
-        <Compile Include="Patch.cs" />
+        <Compile Include="ModLoader.cs" />
+        <Compile Include="patches\BottleEmptier2OnCopySettings.cs" />
+        <Compile Include="patches\BottleEmptierConfigConfigureBuildingTemplate.cs" />
+        <Compile Include="patches\BottleEmptierStatesInstanceCreateChore.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="mod.yaml" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -54,4 +64,5 @@
     <Target Name="AfterBuild">
     </Target>
     -->
+
 </Project>
