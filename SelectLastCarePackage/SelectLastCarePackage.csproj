@@ -36,7 +36,7 @@
         <SupportedContent>vanilla_id,expansion1_id</SupportedContent>
         <MinimumSupportedBuild>469287</MinimumSupportedBuild>
         <APIVersion>2</APIVersion>
-        <Version>0.1.2</Version>
+        <Version>0.3.0</Version>
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="System" />
