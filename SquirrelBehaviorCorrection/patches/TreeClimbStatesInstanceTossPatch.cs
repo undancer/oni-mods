@@ -1,13 +1,13 @@
-using Harmony;
+using HarmonyLib;
 
-namespace undancer.SquirrelBehaviorCorrection
+namespace undancer.SquirrelBehaviorCorrection.patches
 {
     [HarmonyPatch(typeof(TreeClimbStates.Instance), nameof(TreeClimbStates.Instance.Toss))]
     public static class TreeClimbStatesInstanceTossPatch
     {
         public static bool Prefix(Pickupable pu)
         {
-            return pu.KPrefabID.HasTag(TagManager.Create("Seed"));
+            return pu.KPrefabID.HasTag(GameTags.Seed);
         }
     }
 }
