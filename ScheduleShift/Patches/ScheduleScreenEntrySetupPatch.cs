@@ -1,22 +1,9 @@
-﻿using System.Linq;
-using HarmonyLib;
+﻿using HarmonyLib;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace undancer.ScheduleShift
+namespace undancer.ScheduleShift.Patches
 {
-    [HarmonyPatch(typeof(ScheduleScreen), "OnAddScheduleClick")]
-    public static class ScheduleScreenOnAddScheduleClickPatch
-    {
-        public static bool Prefix()
-        {
-            var schedule = ScheduleManager.Instance.GetSchedules().LastOrDefault();
-            ScheduleManager.Instance.AddSchedule(
-                schedule != null ? schedule.GetGroups() : Db.Get().ScheduleGroups.allGroups);
-            return false;
-        }
-    }
-
     [HarmonyPatch(typeof(ScheduleScreenEntry), nameof(ScheduleScreenEntry.Setup))]
     public static class ScheduleScreenEntrySetupPatch
     {

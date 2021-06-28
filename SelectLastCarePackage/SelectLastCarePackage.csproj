@@ -34,7 +34,7 @@
     <PropertyGroup>
         <UseArchivedVersions>true</UseArchivedVersions>
         <SupportedContent>vanilla_id,expansion1_id</SupportedContent>
-        <MinimumSupportedBuild>469287</MinimumSupportedBuild>
+        <MinimumSupportedBuild>469369</MinimumSupportedBuild>
         <APIVersion>2</APIVersion>
         <Version>0.3.0</Version>
     </PropertyGroup>
