@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <SteamFolder>$(HOME)/Library/Application Support/Steam</SteamFolder>
+        <GameFolder>$(SteamFolder)/steamapps/common/OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Data/Managed</GameFolder>
+        <ModFolder>$(HOME)/Library/Application Support/unity.Klei.Oxygen Not Included/mods/Dev/</ModFolder>
+    </PropertyGroup>
+</Project>

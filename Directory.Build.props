@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<Project DefaultTargets="Build" TreatAsLocalProperty="OutDir"
-         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <PropertyGroup>
         <Deterministic>true</Deterministic>
         <NoStdLib>true</NoStdLib>
     </PropertyGroup>
 
-    <Import Project="Directory.Build.props.macos" Condition="$([MSBuild]::IsOsPlatform('OSX'))" />
+    <Import Project="Directory.Build.macos.props" Condition="$([MSBuild]::IsOsPlatform('OSX'))" />
+    <Import Project="Directory.Build.windows.props" Condition="$([MSBuild]::IsOsPlatform('Windows'))" />
 
     <PropertyGroup>
         <AssemblySearchPaths>
