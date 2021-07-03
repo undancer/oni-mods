@@ -29,7 +29,7 @@ namespace CodexProbe.Jobs
             }
 
             return buildingsMap
-                .Select(keyValuePair => 
+                .Select(keyValuePair =>
                     new Tuple<string, string>(keyValuePair.Key, keyValuePair.Value)
                 )
                 .ToList();
@@ -47,15 +47,15 @@ namespace CodexProbe.Jobs
                 var name = def.PrefabID;
                 var sprite = def.GetUISprite();
                 if (sprite == null) continue;
-                buildings.Add(new BuildingEntity(def,category));
+                buildings.Add(new BuildingEntity(def, category));
                 SaveImage(
                     new[] {"ASSETS/BUILDINGS", category.ToUpper(), name.ToUpper()},
                     sprite,
                     Color.white
                 );
             }
-            
-            WriteJson(new []{"json","buildings"}, buildings);
+
+            WriteJson(new[] {"json", "buildings"}, buildings);
         }
     }
 }

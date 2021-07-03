@@ -5,14 +5,14 @@ namespace CodexProbe.Entity
     public class BuildingEntity
     {
         public string Id { get; set; }
-        
+
         public string Category { get; set; }
 
         public string Tag { get; set; }
 
         public string[] Tags { get; set; }
-        
-        
+
+
         public int WidthInCells { get; set; }
         public int HeightInCells { get; set; }
 
@@ -25,7 +25,7 @@ namespace CodexProbe.Entity
         public bool Breakable { get; set; }
         public bool Upgradeable { get; set; }
 
-        public BuildingEntity(BuildingDef def ,string category)
+        public BuildingEntity(BuildingDef def, string category)
         {
             Id = def.PrefabID;
             Category = category;
@@ -37,7 +37,7 @@ namespace CodexProbe.Entity
 
             WidthInCells = def.WidthInCells;
             HeightInCells = def.HeightInCells;
-            
+
             Floodable = def.Floodable;
             Disinfectable = def.Disinfectable;
             Entombable = def.Entombable;
@@ -46,7 +46,6 @@ namespace CodexProbe.Entity
             Overheatable = def.Overheatable;
             Breakable = def.Breakable;
             Upgradeable = def.Upgradeable;
-            
         }
     }
 }
