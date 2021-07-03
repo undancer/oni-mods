@@ -1,6 +1,6 @@
-using Harmony;
+using HarmonyLib;
 
-namespace undancer.SelectLastCarePackage.patches
+namespace undancer.SelectLastCarePackage.Patches
 {
     [HarmonyPatch(typeof(Immigration), "RandomCarePackage")]
     public static class ImmigrationRandomCarePackagePatch // 随机补给包

@@ -1,38 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-<Project DefaultTargets="Build" TreatAsLocalProperty="OutDir"
-         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    
     <PropertyGroup>
         <Deterministic>true</Deterministic>
         <NoStdLib>true</NoStdLib>
     </PropertyGroup>
-    
-    <Import Project="Directory.Build.props.macos" Condition="$([MSBuild]::IsOsPlatform('OSX'))" />
+
+    <Import Project="Directory.Build.macos.props" Condition="$([MSBuild]::IsOsPlatform('OSX'))" />
+    <Import Project="Directory.Build.windows.props" Condition="$([MSBuild]::IsOsPlatform('Windows'))" />
 
     <PropertyGroup>
         <AssemblySearchPaths>
             $(GameFolder);$(AssemblySearchPaths)
         </AssemblySearchPaths>
     </PropertyGroup>
-    
+
     <ItemDefinitionGroup>
         <Reference>
             <Private>false</Private>
         </Reference>
-        <ProjectReference Private="false"/>
+        <ProjectReference Private="false" />
     </ItemDefinitionGroup>
-    
+
     <PropertyGroup Condition="'$(ProjectName)' == 'Commons'">
         <UseCommons>false</UseCommons>
     </PropertyGroup>
+    
+    <PropertyGroup>
+        <UseCommons Condition=" '$(UseCommons)' != 'true' ">false</UseCommons>
+    </PropertyGroup>
 
     <ItemGroup>
-        
-        <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.18" />
-        <PackageReference Include="GitVersionTask" Version="5.1.3">
-            <PrivateAssets>All</PrivateAssets>
+
+        <PackageReference Include="ONI-ModInfo-Task" Version="0.1.0-build20210625-2354" />
+        <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.18.2" />
+        <PackageReference Include="GitVersion.MsBuild" Version="5.6.10">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         </PackageReference>
+        <PackageReference Update="@(PackageReference)" PrivateAssets="All"/>
 
         <Reference Include="mscorlib" />
         <Reference Include="0Harmony" />
@@ -45,13 +51,11 @@
         <Reference Include="Unity.TextMeshPro" />
         <Reference Include="UnityEngine.TextRenderingModule" />
         <Reference Include="UnityEngine.ImageConversionModule" />
-        <Reference Include="UnityEngine.Networking" />
         <Reference Include="UnityEngine.UnityWebRequestModule" />
 
     </ItemGroup>
 
-    <ItemGroup Condition=" '$(UseCommons)' != 'false' ">
-        <ProjectReference Include="../Commons/Commons.csproj" Private="true"/>
+    <ItemGroup Condition=" '$(UseCommons)' == 'true' ">
+        <ProjectReference Include="../Commons/Commons.csproj" Private="true" />
     </ItemGroup>
-    
 </Project>

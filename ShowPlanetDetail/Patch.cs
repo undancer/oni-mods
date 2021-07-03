@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Harmony;
+using HarmonyLib;
 using ProcGen;
 using STRINGS;
 using UnityEngine;
@@ -12,7 +12,10 @@ namespace undancer.ShowPlanetDetail
     {
         private static string GetPlanetName()
         {
-            var world = SettingsCache.worlds.GetWorldData(SaveLoader.Instance.GameInfo.worldID);
+            var worldName = "";
+//            worldName = SaveLoader.Instance.GameInfo.worldID;
+            worldName = SaveLoader.Instance.GameInfo.clusterId;
+            var world = SettingsCache.worlds.GetWorldData(worldName);
             var name = Strings.Get(world.name);
             return string.Format(WORLDS.SURVIVAL_CHANCE.PLANETNAME, name);
         }

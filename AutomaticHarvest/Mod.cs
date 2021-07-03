@@ -1,14 +1,15 @@
+using HarmonyLib;
+using KMod;
 using undancer.Commons;
 
 namespace undancer.AutomaticHarvest
 {
-    public static class Mod
+    public class Mod : UserMod2
     {
-        public static Config.Config Config;
-
-        public static void OnLoad()
+        public override void OnLoad(Harmony harmony)
         {
-            Config = ConfigUtils.LoadConfig<Config.Config>();
+            base.OnLoad(harmony);
+            Context.Config = ConfigUtils.LoadConfig<Config.Config>();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Database;
-using Harmony;
+using HarmonyLib;
 using STRINGS;
 
 namespace undancer.TelescopeAutoResearch
@@ -29,7 +29,7 @@ namespace undancer.TelescopeAutoResearch
             var notification = new Notification(
                 title,
                 notificationType,
-                group,
+//                group,
                 (list, o) => type.description);
             return notification;
         }

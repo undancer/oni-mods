@@ -34,6 +34,6 @@ assignees: ''
 日志文件会生成在以下目录
 - Windows: `%USERPROFILE%\AppData\LocalLow\Klei\Oxygen Not Included\output_log.txt`
 - Linux: `$home/.config/unity3d/Klei/Oxygen Not Included/Player.log`
-- MacOS: `$home/Library/Logs/Unity/Player.log`
+- MacOS: `$home/Library/Logs/Klei/Oxygen Not Included/Player.log`
 
 <!-- 如果日志文件过大请将该文件以附件的形式发送至邮箱oni#undancer.com （请将#替换成@） -->

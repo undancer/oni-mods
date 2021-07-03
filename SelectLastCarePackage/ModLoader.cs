@@ -1,19 +1,22 @@
 using System.IO;
 using System.Reflection;
+using HarmonyLib;
+using KMod;
 
 namespace undancer.SelectLastCarePackage
 {
-    public static class ModLoader
+    public class ModLoader : UserMod2
     {
-        public static void OnLoad()
+        public override void OnLoad(Harmony harmony)
         {
+            base.OnLoad(harmony);
 #if DEBUG
             ModUtil.RegisterForTranslation(typeof(Languages));
 #else
             Localization.RegisterForTranslation(typeof(Languages));
 #endif
 
-            RemoveConfig();
+            // RemoveConfig();
         }
 
         private static void RemoveConfig()

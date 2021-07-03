@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomaticHarvest", "Automat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquirrelBehaviorCorrection", "SquirrelBehaviorCorrection\SquirrelBehaviorCorrection.csproj", "{E9142A92-31EE-4D1B-ACB7-8E46769344EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodexProbe", "CodexProbe\CodexProbe.csproj", "{8DD12BB6-3C09-46A4-9BE3-EE44CAEE2A33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{756E936F-12E0-4B20-848D-3F034B1F41FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,5 +107,13 @@ Global
 		{E9142A92-31EE-4D1B-ACB7-8E46769344EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9142A92-31EE-4D1B-ACB7-8E46769344EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9142A92-31EE-4D1B-ACB7-8E46769344EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD12BB6-3C09-46A4-9BE3-EE44CAEE2A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD12BB6-3C09-46A4-9BE3-EE44CAEE2A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD12BB6-3C09-46A4-9BE3-EE44CAEE2A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD12BB6-3C09-46A4-9BE3-EE44CAEE2A33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{756E936F-12E0-4B20-848D-3F034B1F41FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{756E936F-12E0-4B20-848D-3F034B1F41FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{756E936F-12E0-4B20-848D-3F034B1F41FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{756E936F-12E0-4B20-848D-3F034B1F41FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,4 @@
-using Harmony;
+using HarmonyLib;
 using undancer.Commons;
 
 namespace undancer.LogicCritterCountSensorExt

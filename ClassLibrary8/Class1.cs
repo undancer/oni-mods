@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using ClassLibrary8.lang;
-using Harmony;
+using HarmonyLib;
 using STRINGS;
 
 namespace ClassLibrary8
