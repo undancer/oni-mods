@@ -45,7 +45,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="patches\TreeClimbStatesInstanceTossPatch.cs" />
+        <Compile Include="Patches1\TreeClimbStatesInstanceTossPatch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
