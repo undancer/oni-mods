@@ -2,9 +2,9 @@ using HarmonyLib;
 using TUNING;
 using UnityEngine;
 
-namespace undancer.BottleEmptierExt
+namespace undancer.BottleEmptierExt.Patches
 {
-    [HarmonyPatch(typeof(BottleEmptierConfig), "ConfigureBuildingTemplate")]
+    [HarmonyPatch(typeof(BottleEmptierConfig), nameof(BottleEmptierConfig.ConfigureBuildingTemplate))]
     public static class BottleEmptierConfigConfigureBuildingTemplate
     {
         public static bool Prefix(GameObject go, Tag prefab_tag)

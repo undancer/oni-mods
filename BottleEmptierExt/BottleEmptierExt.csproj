@@ -47,9 +47,9 @@
     <ItemGroup>
         <Compile Include="BottleEmptier2.cs" />
         <Compile Include="ModLoader.cs" />
-        <Compile Include="Patches1\BottleEmptier2OnCopySettings.cs" />
-        <Compile Include="Patches1\BottleEmptierConfigConfigureBuildingTemplate.cs" />
-        <Compile Include="Patches1\BottleEmptierStatesInstanceCreateChore.cs" />
+        <Compile Include="Patches\BottleEmptier2OnCopySettings.cs" />
+        <Compile Include="Patches\BottleEmptierConfigConfigureBuildingTemplate.cs" />
+        <Compile Include="Patches\BottleEmptierStatesInstanceCreateChore.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>

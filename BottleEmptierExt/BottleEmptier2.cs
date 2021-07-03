@@ -6,7 +6,8 @@ namespace undancer.BottleEmptierExt
     [SerializationConfig(MemberSerialization.OptIn)]
     public class BottleEmptier2 : BottleEmptier, IUserControlledCapacity
     {
-        [Serialize] private float userMaxCapacity = float.PositiveInfinity;
+        [Serialize] 
+        private float userMaxCapacity = float.PositiveInfinity;
 
         public virtual float UserMaxCapacity
         {
