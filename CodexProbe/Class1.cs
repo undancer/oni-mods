@@ -50,7 +50,7 @@ namespace CodexProbe
                 Debug.Log("entry icon -> " + entry.iconPrefabID);
             }
 
-            prefixes = prefixes?.Add(entry.category).Add(entry.id).ToArray();
+            prefixes = prefixes?.AddToArray(entry.category).AddToArray(entry.id);
 
             var list = new List<Image>();
 //            entry.GetFirstWidget();
