@@ -4,7 +4,7 @@
 // MVID: B692DF77-975B-476A-9AF9-C249F16125AB
 // Assembly location: /Users/undancer/Library/Application Support/unity.Klei.Oxygen Not Included/mods/Steam/1803983415/RefinementPlus.dll
 
-using Harmony;
+using HarmonyLib;
 
 namespace RefinementPlus
 {

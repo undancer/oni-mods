@@ -1,4 +1,5 @@
-﻿using Harmony;
+﻿
+using HarmonyLib;
 
 namespace undancer.DebugModSubmitAchievement
 {
@@ -17,7 +18,7 @@ namespace undancer.DebugModSubmitAchievement
                 SteamAchievementService.Instance.Unlock(colonyAchievement.steamAchievementId);
             else
                 Debug.LogWarningFormat("Steam achievement [{0}] was achieved, but achievement service was null",
-                    (object) colonyAchievement.steamAchievementId);
+                    colonyAchievement.steamAchievementId);
 
             return false;
         }

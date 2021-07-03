@@ -1,9 +1,13 @@
+using HarmonyLib;
+using KMod;
+
 namespace undancer.LogicCritterCountSensorExt
 {
-    public static class ModLoader
+    public class ModLoader:UserMod2
     {
-        public static void OnLoad()
+        public override void OnLoad(Harmony harmony)
         {
+            base.OnLoad(harmony);
 #if DEBUG
             ModUtil.RegisterForTranslation(typeof(Languages));
 #else

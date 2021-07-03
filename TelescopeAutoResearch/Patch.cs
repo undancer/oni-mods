@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Database;
-using Harmony;
+using HarmonyLib;
 using STRINGS;
 
 namespace undancer.TelescopeAutoResearch
