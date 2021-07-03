@@ -1,6 +1,6 @@
 using HarmonyLib;
 
-namespace undancer.SquirrelBehaviorCorrection.patches
+namespace undancer.SquirrelBehaviorCorrection.Patches
 {
     [HarmonyPatch(typeof(TreeClimbStates.Instance), nameof(TreeClimbStates.Instance.Toss))]
     public static class TreeClimbStatesInstanceTossPatch
