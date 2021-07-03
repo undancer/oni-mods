@@ -3,7 +3,7 @@ using KMod;
 
 namespace undancer.LogicCritterCountSensorExt
 {
-    public class ModLoader:UserMod2
+    public class ModLoader : UserMod2
     {
         public override void OnLoad(Harmony harmony)
         {
