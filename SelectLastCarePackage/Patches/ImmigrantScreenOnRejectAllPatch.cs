@@ -3,7 +3,7 @@ using HarmonyLib;
 using undancer.Commons;
 using UnityEngine;
 
-namespace undancer.SelectLastCarePackage.patches
+namespace undancer.SelectLastCarePackage.Patches
 {
     [HarmonyPatch(typeof(ImmigrantScreen), "OnRejectAll")]
     public static class ImmigrantScreenOnRejectAllPatch //按下拒绝全部按钮

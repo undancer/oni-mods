@@ -2,7 +2,7 @@ using HarmonyLib;
 using STRINGS;
 using undancer.Commons;
 
-namespace undancer.SelectLastCarePackage.patches
+namespace undancer.SelectLastCarePackage.Patches
 {
     [HarmonyPatch(typeof(ImmigrantScreen), "OnSpawn")]
     public static class ImmigrantScreenOnSpawnPatch // 显示选人界面
