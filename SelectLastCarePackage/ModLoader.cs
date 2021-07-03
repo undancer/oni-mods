@@ -5,7 +5,7 @@ using KMod;
 
 namespace undancer.SelectLastCarePackage
 {
-    public class ModLoader:UserMod2
+    public class ModLoader : UserMod2
     {
         public override void OnLoad(Harmony harmony)
         {
@@ -16,7 +16,7 @@ namespace undancer.SelectLastCarePackage
             Localization.RegisterForTranslation(typeof(Languages));
 #endif
 
-           // RemoveConfig();
+            // RemoveConfig();
         }
 
         private static void RemoveConfig()

@@ -25,6 +25,10 @@
     <PropertyGroup Condition="'$(ProjectName)' == 'Commons'">
         <UseCommons>false</UseCommons>
     </PropertyGroup>
+    
+    <PropertyGroup>
+        <UseCommons Condition=" '$(UseCommons)' != 'true' ">false</UseCommons>
+    </PropertyGroup>
 
     <ItemGroup>
 
@@ -50,9 +54,7 @@
 
     </ItemGroup>
 
-    <!-- 
-    <ItemGroup Condition=" '$(UseCommons)' != 'false' ">
+    <ItemGroup Condition=" '$(UseCommons)' == 'true' ">
         <ProjectReference Include="../Commons/Commons.csproj" Private="true" />
     </ItemGroup>
-    -->
 </Project>

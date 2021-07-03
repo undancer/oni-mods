@@ -32,6 +32,9 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <PropertyGroup>
+        <UseCommons>true</UseCommons>
+    </PropertyGroup>
+    <PropertyGroup>
         <UseArchivedVersions>true</UseArchivedVersions>
         <SupportedContent>vanilla_id,expansion1_id</SupportedContent>
         <MinimumSupportedBuild>469369</MinimumSupportedBuild>
@@ -45,9 +48,6 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="commons\KButtonExtensions.cs" />
-        <Compile Include="commons\ModUtils.cs" />
-        <Compile Include="commons\ObjectUtils.cs" />
         <Compile Include="Languages.cs" />
         <Compile Include="ModLoader.cs" />
         <Compile Include="patches\SaveGameOnPrefabInitPatch.cs" />
