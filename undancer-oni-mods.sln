@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquirrelBehaviorCorrection"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewClassLibrary1", "NewClassLibrary1\NewClassLibrary1.csproj", "{B283ED2D-0BF1-416F-A620-CBD2090CD330}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodexProbe", "CodexProbe\CodexProbe.csproj", "{8DD12BB6-3C09-46A4-9BE3-EE44CAEE2A33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,5 +111,9 @@ Global
 		{B283ED2D-0BF1-416F-A620-CBD2090CD330}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B283ED2D-0BF1-416F-A620-CBD2090CD330}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B283ED2D-0BF1-416F-A620-CBD2090CD330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD12BB6-3C09-46A4-9BE3-EE44CAEE2A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD12BB6-3C09-46A4-9BE3-EE44CAEE2A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD12BB6-3C09-46A4-9BE3-EE44CAEE2A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD12BB6-3C09-46A4-9BE3-EE44CAEE2A33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
