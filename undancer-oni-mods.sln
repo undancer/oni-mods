@@ -1,41 +1,41 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelectLastCarePackage", "SelectLastCarePackage\SelectLastCarePackage.csproj", "{8AA5E9D7-4A99-4127-B82A-E0139F6CDD84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelectLastCarePackage", "src\SelectLastCarePackage\SelectLastCarePackage.csproj", "{8AA5E9D7-4A99-4127-B82A-E0139F6CDD84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugModSubmitAchievement", "DebugModSubmitAchievement\DebugModSubmitAchievement.csproj", "{2E71A578-6A0C-4089-B82C-A330039A6BA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugModSubmitAchievement", "src\DebugModSubmitAchievement\DebugModSubmitAchievement.csproj", "{2E71A578-6A0C-4089-B82C-A330039A6BA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowPlanetDetail", "ShowPlanetDetail\ShowPlanetDetail.csproj", "{8A693030-8AC8-42E9-8BB8-875BEE9C2F54}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowPlanetDetail", "src\ShowPlanetDetail\ShowPlanetDetail.csproj", "{8A693030-8AC8-42E9-8BB8-875BEE9C2F54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BottleEmptierExt", "BottleEmptierExt\BottleEmptierExt.csproj", "{76AC6A87-369D-40FA-B3DA-A0A6D664435F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BottleEmptierExt", "src\BottleEmptierExt\BottleEmptierExt.csproj", "{76AC6A87-369D-40FA-B3DA-A0A6D664435F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelescopeAutoResearch", "TelescopeAutoResearch\TelescopeAutoResearch.csproj", "{50E0A0E0-E0A6-4E35-91A2-676AEDC74219}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelescopeAutoResearch", "src\TelescopeAutoResearch\TelescopeAutoResearch.csproj", "{50E0A0E0-E0A6-4E35-91A2-676AEDC74219}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomOverjoyed", "RandomOverjoyed\RandomOverjoyed.csproj", "{F9095A87-1899-4AF0-9FFE-754E0A6C0385}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomOverjoyed", "src\RandomOverjoyed\RandomOverjoyed.csproj", "{F9095A87-1899-4AF0-9FFE-754E0A6C0385}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleShift", "ScheduleShift\ScheduleShift.csproj", "{52BC3037-9598-4F85-BBFA-93185EFA1E28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleShift", "src\ScheduleShift\ScheduleShift.csproj", "{52BC3037-9598-4F85-BBFA-93185EFA1E28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicCritterCountSensorExt", "LogicCritterCountSensorExt\LogicCritterCountSensorExt.csproj", "{75CDF39B-A2AC-41B0-A94B-226113961988}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicCritterCountSensorExt", "src\LogicCritterCountSensorExt\LogicCritterCountSensorExt.csproj", "{75CDF39B-A2AC-41B0-A94B-226113961988}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary8", "ClassLibrary8\ClassLibrary8.csproj", "{7CFDDFF6-5D53-469D-B30A-CF639A5D5CA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary8", "src\ClassLibrary8\ClassLibrary8.csproj", "{7CFDDFF6-5D53-469D-B30A-CF639A5D5CA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "Commons\Commons.csproj", "{5D45BE6C-B00B-497D-955B-67998974B712}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "src\Commons\Commons.csproj", "{5D45BE6C-B00B-497D-955B-67998974B712}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary5", "ClassLibrary5\ClassLibrary5.csproj", "{8C0D6FC9-9A03-456D-A2F9-20B726DA3757}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary5", "src\ClassLibrary5\ClassLibrary5.csproj", "{8C0D6FC9-9A03-456D-A2F9-20B726DA3757}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nothing", "Nothing\Nothing.csproj", "{BDAEE62E-8522-46A4-A33C-CEBFE9947AC6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nothing", "src\Nothing\Nothing.csproj", "{BDAEE62E-8522-46A4-A33C-CEBFE9947AC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericFabricator", "GenericFabricator\GenericFabricator.csproj", "{5B8C5B7E-E57D-42BA-AA5E-65468D724576}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericFabricator", "src\GenericFabricator\GenericFabricator.csproj", "{5B8C5B7E-E57D-42BA-AA5E-65468D724576}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefinementPlus", "RefinementPlus\RefinementPlus.csproj", "{1A21124C-1FB1-4257-B4B5-CF35146605E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefinementPlus", "src\RefinementPlus\RefinementPlus.csproj", "{1A21124C-1FB1-4257-B4B5-CF35146605E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomaticHarvest", "AutomaticHarvest\AutomaticHarvest.csproj", "{43B28AD3-2C82-4B12-BB48-A859EC5783D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomaticHarvest", "src\AutomaticHarvest\AutomaticHarvest.csproj", "{43B28AD3-2C82-4B12-BB48-A859EC5783D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquirrelBehaviorCorrection", "SquirrelBehaviorCorrection\SquirrelBehaviorCorrection.csproj", "{E9142A92-31EE-4D1B-ACB7-8E46769344EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquirrelBehaviorCorrection", "src\SquirrelBehaviorCorrection\SquirrelBehaviorCorrection.csproj", "{E9142A92-31EE-4D1B-ACB7-8E46769344EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodexProbe", "CodexProbe\CodexProbe.csproj", "{8DD12BB6-3C09-46A4-9BE3-EE44CAEE2A33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodexProbe", "src\CodexProbe\CodexProbe.csproj", "{8DD12BB6-3C09-46A4-9BE3-EE44CAEE2A33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{756E936F-12E0-4B20-848D-3F034B1F41FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "src\ClassLibrary1\ClassLibrary1.csproj", "{756E936F-12E0-4B20-848D-3F034B1F41FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
