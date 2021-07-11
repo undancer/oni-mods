@@ -6,8 +6,8 @@
         <NoStdLib>true</NoStdLib>
     </PropertyGroup>
 
-    <Import Project="Directory.Build.macos.props" Condition="$([MSBuild]::IsOsPlatform('OSX'))" />
-    <Import Project="Directory.Build.windows.props" Condition="$([MSBuild]::IsOsPlatform('Windows'))" />
+    <Import Project="Directory.Build.macos.props" Condition="$([MSBuild]::IsOsPlatform('OSX'))"/>
+    <Import Project="Directory.Build.windows.props" Condition="$([MSBuild]::IsOsPlatform('Windows'))"/>
 
     <PropertyGroup>
         <AssemblySearchPaths>
@@ -19,43 +19,43 @@
         <Reference>
             <Private>false</Private>
         </Reference>
-        <ProjectReference Private="false" />
+        <ProjectReference Private="false"/>
     </ItemDefinitionGroup>
 
     <PropertyGroup Condition="'$(ProjectName)' == 'Commons'">
         <UseCommons>false</UseCommons>
     </PropertyGroup>
-    
+
     <PropertyGroup>
         <UseCommons Condition=" '$(UseCommons)' != 'true' ">false</UseCommons>
     </PropertyGroup>
 
     <ItemGroup>
 
-        <PackageReference Include="ONI-ModInfo-Task" Version="0.1.0-build20210625-2354" />
-        <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.18.2" />
+        <PackageReference Include="ONI-ModInfo-Task" Version="0.1.0-build20210625-2354"/>
+        <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.18.2"/>
         <PackageReference Include="GitVersion.MsBuild" Version="5.6.10">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         </PackageReference>
         <PackageReference Update="@(PackageReference)" PrivateAssets="All"/>
 
-        <Reference Include="mscorlib" />
-        <Reference Include="0Harmony" />
-        <Reference Include="Assembly-CSharp" />
-        <Reference Include="Assembly-CSharp-firstpass" />
-        <Reference Include="Newtonsoft.Json" />
-        <Reference Include="UnityEngine" />
-        <Reference Include="UnityEngine.CoreModule" />
-        <Reference Include="UnityEngine.UI" />
-        <Reference Include="Unity.TextMeshPro" />
-        <Reference Include="UnityEngine.TextRenderingModule" />
-        <Reference Include="UnityEngine.ImageConversionModule" />
-        <Reference Include="UnityEngine.UnityWebRequestModule" />
+        <Reference Include="mscorlib"/>
+        <Reference Include="0Harmony"/>
+        <Reference Include="Assembly-CSharp"/>
+        <Reference Include="Assembly-CSharp-firstpass"/>
+        <Reference Include="Newtonsoft.Json"/>
+        <Reference Include="UnityEngine"/>
+        <Reference Include="UnityEngine.CoreModule"/>
+        <Reference Include="UnityEngine.UI"/>
+        <Reference Include="Unity.TextMeshPro"/>
+        <Reference Include="UnityEngine.TextRenderingModule"/>
+        <Reference Include="UnityEngine.ImageConversionModule"/>
+        <Reference Include="UnityEngine.UnityWebRequestModule"/>
 
     </ItemGroup>
 
     <ItemGroup Condition=" '$(UseCommons)' == 'true' ">
-        <ProjectReference Include="../Commons/Commons.csproj" Private="true" />
+        <ProjectReference Include="../Commons/Commons.csproj" Private="true"/>
     </ItemGroup>
 </Project>

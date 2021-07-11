@@ -4,24 +4,24 @@
 
     <Target Name="ClearGameFolderCopyLocal" AfterTargets="ResolveAssemblyReferences">
         <ItemGroup>
-            <ReferenceCopyLocalPaths Remove="$(GameFolder)\*" />
+            <ReferenceCopyLocalPaths Remove="$(GameFolder)\*"/>
         </ItemGroup>
     </Target>
 
     <Target Name="ILRepack" AfterTargets="Build" Condition=" '$(UseCommons)' == 'true' ">
 
         <ItemGroup>
-            <InputAssemblies Include="$(OutputPath)\Commons.dll" />
+            <InputAssemblies Include="$(OutputPath)\Commons.dll"/>
         </ItemGroup>
-        
+
         <ILRepack
-            Parallel="true"
-            Internalize="true"
-            InputAssemblies="@(InputAssemblies)"
-            LibraryPath="@(GameFolder)"
-            TargetKind="SameAsPrimaryAssembly"
-            TargetPlatformVersion="v4"
-            OutputFile="$(OutputPath)\$(AssemblyName).dll" />
+                Parallel="true"
+                Internalize="true"
+                InputAssemblies="@(InputAssemblies)"
+                LibraryPath="@(GameFolder)"
+                TargetKind="SameAsPrimaryAssembly"
+                TargetPlatformVersion="v4"
+                OutputFile="$(OutputPath)\$(AssemblyName).dll"/>
 
     </Target>
 
@@ -48,19 +48,19 @@
             <WorldGenFiles Include="$(ProjectDir)\worldgen\**\*.*" />
             <YamlFiles Include="$(ProjectDir)\*.yaml" />
             -->
-            <YamlFiles Include="$(ProjectDir)\*.yaml" />
-            <PoFiles Include="$(ProjectDir)\**\*.po" />
+            <YamlFiles Include="$(ProjectDir)\*.yaml"/>
+            <PoFiles Include="$(ProjectDir)\**\*.po"/>
         </ItemGroup>
 
         <!--
         <Copy SourceFiles="@(PoFiles)" DestinationFiles="@(PoFiles->'$(TempPublishFolder)\strings\%(RecursiveDir)%(Filename)%(Extension)')"/>
         -->
         <Copy SourceFiles="@(YamlFiles)"
-              DestinationFiles="@(YamlFiles->'$(TempPublishFolder)\%(Filename)%(Extension)')" />
+              DestinationFiles="@(YamlFiles->'$(TempPublishFolder)\%(Filename)%(Extension)')"/>
         <Copy SourceFiles="@(PoFiles)"
-              DestinationFiles="@(PoFiles->'$(TempPublishFolder)\strings\%(Filename)%(Extension)')" />
+              DestinationFiles="@(PoFiles->'$(TempPublishFolder)\strings\%(Filename)%(Extension)')"/>
 
-        <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(TempPublishFolder)\$(TargetFileName)" />
+        <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(TempPublishFolder)\$(TargetFileName)"/>
 
         <ModInfo InputFilePath="$(TempPublishFolder)"
                  OutputFilePath="$(InstallFolder)"
@@ -68,15 +68,15 @@
                  SupportedContent="$(SupportedContent)"
                  MinimumSupportedBuild="$(MinimumSupportedBuild)"
                  APIVersion="$(APIVersion)"
-                 Version="v$(Version)" />
+                 Version="v$(Version)"/>
 
-        <RemoveDir Directories="$(TempPublishFolder)" />
+        <RemoveDir Directories="$(TempPublishFolder)"/>
 
         <ItemGroup>
-            <DirtyFiles Include="$(InstallFolder)\**\.DS_Store" />
+            <DirtyFiles Include="$(InstallFolder)\**\.DS_Store"/>
         </ItemGroup>
 
-        <Delete Files="@(DirtyFiles)" />
+        <Delete Files="@(DirtyFiles)"/>
 
     </Target>
 
