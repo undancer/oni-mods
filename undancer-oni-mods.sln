@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodexProbe", "src\CodexProb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "src\ClassLibrary1\ClassLibrary1.csproj", "{756E936F-12E0-4B20-848D-3F034B1F41FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "w2o", "src\w2o\w2o.csproj", "{A3143F86-6268-4026-B38F-3FFD2CBDFED2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,5 +117,9 @@ Global
 		{756E936F-12E0-4B20-848D-3F034B1F41FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{756E936F-12E0-4B20-848D-3F034B1F41FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{756E936F-12E0-4B20-848D-3F034B1F41FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3143F86-6268-4026-B38F-3FFD2CBDFED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3143F86-6268-4026-B38F-3FFD2CBDFED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3143F86-6268-4026-B38F-3FFD2CBDFED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3143F86-6268-4026-B38F-3FFD2CBDFED2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
